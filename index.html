@@ -1,0 +1,2990 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR7 AUDIO ARENA #7 | Kho Nhạc Yêu Thích &amp; Độ Âm Thanh GOAT</title>
+
+    <!-- Open Graph Meta Tags cho hiển thị siêu đẹp khi gắn link lên Facebook cá nhân -->
+    <meta name="description" content="Thưởng thức danh sách nhạc yêu thích tuyển chọn với bộ xử lý âm thanh 6-Band EQ, SIUUU Bass Boost, Vang Sân Vận Động 3D và tải nhạc WAV chất lượng cao.">
+    <meta property="og:title" content="CR7 AUDIO ARENA #7 — Kho Nhạc Tuyển Chọn Của Tôi">
+    <meta property="og:description" content="Bấm vào để nghe danh sách nhạc yêu thích của tôi, tùy chỉnh chế độ âm thanh SIUUU Bass / Slowed Reverb và tải về máy!">
+    <meta property="og:type" content="music.playlist">
+    <meta name="theme-color" content="#8b5cf6">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts: Orbitron (CR7 Sport Display), Rajdhani (Tech Counters), Inter (UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Orbitron:wght@600;700;800;900&amp;family=Rajdhani:wght@600;700&amp;display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                        tech: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        cr7: {
+                            bg: '#08060c',
+                            card: '#120d1d',
+                            purple: '#8b5cf6',
+                            violet: '#a855f7',
+                            deep: '#2e1065',
+                            gold: '#fbbf24',
+                            neon: '#d946ef'
+                        }
+                    },
+                    boxShadow: {
+                        'neon-purple': '0 0 25px rgba(139, 92, 246, 0.35), inset 0 0 15px rgba(139, 92, 246, 0.15)',
+                        'neon-gold': '0 0 25px rgba(251, 191, 36, 0.4), inset 0 0 12px rgba(251, 191, 36, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-obsidian: #08060c;
+            --purple-primary: #8b5cf6;
+            --purple-glow: #a855f7;
+            --gold-cr7: #fbbf24;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            background-image:
+                radial-gradient(circle at 12% 15%, rgba(139, 92, 246, 0.20) 0%, transparent 40%),
+                radial-gradient(circle at 88% 12%, rgba(217, 70, 239, 0.14) 0%, transparent 35%),
+                radial-gradient(circle at 50% 85%, rgba(88, 28, 135, 0.25) 0%, transparent 50%),
+                linear-gradient(180deg, #060409 0%, #0d0818 50%, #07050b 100%);
+            color: #f3e8ff;
+            overflow-x: hidden;
+        }
+
+        /* CR7 Geometric Pitch Grid Overlay */
+        .cr7-grid-bg {
+            background-size: 38px 38px;
+            background-image:
+                linear-gradient(to right, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism Panels */
+        .glass-panel {
+            background: rgba(18, 13, 29, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(168, 85, 247, 0.24);
+        }
+
+        .glass-panel-gold {
+            background: linear-gradient(145deg, rgba(26, 16, 46, 0.88), rgba(14, 10, 24, 0.92));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(251, 191, 36, 0.38);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09060e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #7c3aed, #c026d3);
+            border-radius: 9999px;
+        }
+
+        /* Custom Range Sliders */
+        input[type="range"].cr7-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(88, 28, 135, 0.45);
+            height: 6px;
+            border-radius: 999px;
+            outline: none;
+        }
+        input[type="range"].cr7-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            border: 2px solid #ffffff;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.85);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        input[type="range"].cr7-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 18px rgba(251, 191, 36, 1);
+        }
+
+        /* Vertical EQ Sliders */
+        .eq-slider-wrapper {
+            height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="range"].eq-vertical {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 125px;
+            height: 6px;
+            background: rgba(107, 33, 168, 0.5);
+            border-radius: 999px;
+            transform: rotate(-90deg);
+            outline: none;
+            cursor: pointer;
+        }
+        input[type="range"].eq-vertical::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c084fc, #9333ea);
+            border: 2px solid #fbbf24;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        input[type="range"].eq-vertical::-webkit-slider-thumb:hover {
+            transform: scale(1.22);
+            background: #fbbf24;
+        }
+
+        /* SIUUU Pulse Animation */
+        @keyframes siuuuPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.4), 0 0 30px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 28px rgba(251, 191, 36, 0.85), 0 0 50px rgba(168, 85, 247, 0.7); }
+        }
+        .siuuu-btn {
+            animation: siuuuPulse 2.5s infinite ease-in-out;
+        }
+
+        /* Playing equalizer mini bars */
+        @keyframes barBounce {
+            0%, 100% { height: 4px; }
+            50% { height: 16px; }
+        }
+        .playing-bar-1 { animation: barBounce 0.6s infinite ease-in-out 0.1s; }
+        .playing-bar-2 { animation: barBounce 0.5s infinite ease-in-out 0.25s; }
+        .playing-bar-3 { animation: barBounce 0.7s infinite ease-in-out 0.4s; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-bottom-1{bottom:-0.25rem}.-right-1{right:-0.25rem}.-right-6{right:-1.5rem}.-top-8{top:-2rem}.bottom-0{bottom:0px}.left-0{left:0px}.left-3\.5{left:0.875rem}.right-0{right:0px}.right-4{right:1rem}.top-0{top:0px}.top-1\/2{top:50%}.top-20{top:5rem}.top-4{top:1rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-3{margin-top:0.75rem;margin-bottom:0.75rem}.my-8{margin-top:2rem;margin-bottom:2rem}.my-2{margin-top:0.5rem;margin-bottom:0.5rem}.mb-0\.5{margin-bottom:0.125rem}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.ml-0\.5{margin-left:0.125rem}.ml-2{margin-left:0.5rem}.mr-1{margin-right:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.mt-2{margin-top:0.5rem}.mt-5{margin-top:1.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-20{height:5rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-9{height:2.25rem}.h-\[250px\]{height:250px}.h-full{height:100%}.h-7{height:1.75rem}.h-8{height:2rem}.max-h-\[640px\]{max-height:640px}.max-h-\[68vh\]{max-height:68vh}.min-h-\[240px\]{min-height:240px}.min-h-\[360px\]{min-height:360px}.min-h-\[460px\]{min-height:460px}.min-h-screen{min-height:100vh}.w-0{width:0px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-2{width:0.5rem}.w-2\.5{width:0.625rem}.w-20{width:5rem}.w-24{width:6rem}.w-6{width:1.5rem}.w-9{width:2.25rem}.w-\[1px\]{width:1px}.w-full{width:100%}.w-7{width:1.75rem}.w-8{width:2rem}.w-1{width:0.25rem}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-\[1600px\]{max-width:1600px}.max-w-\[250px\]{max-width:250px}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-5{--tw-translate-x:1.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-90{--tw-scale-x:.9;--tw-scale-y:.9;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-6{grid-template-columns:repeat(6, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-0\.5{gap:0.125rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-\[14px\]{border-radius:14px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-300\/40{border-color:rgb(252 211 77 / 0.4)}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.border-amber-400\/30{border-color:rgb(251 191 36 / 0.3)}.border-amber-400\/40{border-color:rgb(251 191 36 / 0.4)}.border-amber-400\/50{border-color:rgb(251 191 36 / 0.5)}.border-amber-400\/70{border-color:rgb(251 191 36 / 0.7)}.border-amber-400\/80{border-color:rgb(251 191 36 / 0.8)}.border-emerald-400\/40{border-color:rgb(52 211 153 / 0.4)}.border-purple-400\/35{border-color:rgb(192 132 252 / 0.35)}.border-purple-400\/40{border-color:rgb(192 132 252 / 0.4)}.border-purple-400\/50{border-color:rgb(192 132 252 / 0.5)}.border-purple-500\/20{border-color:rgb(168 85 247 / 0.2)}.border-purple-500\/25{border-color:rgb(168 85 247 / 0.25)}.border-purple-500\/30{border-color:rgb(168 85 247 / 0.3)}.border-purple-500\/35{border-color:rgb(168 85 247 / 0.35)}.border-purple-500\/40{border-color:rgb(168 85 247 / 0.4)}.border-rose-500\/30{border-color:rgb(244 63 94 / 0.3)}.border-purple-400\/30{border-color:rgb(192 132 252 / 0.3)}.border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.border-rose-500\/60{border-color:rgb(244 63 94 / 0.6)}.bg-\[\#0d0818\]{--tw-bg-opacity:1;background-color:rgb(13 8 24 / var(--tw-bg-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-400\/20{background-color:rgb(251 191 36 / 0.2)}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/45{background-color:rgb(0 0 0 / 0.45)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-black\/70{background-color:rgb(0 0 0 / 0.7)}.bg-black\/80{background-color:rgb(0 0 0 / 0.8)}.bg-black\/85{background-color:rgb(0 0 0 / 0.85)}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153 / var(--tw-bg-opacity, 1))}.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-purple-800{--tw-bg-opacity:1;background-color:rgb(107 33 168 / var(--tw-bg-opacity, 1))}.bg-purple-900\/60{background-color:rgb(88 28 135 / 0.6)}.bg-purple-900\/70{background-color:rgb(88 28 135 / 0.7)}.bg-purple-900\/80{background-color:rgb(88 28 135 / 0.8)}.bg-purple-950{--tw-bg-opacity:1;background-color:rgb(59 7 100 / var(--tw-bg-opacity, 1))}.bg-purple-950\/40{background-color:rgb(59 7 100 / 0.4)}.bg-purple-950\/50{background-color:rgb(59 7 100 / 0.5)}.bg-purple-950\/70{background-color:rgb(59 7 100 / 0.7)}.bg-purple-950\/80{background-color:rgb(59 7 100 / 0.8)}.bg-purple-950\/90{background-color:rgb(59 7 100 / 0.9)}.bg-rose-600\/80{background-color:rgb(225 29 72 / 0.8)}.bg-rose-950\/60{background-color:rgb(76 5 25 / 0.6)}.bg-black\/30{background-color:rgb(0 0 0 / 0.3)}.bg-black\/90{background-color:rgb(0 0 0 / 0.9)}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-rose-950\/90{background-color:rgb(76 5 25 / 0.9)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-amber-300{--tw-gradient-from:#fcd34d var(--tw-gradient-from-position);--tw-gradient-to:rgb(252 211 77 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-500{--tw-gradient-from:#f59e0b var(--tw-gradient-from-position);--tw-gradient-to:rgb(245 158 11 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-blue-600{--tw-gradient-from:#2563eb var(--tw-gradient-from-position);--tw-gradient-to:rgb(37 99 235 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-500{--tw-gradient-from:#10b981 var(--tw-gradient-from-position);--tw-gradient-to:rgb(16 185 129 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-indigo-500{--tw-gradient-from:#6366f1 var(--tw-gradient-from-position);--tw-gradient-to:rgb(99 102 241 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-400{--tw-gradient-from:#c084fc var(--tw-gradient-from-position);--tw-gradient-to:rgb(192 132 252 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-500{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-600{--tw-gradient-from:#9333ea var(--tw-gradient-from-position);--tw-gradient-to:rgb(147 51 234 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-700{--tw-gradient-from:#7e22ce var(--tw-gradient-from-position);--tw-gradient-to:rgb(126 34 206 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-900\/90{--tw-gradient-from:rgb(88 28 135 / 0.9) var(--tw-gradient-from-position);--tw-gradient-to:rgb(88 28 135 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-950\/60{--tw-gradient-from:rgb(59 7 100 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 7 100 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-900\/75{--tw-gradient-from:rgb(88 28 135 / 0.75) var(--tw-gradient-from-position);--tw-gradient-to:rgb(88 28 135 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-amber-400{--tw-gradient-to:rgb(251 191 36 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fbbf24 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-amber-500{--tw-gradient-to:rgb(245 158 11 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #f59e0b var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-black{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #000 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-fuchsia-400{--tw-gradient-to:rgb(232 121 249 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #e879f9 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-fuchsia-500{--tw-gradient-to:rgb(217 70 239 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #d946ef var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-fuchsia-600{--tw-gradient-to:rgb(192 38 211 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #c026d3 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-fuchsia-700{--tw-gradient-to:rgb(162 28 175 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #a21caf var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-purple-900{--tw-gradient-to:rgb(88 28 135 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #581c87 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-yellow-400{--tw-gradient-to:rgb(250 204 21 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #facc15 var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-purple-950\/80{--tw-gradient-to:rgb(59 7 100 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(59 7 100 / 0.8) var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-amber-400{--tw-gradient-to:#fbbf24 var(--tw-gradient-to-position)}.to-amber-500{--tw-gradient-to:#f59e0b var(--tw-gradient-to-position)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-pink-400{--tw-gradient-to:#f472b6 var(--tw-gradient-to-position)}.to-purple-400{--tw-gradient-to:#c084fc var(--tw-gradient-to-position)}.to-purple-600{--tw-gradient-to:#9333ea var(--tw-gradient-to-position)}.to-purple-700{--tw-gradient-to:#7e22ce var(--tw-gradient-to-position)}.to-purple-900\/40{--tw-gradient-to:rgb(88 28 135 / 0.4) var(--tw-gradient-to-position)}.to-purple-950\/90{--tw-gradient-to:rgb(59 7 100 / 0.9) var(--tw-gradient-to-position)}.to-teal-600{--tw-gradient-to:#0d9488 var(--tw-gradient-to-position)}.to-amber-500\/15{--tw-gradient-to:rgb(245 158 11 / 0.15) var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.p-0\.5{padding:0.125rem}.p-1{padding:0.25rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.pb-28{padding-bottom:7rem}.pb-4{padding-bottom:1rem}.pl-6{padding-left:1.5rem}.pl-9{padding-left:2.25rem}.pr-1{padding-right:0.25rem}.pr-4{padding-right:1rem}.pr-8{padding-right:2rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-5{padding-top:1.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-display{font-family:Orbitron, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-sans{font-family:Inter, sans-serif}.font-tech{font-family:Rajdhani, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-6xl{font-size:3.75rem;line-height:1}.text-8xl{font-size:6rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-100{--tw-text-opacity:1;color:rgb(254 243 199 / var(--tw-text-opacity, 1))}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-fuchsia-300{--tw-text-opacity:1;color:rgb(240 171 252 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-purple-100{--tw-text-opacity:1;color:rgb(243 232 255 / var(--tw-text-opacity, 1))}.text-purple-200{--tw-text-opacity:1;color:rgb(233 213 255 / var(--tw-text-opacity, 1))}.text-purple-200\/90{color:rgb(233 213 255 / 0.9)}.text-purple-300{--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-purple-500\/10{color:rgb(168 85 247 / 0.1)}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-rose-200{--tw-text-opacity:1;color:rgb(254 205 211 / var(--tw-text-opacity, 1))}.placeholder-gray-500::placeholder{--tw-placeholder-opacity:1;color:rgb(107 114 128 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-neon-gold{--tw-shadow:0 0 25px rgba(251, 191, 36, 0.4), inset 0 0 12px rgba(251, 191, 36, 0.2);--tw-shadow-colored:0 0 25px var(--tw-shadow-color), inset 0 0 12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-neon-purple{--tw-shadow:0 0 25px rgba(139, 92, 246, 0.35), inset 0 0 15px rgba(139, 92, 246, 0.15);--tw-shadow-colored:0 0 25px var(--tw-shadow-color), inset 0 0 15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-\[0_0_35px_rgba\(251\2c 191\2c 36\2c 0\.9\)\]{--tw-drop-shadow:drop-shadow(0 0 35px rgba(251,191,36,0.9));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-500{transition-duration:500ms}.duration-75{transition-duration:75ms}.duration-300{transition-duration:300ms}.selection\:bg-purple-600 *::selection{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-purple-600::selection{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-amber-400:hover{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.hover\:bg-purple-500:hover{--tw-bg-opacity:1;background-color:rgb(168 85 247 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-700:hover{--tw-bg-opacity:1;background-color:rgb(126 34 206 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-800:hover{--tw-bg-opacity:1;background-color:rgb(107 33 168 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-800\/80:hover{background-color:rgb(107 33 168 / 0.8)}.hover\:bg-purple-900:hover{--tw-bg-opacity:1;background-color:rgb(88 28 135 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-900\/50:hover{background-color:rgb(88 28 135 / 0.5)}.hover\:bg-purple-950:hover{--tw-bg-opacity:1;background-color:rgb(59 7 100 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-600:hover{--tw-bg-opacity:1;background-color:rgb(225 29 72 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-900\/80:hover{background-color:rgb(136 19 55 / 0.8)}.hover\:bg-amber-400:hover{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-800\/60:hover{background-color:rgb(107 33 168 / 0.6)}.hover\:bg-rose-500\/20:hover{background-color:rgb(244 63 94 / 0.2)}.hover\:bg-purple-950\/40:hover{background-color:rgb(59 7 100 / 0.4)}.hover\:from-amber-300:hover{--tw-gradient-from:#fcd34d var(--tw-gradient-from-position);--tw-gradient-to:rgb(252 211 77 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-amber-400:hover{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-blue-500:hover{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:from-purple-500:hover{--tw-gradient-from:#a855f7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(168 85 247 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-amber-400:hover{--tw-gradient-to:#fbbf24 var(--tw-gradient-to-position)}.hover\:to-purple-500:hover{--tw-gradient-to:#a855f7 var(--tw-gradient-to-position)}.hover\:text-amber-300:hover{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.hover\:text-amber-400:hover{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.hover\:text-rose-500:hover{--tw-text-opacity:1;color:rgb(244 63 94 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.hover\:text-rose-400:hover{--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:inline{display:inline}.sm\:flex{display:flex}.sm\:h-12{height:3rem}.sm\:h-16{height:4rem}.sm\:w-12{width:3rem}.sm\:w-16{width:4rem}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:p-5{padding:1.25rem}.sm\:px-0{padding-left:0px;padding-right:0px}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-8xl{font-size:6rem;line-height:1}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 768px){.md\:col-span-3{grid-column:span 3 / span 3}.md\:col-span-6{grid-column:span 6 / span 6}.md\:inline{display:inline}.md\:flex{display:flex}.md\:w-auto{width:auto}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}}@media (min-width: 1024px){.lg\:col-span-4{grid-column:span 4 / span 4}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (min-width: 1280px){.xl\:inline{display:inline}.xl\:flex{display:flex}}</style></head>
+<body class="cr7-grid-bg min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white pb-28">
+
+    <!-- Hidden Audio Element for Web Audio API Routing -->
+    <audio id="mainAudio" crossorigin="anonymous" preload="metadata" src="https://files.catbox.moe/hcwyj1.mp3"></audio>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-4 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+    <!-- SIUUU Celebration Fullscreen Flash Overlay -->
+    <div id="siuuuOverlay" class="fixed inset-0 z-40 pointer-events-none transition-opacity duration-500 flex items-center justify-center bg-gradient-to-t from-purple-950/60 via-transparent to-purple-900/40 opacity-0">
+        <div class="text-center transform transition-transform duration-500 scale-90" id="siuuuBanner">
+            <div class="font-display font-black text-6xl sm:text-8xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-purple-400 drop-shadow-[0_0_35px_rgba(251,191,36,0.9)]">
+                SIUUUUU! #7
+            </div>
+            <p class="font-tech text-xl sm:text-2xl text-purple-200 tracking-[0.3em] uppercase mt-2">
+                CRISTIANO RONALDO • GOAT AUDIO POWER
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 1: DOWNLOAD & OFFLINE WAV RENDERING ==================== -->
+    <div id="downloadModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel-gold rounded-2xl max-w-md w-full p-6 relative border border-amber-400/40">
+            <button onclick="closeDownloadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-purple-950/70 hover:bg-purple-800 text-gray-300 hover:text-white flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-amber-500 flex items-center justify-center shadow-neon-gold">
+                    <i class="fa-solid fa-download text-xl text-black"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-tech uppercase tracking-widest text-amber-400 font-bold">CR7 MASTERING EXPORT</span>
+                    <h3 id="modalTrackTitle" class="text-lg font-bold text-white truncate max-w-[250px]">Tải Nhạc Về Máy</h3>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-gray-300 mb-4 leading-relaxed">
+                Chọn tải <strong class="text-purple-300">Bản Gốc</strong> hoặc xuất ra <strong class="text-amber-300">Bản Đã Độ Âm Thanh (.WAV)</strong> giữ nguyên toàn bộ hiệu ứng EQ, SIUUU Bass Boost, Vang Sân Vận Động và Tốc Độ bạn đang chỉnh.
+            </p>
+
+            <!-- Active Audio Effects Summary -->
+            <div class="bg-black/50 border border-purple-500/30 rounded-xl p-3.5 mb-5 text-xs space-y-1.5">
+                <div class="flex justify-between">
+                    <span class="text-gray-400">Chế độ Preset đang bật:</span>
+                    <span id="modalPresetName" class="font-bold text-amber-400">SIUUU Bass (Gym)</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-400">SIUUU Bass / Độ Vang:</span>
+                    <span id="modalDspSummary" class="font-semibold text-purple-300">+6 dB / 20%</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-400">Tốc độ phát (Speed/Pitch):</span>
+                    <span id="modalSpeedSummary" class="font-semibold text-purple-300">1.00x</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar when rendering -->
+            <div id="renderProgressBox" class="hidden mb-5">
+                <div class="flex justify-between text-xs mb-1.5">
+                    <span id="renderStatusText" class="text-amber-300 font-medium">Đang kết xuất âm thanh CR7 DSP...</span>
+                    <span id="renderPercentText" class="font-tech font-bold text-white">0%</span>
+                </div>
+                <div class="w-full h-2.5 bg-purple-950 rounded-full overflow-hidden border border-purple-500/30">
+                    <div id="renderProgressBar" class="h-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-amber-400 w-0 transition-all duration-200"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button id="btnDownloadOriginal" onclick="triggerOriginalDownload()" class="flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-purple-950/80 hover:bg-purple-900 border border-purple-500/40 text-white font-semibold text-sm transition hover:scale-[1.02]">
+                    <i class="fa-solid fa-file-audio text-purple-400 text-lg"></i>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Tải Bản Gốc</div>
+                        <div class="text-[11px] text-gray-400 font-normal">Giữ nguyên file ban đầu</div>
+                    </div>
+                </button>
+
+                <button id="btnDownloadProcessed" onclick="triggerProcessedWavDownload()" class="flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-sm shadow-neon-purple transition hover:scale-[1.02]">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-200 text-lg"></i>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Tải Bản Đã Độ (WAV)</div>
+                        <div class="text-[11px] text-amber-100 font-normal">Áp dụng EQ + Bass + Speed</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: OWNER PIN AUTHENTICATION ==================== -->
+    <div id="ownerPinModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4 hidden">
+        <div class="glass-panel-gold rounded-2xl max-w-md w-full p-6 relative border border-amber-400/50">
+            <button onclick="closeOwnerPinModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-purple-950/70 hover:bg-purple-800 text-gray-300 hover:text-white flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-purple-700 flex items-center justify-center shadow-neon-gold shrink-0">
+                    <i class="fa-solid fa-crown text-xl text-black"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-tech uppercase tracking-widest text-amber-400 font-bold">BẢO MẬT CHỦ NHÂN #7</span>
+                    <h3 class="text-lg font-bold text-white">Mở Khóa Phòng Quản Trị Nhạc</h3>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                Chỉ <strong class="text-amber-300">Chủ Nhân trang web</strong> mới có quyền thêm, xóa bài hát, đổi link Facebook và xuất gói code đưa lên GitHub Pages. Khách vào từ Facebook chỉ được phép nghe nhạc.
+            </p>
+
+            <form onsubmit="handleVerifyOwnerPin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-purple-200 mb-1.5">Nhập Mã PIN Chủ Nhân:</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-key absolute left-3.5 top-1/2 -translate-y-1/2 text-amber-400 text-xs"></i>
+                        <input id="ownerPinInput" type="password" autocomplete="off" placeholder="Nhập mã PIN (Mặc định: 7777)" class="w-full bg-black/70 border border-purple-500/40 focus:border-amber-400 rounded-xl pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none font-tech tracking-widest">
+                    </div>
+                    <p id="pinErrorMsg" class="hidden text-xs text-rose-400 font-medium mt-1.5">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Mã PIN không chính xác!
+                    </p>
+                </div>
+
+                <div class="bg-purple-950/50 border border-purple-500/30 rounded-xl p-3 text-[11px] text-gray-300">
+                    <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>
+                    Mã PIN mặc định lần đầu là <code class="text-amber-300 font-bold px-1.5 py-0.5 bg-black/60 rounded">7777</code>. Sau khi mở khóa, bạn có thể đổi mã PIN riêng của bạn trước khi xuất file đưa lên GitHub.
+                </div>
+
+                <div class="flex justify-end gap-2.5">
+                    <button type="button" onclick="closeOwnerPinModal()" class="px-4 py-2.5 rounded-xl bg-purple-950/70 hover:bg-purple-900 text-xs font-semibold text-gray-300 transition">
+                        Đóng
+                    </button>
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-purple-600 text-black font-display font-bold text-xs uppercase tracking-wider shadow-neon-gold hover:scale-105 transition">
+                        <i class="fa-solid fa-unlock-keyhole mr-1"></i> Mở Khóa Chủ Nhân
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 3: GITHUB PAGES & FACEBOOK BIO DEPLOYMENT GUIDE ==================== -->
+    <div id="githubGuideModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4 overflow-y-auto hidden">
+        <div class="glass-panel-gold rounded-2xl max-w-2xl w-full p-6 relative border border-amber-400/50 my-8">
+            <button onclick="closeGithubGuideModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-purple-950/70 hover:bg-purple-800 text-gray-300 hover:text-white flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3.5 mb-5">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-amber-500 flex items-center justify-center shadow-neon-purple shrink-0">
+                    <i class="fa-brands fa-github text-2xl text-black"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-tech uppercase tracking-widest text-amber-400 font-bold">HƯỚNG DẪN PUBLIC CHO MỌI NGƯỜI NGHE</span>
+                    <h3 class="text-xl font-bold text-white leading-tight">Cách Up Lên GitHub Pages &amp; Gắn Link Lên Facebook</h3>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-gray-200 max-h-[68vh] overflow-y-auto pr-1">
+                <!-- Step 1 -->
+                <div class="bg-black/60 border border-purple-500/35 rounded-xl p-4">
+                    <div class="font-bold text-amber-300 flex items-center gap-2 mb-1.5">
+                        <span class="w-6 h-6 rounded-full bg-amber-400 text-black font-display font-black text-xs flex items-center justify-center">1</span>
+                        <span>Thêm nhạc &amp; Thông tin Chủ Nhân ngay trên trang này</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Trong bảng <strong class="text-white">👑 Phòng Quản Trị Chủ Nhân</strong>, hãy điền Tên của bạn, Link Facebook cá nhân và thêm các bài hát bạn yêu thích (chọn file <code class="text-amber-300">.mp3</code> từ máy hoặc dán link nhạc trực tiếp).
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-black/60 border border-purple-500/35 rounded-xl p-4">
+                    <div class="font-bold text-amber-300 flex items-center gap-2 mb-1.5">
+                        <span class="w-6 h-6 rounded-full bg-amber-400 text-black font-display font-black text-xs flex items-center justify-center">2</span>
+                        <span>Bấm nút "Xuất File index.html Đã Khóa Playlist"</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-2">
+                        Khi bấm nút <strong class="text-emerald-300">"Xuất File index.html Đã Nhúng Sẵn Playlist"</strong>, hệ thống sẽ tải về cho bạn 1 file <code class="text-amber-300">index.html</code> mới đã chứa sẵn toàn bộ danh sách bài hát, tên của bạn, link Facebook của bạn và tự động khóa ở <strong class="text-purple-300">Chế Độ Khách Nghe Nhạc</strong>.
+                    </p>
+                    <div class="bg-purple-950/50 border border-purple-500/30 rounded-lg p-3 font-mono text-[11px] text-purple-200">
+                        <div class="text-amber-400 font-sans font-bold mb-1">📁 Cấu trúc thư mục khi bạn up lên GitHub Repository:</div>
+                        <div>├── 📄 <strong class="text-white">index.html</strong> <span class="text-gray-400">(File vừa xuất ra từ nút bấm)</span></div>
+                        <div>├── 📄 <strong class="text-white">playlist.json</strong> <span class="text-gray-400">(Tùy chọn nếu muốn sửa nhanh danh sách bài hát)</span></div>
+                        <div>└── 📁 <strong class="text-amber-300">music/</strong> <span class="text-gray-400">(Tạo thư mục tên là music và bỏ các file .mp3 của bạn vào đây)</span></div>
+                        <div class="pl-6">├── 🎵 <span class="text-emerald-300">bai-hat-1.mp3</span></div>
+                        <div class="pl-6">└── 🎵 <span class="text-emerald-300">bai-hat-2.mp3</span></div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-black/60 border border-purple-500/35 rounded-xl p-4">
+                    <div class="font-bold text-amber-300 flex items-center gap-2 mb-1.5">
+                        <span class="w-6 h-6 rounded-full bg-amber-400 text-black font-display font-black text-xs flex items-center justify-center">3</span>
+                        <span>Bật GitHub Pages &amp; Gắn Link Lên Trang Cá Nhân Facebook</span>
+                    </div>
+                    <ul class="space-y-1.5 text-xs text-gray-300 list-disc list-inside">
+                        <li>Vào kho chứa (Repository) trên GitHub của bạn → chọn mục <strong class="text-white">Settings</strong> → <strong class="text-white">Pages</strong>.</li>
+                        <li>Tại phần <strong class="text-white">Branch</strong>, chọn nhánh <code class="text-amber-300">main</code> (hoặc <code class="text-amber-300">master</code>) → bấm <strong class="text-white">Save</strong>.</li>
+                        <li>Sau 1 phút, GitHub sẽ cấp cho bạn đường link dạng: <code class="text-emerald-300">https://ten-ban.github.io/ten-repo/</code></li>
+                        <li>Vào <strong class="text-blue-400">Trang cá nhân Facebook</strong> → <strong class="text-white">Chỉnh sửa chi tiết công khai (Tiểu sử / Liên kết)</strong> → Thêm trang web và dán link GitHub Pages vào. Mọi người bấm vào chỉ có thể nghe nhạc và chỉnh EQ chứ không thể sửa hay xóa nhạc của bạn!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-5 flex justify-end gap-3">
+                <button onclick="exportEmbeddedIndexHtml()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-black font-bold text-xs uppercase tracking-wider hover:scale-105 transition">
+                    <i class="fa-solid fa-file-code mr-1"></i> Tải Ngay File index.html Đã Khóa
+                </button>
+                <button onclick="closeGithubGuideModal()" class="px-5 py-2.5 rounded-xl bg-purple-800 hover:bg-purple-700 text-white font-bold text-xs uppercase tracking-wider transition">
+                    Đã Hiểu
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="sticky top-0 z-30 glass-panel border-b border-purple-500/30 px-4 lg:px-8 py-3">
+        <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3.5">
+                <div class="relative group cursor-pointer" onclick="triggerSiuuuCelebration()">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-700 via-purple-900 to-black border-2 border-amber-400 flex items-center justify-center shadow-neon-gold transform group-hover:scale-105 transition">
+                        <span class="font-display font-black text-xl sm:text-2xl text-transparent bg-clip-text bg-gradient-to-b from-amber-300 to-amber-500">
+                            #7
+                        </span>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-amber-400 text-black font-display font-black text-[9px] px-1.5 py-0.2 rounded uppercase">
+                        GOAT
+                    </span>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-display font-black text-lg sm:text-xl tracking-wider text-white">
+                            CR7 <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-amber-400">AUDIO ARENA</span>
+                        </h1>
+                        <!-- Mode Badge: Visitor vs Owner -->
+                        <span id="modeHeaderBadge" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-tech font-bold uppercase tracking-wider bg-purple-950/90 text-purple-300 border border-purple-500/40"><i class="fa-solid fa-headphones text-amber-400"></i> Chế Độ Khách Nghe Nhạc</span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-400 font-medium">
+                        Trình Phát Nhạc Tuyển Chọn &amp; Độ Âm Thanh Sân Vận Động #7
+                    </p>
+                </div>
+            </div>
+
+            <!-- Center Status Badges -->
+            <div class="hidden xl:flex items-center gap-5 bg-black/40 border border-purple-500/20 px-4 py-2 rounded-xl">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span class="text-xs font-tech tracking-wider uppercase text-gray-300">DSP Engine: <strong id="headerEngineState" class="text-purple-400">ONLINE 32-BIT</strong></span>
+                </div>
+                <div class="h-4 w-[1px] bg-purple-800"></div>
+                <div class="text-xs font-tech tracking-wider uppercase text-gray-300">
+                    Chế độ: <strong id="headerPresetBadge" class="text-amber-400">NGUYÊN BẢN (STUDIO)</strong>
+                </div>
+                <div class="h-4 w-[1px] bg-purple-800"></div>
+                <div class="flex items-center gap-1.5 text-xs font-tech tracking-wider uppercase text-gray-300">
+                    <i class="fa-solid fa-music text-purple-400"></i>
+                    <span>Danh sách: <strong id="headerTrackCount" class="text-white">3 bài hát</strong></span>
+                </div>
+            </div>
+
+            <!-- Right Actions: Share Link, Owner Lock/Unlock & SIUUU Button -->
+            <div class="flex items-center gap-2">
+                <button onclick="copyWebsiteShareLink()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-950/70 hover:bg-purple-800/80 border border-purple-400/35 text-xs font-semibold text-purple-100 transition" title="Sao chép link trang web để gắn lên Facebook">
+                    <i class="fa-solid fa-share-nodes text-amber-400"></i>
+                    <span class="hidden sm:inline">Copy Link Web</span>
+                </button>
+
+                <!-- Discreet Owner Lock / Unlock Toggle Button -->
+                <button id="btnOwnerAccess" onclick="handleOwnerAccessButtonClick()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-black/60 hover:bg-purple-950 border border-purple-500/30 text-xs font-semibold text-gray-300 hover:text-amber-300 transition" title="Dành riêng cho Chủ Nhân trang web">
+                    <i id="ownerAccessIcon" class="fa-solid fa-lock text-amber-400"></i>
+                    <span id="ownerAccessText" class="hidden md:inline">Quản Trị Chủ Nhân</span>
+                </button>
+
+                <button onclick="triggerSiuuuCelebration()" class="siuuu-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-black font-display font-black text-xs sm:text-sm tracking-wider uppercase transition transform active:scale-95">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>SIUUU!</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== OWNER SHOWCASE BANNER (FOR FACEBOOK PROFILE VISITORS) ==================== -->
+    <section class="max-w-[1600px] w-full mx-auto px-4 lg:px-8 pt-5">
+        <div class="glass-panel-gold rounded-2xl p-4 sm:p-5 relative overflow-hidden border border-purple-500/40">
+            <div class="absolute -right-6 -top-8 text-8xl font-display font-black text-purple-500/10 pointer-events-none select-none">
+                CR7
+            </div>
+
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 relative z-10">
+                <div class="flex items-center gap-4">
+                    <!-- Owner Avatar Emblem -->
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-purple-600 via-fuchsia-600 to-amber-500 p-0.5 shadow-neon-purple shrink-0">
+                        <div class="w-full h-full bg-[#0d0818] rounded-[14px] flex flex-col items-center justify-center">
+                            <i class="fa-solid fa-crown text-amber-400 text-xs mb-0.5"></i>
+                            <span class="font-display font-black text-lg text-white leading-none">#7</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="text-[10px] font-tech font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/40">
+                                KHO NHẠC CHÍNH THỨC CỦA CHỦ NHÂN
+                            </span>
+                            <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-circle-check"></i> Verified #7 Profile
+                            </span>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-bold text-white mt-1 flex items-center gap-2">
+                            <span id="bannerOwnerName">QuangMinhMusic</span>
+                        </h2>
+                        <p id="bannerOwnerBio" class="text-xs sm:text-sm text-purple-200/90 mt-0.5">Chào mừng bạn từ Facebook! Đây là danh sách nhạc yêu thích của mình — hãy bấm nghe và thử chỉnh chế độ SIUUU Bass nhé!</p>
+                    </div>
+                </div>
+
+                <!-- Right Links: Visit Owner's Facebook & Read-Only Notice -->
+                <div class="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
+                    <div class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-black/50 border border-purple-500/25 text-[11px] text-gray-300">
+                        <i class="fa-solid fa-shield-halved text-purple-400"></i>
+                        <span id="visitorPermissionNotice">Chế độ Khách: Chỉ nghe &amp; chỉnh hiệu ứng âm thanh</span>
+                    </div>
+
+                    <a id="bannerFbLink" href="https://facebook.com//Minhkhomatquahuhu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition hover:scale-105">
+                        <i class="fa-brands fa-facebook text-base"></i>
+                        <span>Facebook Chủ Nhân</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROTECTED OWNER STUDIO CONTROL PANEL (HIDDEN FOR VISITORS) ==================== -->
+    <section id="ownerStudioSection" class="max-w-[1600px] w-full mx-auto px-4 lg:px-8 pt-5 hidden">
+        <div class="glass-panel rounded-2xl p-5 border-2 border-amber-400/70 shadow-neon-gold relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-purple-500/30">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-400 text-black flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-amber-300">
+                                👑 Phòng Quản Trị Chủ Nhân (Owner Studio)
+                            </h3>
+                            <span class="px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+                                ĐÃ MỞ KHÓA QUYỀN CHỈNH SỬA
+                            </span>
+                        </div>
+                        <p class="text-xs text-gray-300">
+                            Chỉ mình bạn thấy bảng này. Sau khi thêm nhạc xong, hãy bấm <strong class="text-amber-300">"Xuất File index.html Đã Khóa Playlist"</strong> để up lên GitHub Pages!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="openGithubGuideModal()" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-900/80 hover:bg-purple-800 border border-purple-400/50 text-xs font-bold text-amber-300 transition">
+                        <i class="fa-brands fa-github"></i>
+                        <span>Hướng Dẫn Up GitHub &amp; Gắn Facebook</span>
+                    </button>
+
+                    <button onclick="lockOwnerStudioToVisitorPreview()" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-600/80 hover:bg-rose-600 text-white text-xs font-bold transition" title="Khóa lại để xem giao diện giống hệt khách vào từ Facebook">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Xem Thử Chế Độ Khách (Khóa Lại)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 3-Column Owner Tools: (1) Profile Settings, (2) Add Music, (3) Export for GitHub Pages -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                <!-- Box 1: Owner Profile & Facebook Link -->
+                <div class="bg-black/50 border border-purple-500/30 rounded-xl p-4 space-y-3">
+                    <div class="text-xs font-display font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-amber-400"></i>
+                        <span>1. Thông Tin Chủ Nhân &amp; Facebook</span>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] text-gray-400 mb-1">Tên hiển thị của bạn:</label>
+                        <input id="ownerNameInput" type="text" oninput="updateOwnerConfigFromInputs()" class="w-full bg-purple-950/50 border border-purple-500/40 focus:border-amber-400 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] text-gray-400 mb-1">Lời chào trên đầu trang (Bio):</label>
+                        <input id="ownerBioInput" type="text" oninput="updateOwnerConfigFromInputs()" class="w-full bg-purple-950/50 border border-purple-500/40 focus:border-amber-400 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <div class="sm:col-span-2">
+                            <label class="block text-[11px] text-gray-400 mb-1">Link Facebook cá nhân của bạn:</label>
+                            <input id="ownerFbInput" type="url" oninput="updateOwnerConfigFromInputs()" placeholder="https://facebook.com/..." class="w-full bg-purple-950/50 border border-purple-500/40 focus:border-amber-400 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-gray-400 mb-1">Đổi Mã PIN:</label>
+                            <input id="ownerNewPinInput" type="text" oninput="updateOwnerConfigFromInputs()" class="w-full bg-purple-950/50 border border-purple-500/40 focus:border-amber-400 rounded-lg px-3 py-1.5 text-xs text-amber-300 font-tech font-bold focus:outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2: Add Music (Local File for GitHub `music/` folder OR Direct URL) -->
+                <div class="bg-black/50 border border-purple-500/30 rounded-xl p-4 space-y-3">
+                    <div class="text-xs font-display font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-plus text-amber-400"></i>
+                        <span>2. Thêm Nhạc Vào Playlist Của Bạn</span>
+                    </div>
+
+                    <!-- Option A: Pick MP3 files from computer -->
+                    <div class="p-3 rounded-xl bg-purple-950/40 border border-dashed border-purple-400/50 hover:border-amber-400 transition">
+                        <div class="flex items-center justify-between gap-2">
+                            <div>
+                                <div class="text-xs font-bold text-white">Cách A: Chọn file nhạc từ máy tính</div>
+                                <p class="text-[11px] text-gray-400 mt-0.5">
+                                    Nghe thử ngay trên máy &amp; tự tạo đường dẫn <code class="text-amber-300">music/ten-file.mp3</code> cho GitHub.
+                                </p>
+                            </div>
+                            <label for="fileUploadInput" class="cursor-pointer shrink-0 px-3 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-amber-500 text-black font-bold text-xs hover:scale-105 transition">
+                                <i class="fa-solid fa-upload mr-1"></i> Chọn File
+                            </label>
+                            <input id="fileUploadInput" type="file" accept="audio/*" multiple="" class="hidden">
+                        </div>
+                    </div>
+
+                    <!-- Option B: Add via Direct URL -->
+                    <div class="space-y-2 pt-1">
+                        <div class="text-xs font-bold text-white">Cách B: Dán Link Nhạc Trực Tiếp (URL / GitHub Raw / Catbox)</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <input id="directTrackTitleInput" type="text" placeholder="Tên bài hát (VD: Tinh Hoa CR7)" class="bg-purple-950/50 border border-purple-500/40 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none">
+                            <input id="directTrackArtistInput" type="text" placeholder="Nghệ sĩ (VD: Tuyển Chọn #7)" class="bg-purple-950/50 border border-purple-500/40 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none">
+                        </div>
+                        <div class="flex gap-2">
+                            <input id="directTrackUrlInput" type="text" placeholder="music/bai-hat.mp3 hoặc https://.../nhac.mp3" class="flex-1 bg-purple-950/50 border border-purple-500/40 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none">
+                            <button onclick="addTrackByDirectUrl()" class="px-3.5 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shrink-0 transition">
+                                + Thêm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3: One-Click Export to GitHub Pages -->
+                <div class="bg-black/50 border border-amber-400/40 rounded-xl p-4 flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="text-xs font-display font-bold uppercase tracking-wider text-amber-300 flex items-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>3. Đóng Gói Đưa Lên GitHub Pages</span>
+                        </div>
+                        <p class="text-[11px] text-gray-300 mt-1.5 leading-relaxed">
+                            Sau khi chỉnh xong danh sách nhạc bên dưới, hãy xuất file để đưa lên GitHub. Mọi người vào từ Facebook sẽ thấy đúng danh sách nhạc này ở chế độ <strong class="text-amber-300">Chỉ Nghe</strong>!
+                        </p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <button onclick="exportEmbeddedIndexHtml()" class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-purple-600 hover:from-amber-300 hover:to-purple-500 text-black font-bold text-xs uppercase tracking-wider shadow-neon-gold flex items-center justify-center gap-2 transition hover:scale-[1.01]">
+                            <i class="fa-solid fa-file-code text-sm"></i>
+                            <span>Xuất File index.html Đã Khóa Playlist</span>
+                        </button>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="exportPlaylistJsonFile()" class="py-2 px-3 rounded-xl bg-purple-950/80 hover:bg-purple-900 border border-purple-500/40 text-purple-200 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-file-export text-amber-400"></i>
+                                <span>Xuất playlist.json</span>
+                            </button>
+                            <button onclick="handleClearAllClick()" class="py-2 px-3 rounded-xl bg-rose-950/60 hover:bg-rose-900/80 border border-rose-500/30 text-rose-300 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition">
+                                <i class="fa-solid fa-trash-can"></i>
+                                <span id="clearAllBtnText">Xóa hết nhạc</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MAIN 3-COLUMN WORKSPACE ==================== -->
+    <main class="max-w-[1600px] w-full mx-auto px-4 lg:px-8 py-6 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- ==================== COLUMN 1: OWNER'S CURATED PLAYLIST (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <!-- Playlist Box -->
+            <div class="glass-panel rounded-2xl p-4 flex-1 flex flex-col min-h-[460px] max-h-[640px]">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-list-music text-amber-400"></i>
+                        <h3 class="font-display font-bold text-sm tracking-wider uppercase text-white">
+                            Danh Sách Nhạc Tuyển Chọn
+                        </h3>
+                    </div>
+
+                    <!-- Filter Tabs: All vs Favorites -->
+                    <div class="flex bg-black/50 p-1 rounded-xl border border-purple-500/20 text-xs">
+                        <button id="tabAll" onclick="setPlaylistFilter('all')" class="px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition">
+                            Tất cả (<span id="countAll">3</span>)
+                        </button>
+                        <button id="tabFav" onclick="setPlaylistFilter('fav')" class="px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition flex items-center gap-1">
+                            <i class="fa-solid fa-heart text-rose-500 text-[10px]"></i>
+                            <span>Thích (<span id="countFav">0</span>)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Read-Only Status Bar for Visitors vs Edit Status Bar for Owner -->
+                <div id="playlistModeSubBar" class="flex items-center justify-between gap-2 bg-purple-950/40 border border-purple-500/25 rounded-xl px-3 py-2 mb-3 text-[11px]">
+                    <div class="flex items-center gap-1.5 text-purple-200">
+                        <i id="playlistSubBarIcon" class="fa-solid fa-lock text-amber-400"></i>
+                        <span id="playlistSubBarText">Playlist chính thức của Chủ Nhân (Chỉ nghe)</span>
+                    </div>
+                    <span id="playlistSourceBadge" class="text-[10px] font-tech uppercase px-2 py-0.5 rounded bg-black/50 text-amber-300 border border-amber-400/30">
+                        CR7 OFFICIAL
+                    </span>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative mb-3">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input id="searchTrackInput" oninput="renderPlaylist()" type="text" placeholder="Tìm bài hát trong danh sách..." class="w-full bg-black/50 border border-purple-500/30 focus:border-amber-400 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-gray-500 focus:outline-none transition">
+                </div>
+
+                <!-- Track List Scrollable Area -->
+                <div id="playlistContainer" class="flex-1 overflow-y-auto space-y-2 pr-1">
+                    <div class="group flex items-center justify-between gap-2.5 p-2.5 rounded-xl border transition cursor-pointer bg-gradient-to-r from-purple-900/75 via-purple-950/80 to-amber-500/15 border-amber-400/60 shadow-neon-purple" onclick="selectAndPlayTrack(0)">
+                        
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <!-- Index or Playing Indicator -->
+                            <div class="w-8 h-8 rounded-lg bg-amber-400 text-black flex items-center justify-center shrink-0 font-tech font-bold text-xs">
+                                #1
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold text-amber-300 truncate flex items-center gap-1.5">
+                                    <span>TALAGI</span>
+                                    <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-tech uppercase">MP3</span>
+                                </div>
+                                <div class="text-[11px] text-gray-400 truncate">
+                                    <span>kidsai,Dangrangto</span>
+                                     • <span class="font-tech text-gray-300">03:36</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions: Visitors ONLY see Favorite & Download; Owner ALSO sees Move Up/Down & Delete -->
+                        <div class="flex items-center gap-1 shrink-0" onclick="event.stopPropagation()">
+                            <button onclick="toggleTrackFavorite('cr7-1793467010959-4o63i')" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 flex items-center justify-center transition" title="Yêu thích">
+                                <i class="fa-regular text-gray-400 fa-heart text-xs"></i>
+                            </button>
+                            <button onclick="openDownloadModal('cr7-1793467010959-4o63i')" class="w-7 h-7 rounded-lg bg-purple-900/60 hover:bg-amber-400 hover:text-black text-amber-300 flex items-center justify-center transition" title="Tải bài hát này về máy">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="group flex items-center justify-between gap-2.5 p-2.5 rounded-xl border transition cursor-pointer bg-black/40 hover:bg-purple-950/40 border-purple-500/20" onclick="selectAndPlayTrack(1)">
+                        
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <!-- Index or Playing Indicator -->
+                            <div class="w-8 h-8 rounded-lg bg-purple-950 text-purple-300 flex items-center justify-center shrink-0 font-tech font-bold text-xs">
+                                #2
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold text-white truncate flex items-center gap-1.5">
+                                    <span>ROI TU DO</span>
+                                    <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-tech uppercase">MP3</span>
+                                </div>
+                                <div class="text-[11px] text-gray-400 truncate">
+                                    <span>SunXix</span>
+                                     • <span class="font-tech text-gray-300">03:40</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions: Visitors ONLY see Favorite & Download; Owner ALSO sees Move Up/Down & Delete -->
+                        <div class="flex items-center gap-1 shrink-0" onclick="event.stopPropagation()">
+                            <button onclick="toggleTrackFavorite('cr7-1793466926438-20wxx')" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 flex items-center justify-center transition" title="Yêu thích">
+                                <i class="fa-regular text-gray-400 fa-heart text-xs"></i>
+                            </button>
+                            <button onclick="openDownloadModal('cr7-1793466926438-20wxx')" class="w-7 h-7 rounded-lg bg-purple-900/60 hover:bg-amber-400 hover:text-black text-amber-300 flex items-center justify-center transition" title="Tải bài hát này về máy">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                
+                    <div class="group flex items-center justify-between gap-2.5 p-2.5 rounded-xl border transition cursor-pointer bg-black/40 hover:bg-purple-950/40 border-purple-500/20" onclick="selectAndPlayTrack(2)">
+                        
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <!-- Index or Playing Indicator -->
+                            <div class="w-8 h-8 rounded-lg bg-purple-950 text-purple-300 flex items-center justify-center shrink-0 font-tech font-bold text-xs">
+                                #3
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold text-white truncate flex items-center gap-1.5">
+                                    <span>Anh Đã Từ Bỏ Rồi Đấy</span>
+                                    <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-tech uppercase">MP3</span>
+                                </div>
+                                <div class="text-[11px] text-gray-400 truncate">
+                                    <span>QuangMinhMusic</span>
+                                     • <span class="font-tech text-gray-300">05:04</span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions: Visitors ONLY see Favorite & Download; Owner ALSO sees Move Up/Down & Delete -->
+                        <div class="flex items-center gap-1 shrink-0" onclick="event.stopPropagation()">
+                            <button onclick="toggleTrackFavorite('cr7-1793466466763-v3q8l')" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 flex items-center justify-center transition" title="Yêu thích">
+                                <i class="fa-regular text-gray-400 fa-heart text-xs"></i>
+                            </button>
+                            <button onclick="openDownloadModal('cr7-1793466466763-v3q8l')" class="w-7 h-7 rounded-lg bg-purple-900/60 hover:bg-amber-400 hover:text-black text-amber-300 flex items-center justify-center transition" title="Tải bài hát này về máy">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COLUMN 2: VISUALIZER ARENA & CURRENT DECK (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <!-- Visualizer Card -->
+            <div class="glass-panel rounded-2xl p-4 flex-1 flex flex-col justify-between relative overflow-hidden min-h-[360px]">
+                <!-- Top Visualizer Bar -->
+                <div class="flex items-center justify-between gap-2 z-10">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span class="font-display font-bold text-xs tracking-wider uppercase text-purple-200">
+                            CR7 SPECTRUM ARENA
+                        </span>
+                    </div>
+
+                    <!-- Visualizer Mode Switcher -->
+                    <div class="flex bg-black/60 p-1 rounded-xl border border-purple-500/30 text-[11px]">
+                        <button onclick="setVisualizerMode('ring')" id="visBtn-ring" class="px-2.5 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition">
+                            Hào Quang #7
+                        </button>
+                        <button onclick="setVisualizerMode('bars')" id="visBtn-bars" class="px-2.5 py-1 rounded-lg bg-purple-600 text-white font-semibold transition">
+                            Sóng Sân VĐ
+                        </button>
+                        <button onclick="setVisualizerMode('wave')" id="visBtn-wave" class="px-2.5 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition">
+                            Mạch Cyber
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div class="relative my-3 flex-1 flex items-center justify-center min-h-[240px]">
+                    <canvas id="visualizerCanvas" class="w-full h-[250px] rounded-xl" width="315" height="250"></canvas>
+
+                    <!-- Center CR7 Emblem Overlay (for Ring Mode) -->
+                    <div id="centerCrestOverlay" class="pointer-events-none absolute flex flex-col items-center justify-center text-center" style="opacity: 0.18;">
+                        <div id="crestCircle" class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-900/90 via-black to-purple-950/90 border-2 border-amber-400/80 flex flex-col items-center justify-center shadow-neon-gold transition-transform duration-75" style="transform: scale(1.02);">
+                            <span class="font-display font-black text-2xl text-transparent bg-clip-text bg-gradient-to-b from-amber-300 to-amber-500 leading-none">
+                                CR7
+                            </span>
+                            <span class="font-tech text-[10px] tracking-widest text-purple-300 uppercase">
+                                AUDIO
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Telemetry Meters (Bass, Mid, Treble Energy) -->
+                <div class="grid grid-cols-3 gap-2.5 z-10 pt-2 border-t border-purple-500/20">
+                    <div class="bg-black/40 rounded-xl p-2.5 border border-purple-500/20">
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1">
+                            <span>LỰC SUB-BASS</span>
+                            <span id="meterBassVal" class="font-tech font-bold text-amber-400">9%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-purple-950 rounded-full overflow-hidden">
+                            <div id="meterBassBar" class="h-full bg-gradient-to-r from-purple-500 to-amber-400 w-0" style="width: 9%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 rounded-xl p-2.5 border border-purple-500/20">
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1">
+                            <span>VOCAL / MID</span>
+                            <span id="meterMidVal" class="font-tech font-bold text-purple-300">6%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-purple-950 rounded-full overflow-hidden">
+                            <div id="meterMidBar" class="h-full bg-gradient-to-r from-indigo-500 to-purple-400 w-0" style="width: 6%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 rounded-xl p-2.5 border border-purple-500/20">
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1">
+                            <span>TREBLE AIR</span>
+                            <span id="meterTrebleVal" class="font-tech font-bold text-fuchsia-300">7%</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-purple-950 rounded-full overflow-hidden">
+                            <div id="meterTrebleBar" class="h-full bg-gradient-to-r from-purple-500 to-pink-400 w-0" style="width: 7%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Track Quick Info & Direct Download Card -->
+            <div class="glass-panel-gold rounded-2xl p-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5 min-w-0">
+                    <div id="deckArtBox" class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-700 via-fuchsia-700 to-amber-500 flex items-center justify-center shrink-0 shadow-neon-purple border border-amber-300/40">
+                        <span class="font-display font-black text-xl text-white">#7</span>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2">
+                            <span id="deckBadge" class="px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">TẠM DỪNG</span>
+                            <span id="deckFormatBadge" class="text-[10px] font-tech text-purple-300 uppercase">MP3 • 1.00x</span>
+                        </div>
+                        <h3 id="deckTitle" class="font-bold text-base text-white truncate mt-1">TALAGI</h3>
+                        <p id="deckArtist" class="text-xs text-gray-400 truncate">kidsai,Dangrangto • Nguyên Bản (Studio)</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                    <button id="deckFavBtn" onclick="toggleCurrentTrackFavorite()" class="w-10 h-10 rounded-xl bg-purple-950/80 hover:bg-purple-800 border border-purple-500/30 flex items-center justify-center text-gray-300 hover:text-rose-500 transition" title="Yêu thích"><i class="fa-regular text-gray-300 fa-heart"></i></button>
+                    <button onclick="openDownloadModalForCurrent()" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-black font-bold text-xs uppercase tracking-wider shadow-neon-gold transition hover:scale-105">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Tải Xuống</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COLUMN 3: REAL-TIME DSP & EQUALIZER FOR ALL LISTENERS (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                <!-- Top Header -->
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-amber-400"></i>
+                            <h3 class="font-display font-bold text-sm tracking-wider uppercase text-white">
+                                Chế Độ Âm Thanh CR7 (EQ &amp; DSP)
+                            </h3>
+                        </div>
+                        <button onclick="applyPreset('flat')" class="text-xs text-purple-300 hover:text-amber-400 font-semibold flex items-center gap-1 transition">
+                            <i class="fa-solid fa-rotate-left"></i> Đặt lại mặc định
+                        </button>
+                    </div>
+
+                    <!-- 6 Custom Sound Mode Presets -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5" id="presetGrid">
+                        <button onclick="applyPreset('flat')" data-preset="flat" class="preset-btn p-2.5 rounded-xl bg-purple-900/60 border border-amber-400 text-left shadow-neon-purple transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-wave-square text-purple-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-gray-400 uppercase">FLAT</span>
+                            </div>
+                            <div class="text-xs font-bold text-white">Nguyên Bản</div>
+                            <div class="text-[10px] text-gray-400 truncate">Chuẩn phòng thu</div>
+                        </button>
+
+                        <button onclick="applyPreset('siuuu_bass')" data-preset="siuuu_bass" class="preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-dumbbell text-amber-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-amber-300 uppercase">HOT #7</span>
+                            </div>
+                            <div class="text-xs font-bold text-amber-300">SIUUU Bass (Gym)</div>
+                            <div class="text-[10px] text-purple-200 truncate">Căng lực đập Sub-Bass</div>
+                        </button>
+
+                        <button onclick="applyPreset('stadium_3d')" data-preset="stadium_3d" class="preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-building-columns text-purple-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-gray-400 uppercase">3D LIVE</span>
+                            </div>
+                            <div class="text-xs font-bold text-white">Sân Vận Động</div>
+                            <div class="text-[10px] text-gray-400 truncate">Vang Bernabéu 3D</div>
+                        </button>
+
+                        <button onclick="applyPreset('goat_vocal')" data-preset="goat_vocal" class="preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-microphone-lines text-purple-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-gray-400 uppercase">HD CLEAR</span>
+                            </div>
+                            <div class="text-xs font-bold text-white">Chế Độ GOAT</div>
+                            <div class="text-[10px] text-gray-400 truncate">Tôn giọng hát sắc nét</div>
+                        </button>
+
+                        <button onclick="applyPreset('night_drive')" data-preset="night_drive" class="preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-car-side text-purple-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-gray-400 uppercase">V-SHAPE</span>
+                            </div>
+                            <div class="text-xs font-bold text-white">Night Drive</div>
+                            <div class="text-[10px] text-gray-400 truncate">Bass sâu &amp; Treble sáng</div>
+                        </button>
+
+                        <button onclick="applyPreset('slowed_reverb')" data-preset="slowed_reverb" class="preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <i class="fa-solid fa-moon text-purple-400 text-xs"></i>
+                                <span class="text-[9px] font-tech text-gray-400 uppercase">CHILL #7</span>
+                            </div>
+                            <div class="text-xs font-bold text-white">Slowed + Reverb</div>
+                            <div class="text-[10px] text-gray-400 truncate">Chậm 0.86x + Vang sâu</div>
+                        </button>
+                    </div>
+
+                    <!-- 6-Band Parametric Equalizer -->
+                    <div class="bg-black/45 border border-purple-500/25 rounded-2xl p-3.5 mb-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[11px] font-tech uppercase tracking-wider text-purple-300 font-bold">
+                                BỘ LỌC TẦN SỐ 6-BAND PARAMETRIC EQ (-12dB đến +12dB)
+                            </span>
+                            <span class="text-[10px] font-tech text-amber-400">REAL-TIME</span>
+                        </div>
+
+                        <div class="grid grid-cols-6 gap-1 text-center">
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal0" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="6" oninput="onEqBandChange(0, this.value)" id="eqSlider0" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">60Hz</span>
+                                <span class="text-[9px] text-gray-500">Sub</span>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal1" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="4" oninput="onEqBandChange(1, this.value)" id="eqSlider1" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">150Hz</span>
+                                <span class="text-[9px] text-gray-500">Punch</span>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal2" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="0" oninput="onEqBandChange(2, this.value)" id="eqSlider2" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">400Hz</span>
+                                <span class="text-[9px] text-gray-500">LowMid</span>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal3" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="1" oninput="onEqBandChange(3, this.value)" id="eqSlider3" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">1kHz</span>
+                                <span class="text-[9px] text-gray-500">Vocal</span>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal4" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="3" oninput="onEqBandChange(4, this.value)" id="eqSlider4" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">3.5kHz</span>
+                                <span class="text-[9px] text-gray-500">Clarity</span>
+                            </div>
+
+                            <div class="flex flex-col items-center">
+                                <span id="eqVal5" class="text-[10px] font-tech font-bold text-purple-300">0dB</span>
+                                <div class="eq-slider-wrapper">
+                                    <input type="range" min="-12" max="12" step="0.5" value="4" oninput="onEqBandChange(5, this.value)" id="eqSlider5" class="eq-vertical">
+                                </div>
+                                <span class="text-[10px] font-tech text-gray-300 font-semibold">10kHz</span>
+                                <span class="text-[9px] text-gray-500">Air</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special CR7 DSP Macro Knobs (Sliders) -->
+                <div class="space-y-3 bg-black/40 border border-purple-500/20 rounded-2xl p-3.5">
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-semibold text-amber-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-fire-flame-curved"></i> Tăng Lực Đập SIUUU Sub-Bass
+                            </span>
+                            <span id="bassBoostLabel" class="font-tech font-bold text-amber-400">+0 dB</span>
+                        </div>
+                        <input id="bassBoostSlider" type="range" min="0" max="15" step="0.5" value="6" oninput="onSpecialDspChange()" class="w-full cr7-slider">
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-semibold text-purple-200 flex items-center gap-1.5">
+                                <i class="fa-solid fa-Satellite-dish"></i> Độ Vang Sân Vận Động (3D Reverb)
+                            </span>
+                            <span id="reverbMixLabel" class="font-tech font-bold text-purple-300">0%</span>
+                        </div>
+                        <input id="reverbMixSlider" type="range" min="0" max="85" step="1" value="15" oninput="onSpecialDspChange()" class="w-full cr7-slider">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-medium">Tốc Độ / Pitch:</span>
+                                <span id="speedLabel" class="font-tech font-bold text-amber-300">1.00x</span>
+                            </div>
+                            <input id="speedSlider" type="range" min="0.65" max="1.35" step="0.01" value="1.00" oninput="onSpecialDspChange()" class="w-full cr7-slider">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-medium">Cân Bằng Loa (L/R):</span>
+                                <span id="panLabel" class="font-tech font-bold text-purple-300">Giữa</span>
+                            </div>
+                            <input id="panSlider" type="range" min="-1" max="1" step="0.05" value="0" oninput="onSpecialDspChange()" class="w-full cr7-slider">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FIXED BOTTOM PLAYER BAR ==================== -->
+    <footer class="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-purple-500/40 px-4 lg:px-8 py-3">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-12 items-center gap-4">
+            
+            <!-- Left: Mini Track Info -->
+            <div class="hidden md:flex md:col-span-3 items-center gap-3 min-w-0">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-amber-500 flex items-center justify-center shrink-0 shadow-neon-purple">
+                    <i id="footerDiscIcon" class="fa-solid fa-compact-disc text-2xl text-black"></i>
+                </div>
+                <div class="min-w-0">
+                    <div id="footerTrackTitle" class="font-bold text-sm text-white truncate">TALAGI</div>
+                    <div id="footerTrackSub" class="text-xs text-purple-300 truncate">kidsai,Dangrangto • Chế độ Nguyên Bản (Studio)</div>
+                </div>
+            </div>
+
+            <!-- Center: Transport Controls & Seek Bar -->
+            <div class="md:col-span-6 flex flex-col items-center gap-1.5">
+                <div class="flex items-center gap-5">
+                    <button id="btnShuffle" onclick="toggleShuffle()" class="text-gray-400 hover:text-white text-sm transition" title="Phát ngẫu nhiên">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                    <button onclick="playPreviousTrack()" class="text-gray-200 hover:text-amber-400 text-lg transition" title="Bài trước">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+
+                    <button id="btnPlayPause" onclick="togglePlayPause()" class="w-11 h-11 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black flex items-center justify-center text-lg shadow-neon-gold transition transform active:scale-90">
+                        <i id="playPauseIcon" class="fa-solid fa-play ml-0.5"></i>
+                    </button>
+
+                    <button onclick="playNextTrack()" class="text-gray-200 hover:text-amber-400 text-lg transition" title="Bài tiếp theo">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+
+                    <button id="btnRepeat" onclick="toggleRepeat()" class="text-gray-400 hover:text-white text-sm transition" title="Lặp lại bài hát">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+                </div>
+
+                <!-- Seek Progress Bar -->
+                <div class="w-full flex items-center gap-3">
+                    <span id="currentTimeText" class="text-[11px] font-tech text-gray-300 w-10 text-right">01:06</span>
+                    <input id="seekBar" type="range" min="0" max="100" step="0.1" value="0" class="flex-1 cr7-slider">
+                    <span id="durationTimeText" class="text-[11px] font-tech text-gray-300 w-10">03:36</span>
+                </div>
+            </div>
+
+            <!-- Right: Volume & Quick Export -->
+            <div class="hidden md:flex md:col-span-3 items-center justify-end gap-3">
+                <button onclick="toggleMute()" class="text-purple-300 hover:text-amber-400 text-sm w-6">
+                    <i id="volumeIcon" class="fa-solid fa-volume-high"></i>
+                </button>
+                <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.9" oninput="onVolumeChange(this.value)" class="w-24 cr7-slider">
+
+                <button onclick="openDownloadModalForCurrent()" class="ml-2 px-3 py-2 rounded-xl bg-purple-900/70 hover:bg-purple-800 border border-purple-400/40 text-xs font-semibold text-amber-300 flex items-center gap-1.5 transition" title="Tải bài hát đang phát">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span class="hidden xl:inline">Tải WAV/MP3</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== EMBEDDED OWNER CONFIGURATION (BAKED WHEN EXPORTING FOR GITHUB PAGES) ==================== -->
+    <script id="cr7OwnerConfigScript">
+        window.CR7_OWNER_CONFIG = {
+    "ownerName": "QuangMinhMusic",
+    "ownerBio": "Chào mừng bạn từ Facebook! Đây là danh sách nhạc yêu thích của mình — hãy bấm nghe và thử chỉnh chế độ SIUUU Bass nhé!",
+    "facebookUrl": "https://facebook.com//Minhkhomatquahuhu",
+    "ownerPin": "2007",
+    "playlist": [
+        {
+            "id": "cr7-1793467010959-4o63i",
+            "title": "TALAGI",
+            "artist": "kidsai,Dangrangto",
+            "src": "https://files.catbox.moe/hcwyj1.mp3",
+            "duration": 216.897596,
+            "fileExt": "mp3",
+            "favorite": false
+        },
+        {
+            "id": "cr7-1793466926438-20wxx",
+            "title": "ROI TU DO",
+            "artist": "SunXix",
+            "src": "https://files.catbox.moe/tphjfe.mp3",
+            "duration": 220.705669,
+            "fileExt": "mp3",
+            "favorite": false
+        },
+        {
+            "id": "cr7-1793466466763-v3q8l",
+            "title": "Anh Đã Từ Bỏ Rồi Đấy",
+            "artist": "QuangMinhMusic",
+            "src": "music/Anh Đã Từ Bỏ Rồi Đấy.mp3",
+            "duration": 304.013396,
+            "fileExt": "mp3",
+            "favorite": false
+        }
+    ]
+};
+    </script>
+
+    <!-- ==================== APPLICATION LOGIC & WEB AUDIO API ==================== -->
+    <script>
+        /********************************************************************
+         * 1. GLOBAL STATE & CR7 SOUND PRESETS
+         ********************************************************************/
+        const EQ_FREQUENCIES = [60, 150, 400, 1000, 3500, 10000];
+
+        const CR7_PRESETS = {
+            flat: {
+                name: 'Nguyên Bản (Studio)',
+                eq: [0, 0, 0, 0, 0, 0],
+                bassBoost: 0,
+                reverbMix: 0,
+                speed: 1.00,
+                pan: 0
+            },
+            siuuu_bass: {
+                name: 'SIUUU Bass (Gym)',
+                eq: [6, 4, 0, 1, 3, 4],
+                bassBoost: 6,
+                reverbMix: 15,
+                speed: 1.00,
+                pan: 0
+            },
+            stadium_3d: {
+                name: 'Sân Vận Động (3D Live)',
+                eq: [4, 2, -1, 2, 4, 5],
+                bassBoost: 4,
+                reverbMix: 52,
+                speed: 1.00,
+                pan: 0
+            },
+            goat_vocal: {
+                name: 'Chế Độ GOAT (Vocal HD)',
+                eq: [1, 0, 2, 5, 4.5, 3],
+                bassBoost: 1.5,
+                reverbMix: 12,
+                speed: 1.00,
+                pan: 0
+            },
+            night_drive: {
+                name: 'Night Drive (V-Shape)',
+                eq: [7.5, 4.5, -2, 0, 4.5, 7],
+                bassBoost: 7.5,
+                reverbMix: 28,
+                speed: 1.00,
+                pan: 0
+            },
+            slowed_reverb: {
+                name: 'Slowed + Reverb #7',
+                eq: [5, 3, 0, -1, 2, 3],
+                bassBoost: 5,
+                reverbMix: 58,
+                speed: 0.86,
+                pan: 0
+            }
+        };
+
+        let ownerConfig = JSON.parse(JSON.stringify(window.CR7_OWNER_CONFIG));
+        let isOwnerMode = false; // ALWAYS false by default so Facebook visitors are in Read-Only mode!
+
+        let tracks = [];
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let isShuffle = false;
+        let isRepeat = false;
+        let isMuted = false;
+        let lastVolume = 0.9;
+        let playlistFilter = 'all';
+        let visualizerMode = 'ring';
+        let activePresetKey = 'siuuu_bass';
+        let selectedDownloadTrackId = null;
+        let isSeeking = false;
+
+        // Current DSP state
+        let dspState = {
+            eq: [6, 4, 0, 1, 3, 4],
+            bassBoost: 6,
+            reverbMix: 15,
+            speed: 1.00,
+            pan: 0
+        };
+
+        // Web Audio API Nodes
+        let audioCtx = null;
+        let mediaSourceNode = null;
+        let eqFilterNodes = [];
+        let subBassNode = null;
+        let dryGainNode = null;
+        let wetReverbGainNode = null;
+        let convolverNode = null;
+        let stereoPannerNode = null;
+        let masterGainNode = null;
+        let analyserNode = null;
+
+        const audioEl = document.getElementById('mainAudio');
+
+        /********************************************************************
+         * 2. WAV ENCODER & INDEXEDDB LOCAL CACHE (FOR OWNER PREVIEWING)
+         * And Automatic `playlist.json` + Embedded `CR7_OWNER_CONFIG` Loader
+         ********************************************************************/
+        const DB_NAME = 'CR7_AudioVault_DB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'tracks';
+        let dbInstance = null;
+        let clearConfirmTimeout = null;
+        let isAwaitingClearConfirm = false;
+
+        function encodeAudioBufferToWavBlob(audioBuffer) {
+            const numOfChan = audioBuffer.numberOfChannels;
+            const length = audioBuffer.length * numOfChan * 2 + 44;
+            const buffer = new ArrayBuffer(length);
+            const view = new DataView(buffer);
+            const channels = [];
+            let sample, offset = 0, pos = 0;
+
+            function setUint16(data) { view.setUint16(pos, data, true); pos += 2; }
+            function setUint32(data) { view.setUint32(data, pos, true); pos += 4; }
+
+            setUint32(0x46464952);
+            setUint32(length - 8);
+            setUint32(0x45564157);
+            setUint32(0x20746d66);
+            setUint32(16);
+            setUint16(1);
+            setUint16(numOfChan);
+            setUint32(audioBuffer.sampleRate);
+            setUint32(audioBuffer.sampleRate * 2 * numOfChan);
+            setUint16(numOfChan * 2);
+            setUint16(16);
+            setUint32(0x61746164);
+            setUint32(length - pos - 4);
+
+            for (let i = 0; i < numOfChan; i++) {
+                channels.push(audioBuffer.getChannelData(i));
+            }
+
+            while (pos < length) {
+                for (let i = 0; i < numOfChan; i++) {
+                    sample = Math.max(-1, Math.min(1, channels[i][offset]));
+                    sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0;
+                    view.setInt16(pos, sample, true);
+                    pos += 2;
+                }
+                offset++;
+            }
+
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        function openAudioVaultDB() {
+            return new Promise((resolve, reject) => {
+                if (dbInstance) return resolve(dbInstance);
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                    }
+                };
+
+                request.onsuccess = (e) => {
+                    dbInstance = e.target.result;
+                    resolve(dbInstance);
+                };
+
+                request.onerror = (e) => {
+                    reject(e.target.error);
+                };
+            });
+        }
+
+        async function saveTrackToDB(track) {
+            try {
+                const db = await openAudioVaultDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    const record = {
+                        id: track.id,
+                        title: track.title,
+                        artist: track.artist,
+                        src: track.src || '',
+                        blob: track.blob || null,
+                        size: track.size || (track.blob ? track.blob.size : 0),
+                        duration: track.duration || 0,
+                        favorite: !!track.favorite,
+                        fileExt: track.fileExt || 'mp3',
+                        createdAt: track.createdAt || Date.now()
+                    };
+                    store.put(record);
+                    tx.oncomplete = () => resolve(true);
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            } catch (err) {
+                console.warn('IndexedDB save notice:', err);
+            }
+        }
+
+        async function deleteTrackFromDB(trackId) {
+            try {
+                const db = await openAudioVaultDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    tx.objectStore(STORE_NAME).delete(trackId);
+                    tx.oncomplete = () => resolve(true);
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            } catch (err) {
+                console.warn('IndexedDB delete notice:', err);
+            }
+        }
+
+        async function clearAllTracksFromDB() {
+            try {
+                const db = await openAudioVaultDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    tx.objectStore(STORE_NAME).clear();
+                    tx.oncomplete = () => resolve(true);
+                    tx.onerror = (e) => reject(e.target.error);
+                });
+            } catch (err) {
+                console.warn('IndexedDB clear notice:', err);
+            }
+        }
+
+        async function loadLocalCachedTracksFromDB() {
+            try {
+                const db = await openAudioVaultDB();
+                return new Promise((resolve) => {
+                    const tx = db.transaction(STORE_NAME, 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const req = store.getAll();
+                    req.onsuccess = () => resolve(req.result || []);
+                    req.onerror = () => resolve([]);
+                });
+            } catch (err) {
+                return [];
+            }
+        }
+
+        // Load Visitor/Owner Favorites stored locally per listener browser
+        function getVisitorLikedIds() {
+            try {
+                return JSON.parse(localStorage.getItem('cr7_visitor_likes') || '[]');
+            } catch {
+                return [];
+            }
+        }
+
+        function setVisitorLikedIds(ids) {
+            try {
+                localStorage.setItem('cr7_visitor_likes', JSON.stringify(ids));
+            } catch {}
+        }
+
+        /**
+         * Master Loader:
+         * 1. Checks if `./playlist.json` exists in the GitHub Pages repository.
+         * 2. Merges with embedded `window.CR7_OWNER_CONFIG`.
+         * 3. Matches any local blobs in `IndexedDB` so the Owner can preview newly added local files immediately before pushing to GitHub!
+         */
+        async function initializeShowcaseData() {
+            // Step 1: Try fetching ./playlist.json from GitHub Pages repo if available
+            try {
+                const res = await fetch('./playlist.json?t=' + Date.now(), { cache: 'no-store' });
+                if (res.ok) {
+                    const externalJson = await res.json();
+                    if (externalJson && typeof externalJson === 'object') {
+                        if (externalJson.ownerName) ownerConfig.ownerName = externalJson.ownerName;
+                        if (externalJson.ownerBio) ownerConfig.ownerBio = externalJson.ownerBio;
+                        if (externalJson.facebookUrl) ownerConfig.facebookUrl = externalJson.facebookUrl;
+                        if (Array.isArray(externalJson.playlist) && externalJson.playlist.length > 0) {
+                            ownerConfig.playlist = externalJson.playlist;
+                        }
+                    }
+                }
+            } catch (e) {
+                // Normal when no external playlist.json is used (using embedded CR7_OWNER_CONFIG)
+            }
+
+            // Step 2: Check localStorage owner draft on this browser (if owner edited profile recently)
+            try {
+                const savedOwnerMeta = localStorage.getItem('cr7_owner_meta_draft');
+                if (savedOwnerMeta) {
+                    const parsed = JSON.parse(savedOwnerMeta);
+                    if (parsed.ownerName) ownerConfig.ownerName = parsed.ownerName;
+                    if (parsed.ownerBio) ownerConfig.ownerBio = parsed.ownerBio;
+                    if (parsed.facebookUrl) ownerConfig.facebookUrl = parsed.facebookUrl;
+                    if (parsed.ownerPin) ownerConfig.ownerPin = parsed.ownerPin;
+                }
+            } catch {}
+
+            // Step 3: Load any local IndexedDB tracks cached on the owner's machine
+            const cachedRecords = await loadLocalCachedTracksFromDB();
+            const cachedMapById = new Map();
+            const cachedMapBySrc = new Map();
+            cachedRecords.forEach(r => {
+                cachedMapById.set(r.id, r);
+                if (r.src) cachedMapBySrc.set(r.src, r);
+            });
+
+            const likedIds = getVisitorLikedIds();
+            const combinedTracks = [];
+            const seenIds = new Set();
+
+            // First load all tracks from Owner's public config / playlist.json
+            if (Array.isArray(ownerConfig.playlist)) {
+                for (const item of ownerConfig.playlist) {
+                    const id = item.id || ('cr7-' + Math.random().toString(36).substring(2, 8));
+                    seenIds.add(id);
+                    const cached = cachedMapById.get(id) || cachedMapBySrc.get(item.src);
+                    const blob = cached && cached.blob ? cached.blob : null;
+                    const playUrl = blob ? URL.createObjectURL(blob) : (item.src || '');
+
+                    combinedTracks.push({
+                        id: id,
+                        title: item.title || 'Bài Hát Tuyển Chọn',
+                        artist: item.artist || ownerConfig.ownerName,
+                        src: item.src || '',
+                        blob: blob,
+                        size: item.size || (blob ? blob.size : 0),
+                        url: playUrl,
+                        duration: item.duration || (cached ? cached.duration : 0) || 0,
+                        favorite: likedIds.includes(id) || !!item.favorite,
+                        fileExt: item.fileExt || (item.src ? (item.src.split('.').pop().split('?')[0] || 'mp3') : 'mp3'),
+                        createdAt: item.createdAt || Date.now()
+                    });
+                }
+            }
+
+            // Next, append any local IndexedDB tracks added by Owner on this computer not yet baked into config
+            cachedRecords.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            for (const r of cachedRecords) {
+                if (!seenIds.has(r.id)) {
+                    const playUrl = r.blob ? URL.createObjectURL(r.blob) : (r.src || '');
+                    combinedTracks.push({
+                        id: r.id,
+                        title: r.title,
+                        artist: r.artist || ownerConfig.ownerName,
+                        src: r.src || `music/${sanitizeFilenameForGithub(r.title)}.${r.fileExt || 'mp3'}`,
+                        blob: r.blob || null,
+                        size: r.size || (r.blob ? r.blob.size : 0),
+                        url: playUrl,
+                        duration: r.duration || 0,
+                        favorite: likedIds.includes(r.id) || !!r.favorite,
+                        fileExt: r.fileExt || 'mp3',
+                        createdAt: r.createdAt || Date.now()
+                    });
+                }
+            }
+
+            tracks = combinedTracks;
+            syncOwnerProfileUI();
+            renderPlaylist();
+        }
+
+        function sanitizeFilenameForGithub(name) {
+            return name
+                .trim()
+                .replace(/\s+/g, '-')
+                .replace(/[^a-zA-Z0-9_\-\.]/g, '')
+                .toLowerCase() || 'track';
+        }
+
+        /********************************************************************
+         * 3. OWNER PROFILE & VISITOR VS OWNER MODE MANAGEMENT
+         ********************************************************************/
+        function syncOwnerProfileUI() {
+            document.getElementById('bannerOwnerName').textContent = ownerConfig.ownerName || 'Chủ Nhân CR7 Arena';
+            document.getElementById('bannerOwnerBio').textContent = ownerConfig.ownerBio || '';
+            const fbLink = document.getElementById('bannerFbLink');
+            fbLink.href = ownerConfig.facebookUrl || 'https://facebook.com';
+
+            // Populate Owner Studio inputs
+            document.getElementById('ownerNameInput').value = ownerConfig.ownerName || '';
+            document.getElementById('ownerBioInput').value = ownerConfig.ownerBio || '';
+            document.getElementById('ownerFbInput').value = ownerConfig.facebookUrl || '';
+            document.getElementById('ownerNewPinInput').value = ownerConfig.ownerPin || '7777';
+        }
+
+        function updateOwnerConfigFromInputs() {
+            if (!isOwnerMode) return;
+            ownerConfig.ownerName = document.getElementById('ownerNameInput').value.trim() || 'Chủ Nhân CR7 Arena';
+            ownerConfig.ownerBio = document.getElementById('ownerBioInput').value.trim();
+            ownerConfig.facebookUrl = document.getElementById('ownerFbInput').value.trim() || 'https://facebook.com';
+            ownerConfig.ownerPin = document.getElementById('ownerNewPinInput').value.trim() || '7777';
+
+            document.getElementById('bannerOwnerName').textContent = ownerConfig.ownerName;
+            document.getElementById('bannerOwnerBio').textContent = ownerConfig.ownerBio;
+            document.getElementById('bannerFbLink').href = ownerConfig.facebookUrl;
+
+            try {
+                localStorage.setItem('cr7_owner_meta_draft', JSON.stringify({
+                    ownerName: ownerConfig.ownerName,
+                    ownerBio: ownerConfig.ownerBio,
+                    facebookUrl: ownerConfig.facebookUrl,
+                    ownerPin: ownerConfig.ownerPin
+                }));
+            } catch {}
+        }
+
+        function handleOwnerAccessButtonClick() {
+            if (isOwnerMode) {
+                lockOwnerStudioToVisitorPreview();
+            } else {
+                openOwnerPinModal();
+            }
+        }
+
+        function openOwnerPinModal() {
+            document.getElementById('pinErrorMsg').classList.add('hidden');
+            const input = document.getElementById('ownerPinInput');
+            input.value = '';
+            document.getElementById('ownerPinModal').classList.remove('hidden');
+            document.getElementById('ownerPinModal').classList.add('flex');
+            setTimeout(() => input.focus(), 80);
+        }
+
+        function closeOwnerPinModal() {
+            document.getElementById('ownerPinModal').classList.add('hidden');
+            document.getElementById('ownerPinModal').classList.remove('flex');
+        }
+
+        function handleVerifyOwnerPin(e) {
+            e.preventDefault();
+            const entered = document.getElementById('ownerPinInput').value.trim();
+            const validPin = (ownerConfig.ownerPin || '7777').trim();
+
+            if (entered === validPin) {
+                closeOwnerPinModal();
+                setOwnerStudioMode(true);
+                showToast('👑 Đã mở khóa Phòng Quản Trị Chủ Nhân! Bạn có thể thêm/xóa nhạc và xuất file GitHub.', 'gold');
+            } else {
+                document.getElementById('pinErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function lockOwnerStudioToVisitorPreview() {
+            setOwnerStudioMode(false);
+            showToast('👁️ Đã chuyển sang Chế Độ Khách Nghe Nhạc (Read-Only). Khách từ Facebook sẽ thấy giao diện này!', 'purple');
+        }
+
+        function setOwnerStudioMode(enabled) {
+            isOwnerMode = !!enabled;
+            const studioSection = document.getElementById('ownerStudioSection');
+            const modeBadge = document.getElementById('modeHeaderBadge');
+            const accessIcon = document.getElementById('ownerAccessIcon');
+            const accessText = document.getElementById('ownerAccessText');
+            const subBarIcon = document.getElementById('playlistSubBarIcon');
+            const subBarText = document.getElementById('playlistSubBarText');
+            const visitorNotice = document.getElementById('visitorPermissionNotice');
+
+            if (isOwnerMode) {
+                studioSection.classList.remove('hidden');
+                modeBadge.className = 'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-tech font-bold uppercase tracking-wider bg-amber-400 text-black shadow-neon-gold';
+                modeBadge.innerHTML = '<i class="fa-solid fa-crown"></i> Chế Độ Chủ Nhân (Admin)';
+                accessIcon.className = 'fa-solid fa-lock-open text-emerald-400';
+                accessText.textContent = 'Khóa Lại (Xem Như Khách)';
+                subBarIcon.className = 'fa-solid fa-pen-to-square text-emerald-400';
+                subBarText.textContent = 'Quyền Chủ Nhân: Được phép Thêm / Sửa thứ tự / Xóa bài hát';
+                visitorNotice.textContent = 'Đang mở quyền Chủ Nhân: Có thể thêm/xóa nhạc';
+            } else {
+                studioSection.classList.add('hidden');
+                modeBadge.className = 'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-tech font-bold uppercase tracking-wider bg-purple-950/90 text-purple-300 border border-purple-500/40';
+                modeBadge.innerHTML = '<i class="fa-solid fa-headphones text-amber-400"></i> Chế Độ Khách Nghe Nhạc';
+                accessIcon.className = 'fa-solid fa-lock text-amber-400';
+                accessText.textContent = 'Quản Trị Chủ Nhân';
+                subBarIcon.className = 'fa-solid fa-lock text-amber-400';
+                subBarText.textContent = 'Playlist chính thức của Chủ Nhân (Chỉ nghe)';
+                visitorNotice.textContent = 'Chế độ Khách: Chỉ nghe & chỉnh hiệu ứng âm thanh';
+            }
+
+            renderPlaylist();
+        }
+
+        function openGithubGuideModal() {
+            document.getElementById('githubGuideModal').classList.remove('hidden');
+            document.getElementById('githubGuideModal').classList.add('flex');
+        }
+
+        function closeGithubGuideModal() {
+            document.getElementById('githubGuideModal').classList.add('hidden');
+            document.getElementById('githubGuideModal').classList.remove('flex');
+        }
+
+        function copyWebsiteShareLink() {
+            const url = window.location.href;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast('Đã sao chép đường link trang web! Hãy dán lên Tiểu sử Facebook của bạn.', 'gold');
+            } catch (err) {
+                showToast('Link của bạn: ' + url, 'purple');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        /********************************************************************
+         * 4. REAL-TIME WEB AUDIO API DSP GRAPH
+         ********************************************************************/
+        function createStadiumImpulseResponse(ctx, durationSeconds = 2.6, decay = 2.3) {
+            const rate = ctx.sampleRate;
+            const length = Math.floor(rate * durationSeconds);
+            const impulse = ctx.createBuffer(2, length, rate);
+
+            for (let ch = 0; ch < 2; ch++) {
+                const channelData = impulse.getChannelData(ch);
+                for (let i = 0; i < length; i++) {
+                    const n = i / length;
+                    const env = Math.pow(1 - n, decay);
+                    const earlyEcho = (i % Math.floor(rate * 0.065) < 120) ? 1.35 : 1.0;
+                    channelData[i] = (Math.random() * 2 - 1) * env * earlyEcho;
+                }
+            }
+            return impulse;
+        }
+
+        function initWebAudioEngine() {
+            if (audioCtx) return;
+
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContextClass();
+
+            mediaSourceNode = audioCtx.createMediaElementSource(audioEl);
+
+            subBassNode = audioCtx.createBiquadFilter();
+            subBassNode.type = 'lowshelf';
+            subBassNode.frequency.value = 65;
+            subBassNode.gain.value = dspState.bassBoost;
+
+            eqFilterNodes = EQ_FREQUENCIES.map((freq, idx) => {
+                const filter = audioCtx.createBiquadFilter();
+                if (idx === 0) filter.type = 'lowshelf';
+                else if (idx === EQ_FREQUENCIES.length - 1) filter.type = 'highshelf';
+                else filter.type = 'peaking';
+
+                filter.frequency.value = freq;
+                filter.Q.value = 1.1;
+                filter.gain.value = dspState.eq[idx];
+                return filter;
+            });
+
+            convolverNode = audioCtx.createConvolver();
+            convolverNode.buffer = createStadiumImpulseResponse(audioCtx, 2.5, 2.2);
+
+            dryGainNode = audioCtx.createGain();
+            wetReverbGainNode = audioCtx.createGain();
+
+            stereoPannerNode = audioCtx.createStereoPanner();
+            masterGainNode = audioCtx.createGain();
+            masterGainNode.gain.value = parseFloat(document.getElementById('volumeSlider').value || 0.9);
+
+            analyserNode = audioCtx.createAnalyser();
+            analyserNode.fftSize = 256;
+            analyserNode.smoothingTimeConstant = 0.82;
+
+            mediaSourceNode.connect(subBassNode);
+            let prevNode = subBassNode;
+            eqFilterNodes.forEach(filter => {
+                prevNode.connect(filter);
+                prevNode = filter;
+            });
+
+            prevNode.connect(dryGainNode);
+            prevNode.connect(convolverNode);
+            convolverNode.connect(wetReverbGainNode);
+
+            dryGainNode.connect(stereoPannerNode);
+            wetReverbGainNode.connect(stereoPannerNode);
+
+            stereoPannerNode.connect(masterGainNode);
+            masterGainNode.connect(analyserNode);
+            analyserNode.connect(audioCtx.destination);
+
+            syncDspNodesWithState();
+            document.getElementById('headerEngineState').textContent = 'ONLINE 32-BIT';
+        }
+
+        function syncDspNodesWithState() {
+            const wet = dspState.reverbMix / 100;
+            const dry = Math.max(0.35, 1 - wet * 0.45);
+
+            if (audioCtx) {
+                const now = audioCtx.currentTime;
+                subBassNode.gain.setTargetAtTime(dspState.bassBoost, now, 0.03);
+                eqFilterNodes.forEach((node, idx) => {
+                    node.gain.setTargetAtTime(dspState.eq[idx], now, 0.03);
+                });
+                dryGainNode.gain.setTargetAtTime(dry, now, 0.03);
+                wetReverbGainNode.gain.setTargetAtTime(wet, now, 0.03);
+                stereoPannerNode.pan.setTargetAtTime(dspState.pan, now, 0.03);
+            }
+
+            audioEl.playbackRate = dspState.speed;
+        }
+
+        /********************************************************************
+         * 5. EQUALIZER & PRESET CONTROLS (AVAILABLE TO ALL VISITORS)
+         ********************************************************************/
+        function onEqBandChange(bandIndex, val) {
+            const numericVal = parseFloat(val);
+            dspState.eq[bandIndex] = numericVal;
+
+            const label = document.getElementById(`eqVal${bandIndex}`);
+            label.textContent = (numericVal > 0 ? `+${numericVal}` : numericVal) + 'dB';
+            label.className = numericVal > 0
+                ? 'text-[10px] font-tech font-bold text-amber-400'
+                : 'text-[10px] font-tech font-bold text-purple-300';
+
+            activePresetKey = 'custom';
+            document.getElementById('headerPresetBadge').textContent = 'TÙY CHỈNH (CUSTOM)';
+            highlightPresetButton('custom');
+            syncDspNodesWithState();
+        }
+
+        function onSpecialDspChange() {
+            const bassBoost = parseFloat(document.getElementById('bassBoostSlider').value);
+            const reverbMix = parseFloat(document.getElementById('reverbMixSlider').value);
+            const speed = parseFloat(document.getElementById('speedSlider').value);
+            const pan = parseFloat(document.getElementById('panSlider').value);
+
+            dspState.bassBoost = bassBoost;
+            dspState.reverbMix = reverbMix;
+            dspState.speed = speed;
+            dspState.pan = pan;
+
+            document.getElementById('bassBoostLabel').textContent = `+${bassBoost} dB`;
+            document.getElementById('reverbMixLabel').textContent = `${reverbMix}%`;
+            document.getElementById('speedLabel').textContent = `${speed.toFixed(2)}x`;
+
+            let panText = 'Giữa';
+            if (pan < -0.05) panText = `Trái ${Math.round(Math.abs(pan) * 100)}%`;
+            else if (pan > 0.05) panText = `Phải ${Math.round(pan * 100)}%`;
+            document.getElementById('panLabel').textContent = panText;
+
+            syncDspNodesWithState();
+        }
+
+        function applyPreset(presetKey) {
+            const preset = CR7_PRESETS[presetKey];
+            if (!preset) return;
+
+            activePresetKey = presetKey;
+            dspState.eq = [...preset.eq];
+            dspState.bassBoost = preset.bassBoost;
+            dspState.reverbMix = preset.reverbMix;
+            dspState.speed = preset.speed;
+            dspState.pan = preset.pan;
+
+            dspState.eq.forEach((gainVal, idx) => {
+                const slider = document.getElementById(`eqSlider${idx}`);
+                const label = document.getElementById(`eqVal${idx}`);
+                if (slider) slider.value = gainVal;
+                if (label) {
+                    label.textContent = (gainVal > 0 ? `+${gainVal}` : gainVal) + 'dB';
+                    label.className = gainVal > 0
+                        ? 'text-[10px] font-tech font-bold text-amber-400'
+                        : 'text-[10px] font-tech font-bold text-purple-300';
+                }
+            });
+
+            document.getElementById('bassBoostSlider').value = dspState.bassBoost;
+            document.getElementById('reverbMixSlider').value = dspState.reverbMix;
+            document.getElementById('speedSlider').value = dspState.speed;
+            document.getElementById('panSlider').value = dspState.pan;
+
+            onSpecialDspChange();
+            document.getElementById('headerPresetBadge').textContent = preset.name.toUpperCase();
+            highlightPresetButton(presetKey);
+            updateDeckAndFooterText();
+            showToast(`Đã kích hoạt chế độ: ${preset.name}`, 'purple');
+        }
+
+        function highlightPresetButton(activeKey) {
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                const key = btn.getAttribute('data-preset');
+                if (key === activeKey) {
+                    btn.className = 'preset-btn p-2.5 rounded-xl bg-purple-900/60 border border-amber-400 text-left shadow-neon-purple transition';
+                } else {
+                    btn.className = 'preset-btn p-2.5 rounded-xl bg-black/50 hover:bg-purple-900/50 border border-purple-500/30 text-left transition';
+                }
+            });
+        }
+
+        /********************************************************************
+         * 6. PLAYLIST RENDERING (VISITOR READ-ONLY VS OWNER EDIT CONTROLS)
+         ********************************************************************/
+        function renderPlaylist() {
+            const container = document.getElementById('playlistContainer');
+            const query = document.getElementById('searchTrackInput').value.trim().toLowerCase();
+
+            const allCount = tracks.length;
+            const favCount = tracks.filter(t => t.favorite).length;
+            document.getElementById('countAll').textContent = allCount;
+            document.getElementById('countFav').textContent = favCount;
+            document.getElementById('headerTrackCount').textContent = `${allCount} bài hát`;
+
+            if (tracks.length === 0) {
+                if (isOwnerMode) {
+                    container.innerHTML = `
+                        <div class="text-center py-10 px-4 border border-dashed border-amber-400/40 rounded-2xl bg-black/40 my-2">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-950/80 border border-amber-400/40 mx-auto flex items-center justify-center mb-3 shadow-neon-gold">
+                                <i class="fa-solid fa-crown text-xl text-amber-400"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white mb-1">Chưa Có Bài Hát Nào Trong Playlist</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                                Bạn đang ở <strong class="text-amber-300">Chế Độ Chủ Nhân</strong>. Hãy chọn file nhạc từ máy tính hoặc dán link nhạc ở bảng trên, sau đó bấm <strong class="text-emerald-300">"Xuất File index.html Đã Khóa Playlist"</strong> để up lên GitHub!
+                            </p>
+                            <button onclick="document.getElementById('fileUploadInput').click()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-amber-500 text-black font-bold text-xs uppercase tracking-wider shadow-neon-purple hover:scale-105 transition">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Thêm Nhạc Của Chủ Nhân</span>
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="text-center py-12 px-4 border border-dashed border-purple-500/25 rounded-2xl bg-black/30 my-2">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-950/80 border border-purple-400/30 mx-auto flex items-center justify-center mb-3">
+                                <span class="font-display font-black text-xl text-amber-400">#7</span>
+                            </div>
+                            <h4 class="text-sm font-bold text-white mb-1">Danh Sách Nhạc Đang Được Cập Nhật</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed">
+                                Chủ nhân trang web đang tuyển chọn các bản nhạc yêu thích. Nếu bạn là Chủ Nhân, hãy bấm nút <strong class="text-amber-300">"🔒 Quản Trị Chủ Nhân"</strong> ở góc trên bên phải để thêm nhạc!
+                            </p>
+                        </div>
+                    `;
+                }
+                return;
+            }
+
+            const filtered = tracks.filter((t) => {
+                if (playlistFilter === 'fav' && !t.favorite) return false;
+                if (query && !t.title.toLowerCase().includes(query) && !t.artist.toLowerCase().includes(query)) return false;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 text-gray-400 text-xs">
+                        <i class="fa-solid fa-compact-disc text-3xl text-purple-500/40 mb-2 block"></i>
+                        Không tìm thấy bài hát nào phù hợp.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(track => {
+                const realIdx = tracks.findIndex(item => item.id === track.id);
+                const isCurrent = realIdx === currentTrackIndex;
+                const pathLabel = track.src ? track.src : 'Local Preview';
+
+                return `
+                    <div class="group flex items-center justify-between gap-2.5 p-2.5 rounded-xl border transition cursor-pointer ${
+                        isCurrent 
+                            ? 'bg-gradient-to-r from-purple-900/75 via-purple-950/80 to-amber-500/15 border-amber-400/60 shadow-neon-purple' 
+                            : 'bg-black/40 hover:bg-purple-950/40 border-purple-500/20'
+                    }" onclick="selectAndPlayTrack(${realIdx})">
+                        
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <!-- Index or Playing Indicator -->
+                            <div class="w-8 h-8 rounded-lg ${isCurrent ? 'bg-amber-400 text-black' : 'bg-purple-950 text-purple-300'} flex items-center justify-center shrink-0 font-tech font-bold text-xs">
+                                ${isCurrent && isPlaying ? `
+                                    <div class="flex items-end gap-0.5 h-4">
+                                        <span class="w-1 bg-black rounded-full playing-bar-1"></span>
+                                        <span class="w-1 bg-black rounded-full playing-bar-2"></span>
+                                        <span class="w-1 bg-black rounded-full playing-bar-3"></span>
+                                    </div>
+                                ` : `#${realIdx + 1}`}
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold ${isCurrent ? 'text-amber-300' : 'text-white'} truncate flex items-center gap-1.5">
+                                    <span>${escapeHtml(track.title)}</span>
+                                    <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-tech uppercase">${escapeHtml((track.fileExt || 'mp3').toUpperCase())}</span>
+                                </div>
+                                <div class="text-[11px] text-gray-400 truncate">
+                                    <span>${escapeHtml(track.artist)}</span>
+                                    ${track.duration > 0 ? ` • <span class="font-tech text-gray-300">${formatTime(track.duration)}</span>` : ''}
+                                    ${isOwnerMode ? ` • <code class="text-[10px] text-purple-300">${escapeHtml(pathLabel)}</code>` : ''}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions: Visitors ONLY see Favorite & Download; Owner ALSO sees Move Up/Down & Delete -->
+                        <div class="flex items-center gap-1 shrink-0" onclick="event.stopPropagation()">
+                            <button onclick="toggleTrackFavorite('${track.id}')" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 flex items-center justify-center transition" title="Yêu thích">
+                                <i class="${track.favorite ? 'fa-solid text-rose-500' : 'fa-regular text-gray-400'} fa-heart text-xs"></i>
+                            </button>
+                            <button onclick="openDownloadModal('${track.id}')" class="w-7 h-7 rounded-lg bg-purple-900/60 hover:bg-amber-400 hover:text-black text-amber-300 flex items-center justify-center transition" title="Tải bài hát này về máy">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </button>
+                            ${isOwnerMode ? `
+                                <button onclick="moveTrackOrder(${realIdx}, -1)" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 text-gray-400 hover:text-white flex items-center justify-center transition" title="Đẩy lên trên">
+                                    <i class="fa-solid fa-arrow-up text-[10px]"></i>
+                                </button>
+                                <button onclick="moveTrackOrder(${realIdx}, 1)" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 text-gray-400 hover:text-white flex items-center justify-center transition" title="Đẩy xuống dưới">
+                                    <i class="fa-solid fa-arrow-down text-[10px]"></i>
+                                </button>
+                                <button onclick="deleteTrack('${track.id}')" class="w-7 h-7 rounded-lg hover:bg-rose-500/20 text-gray-400 hover:text-rose-400 flex items-center justify-center transition" title="Xóa bài hát (Chỉ Chủ Nhân)">
+                                    <i class="fa-solid fa-trash-can text-xs"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function moveTrackOrder(index, direction) {
+            if (!isOwnerMode) return;
+            const targetIdx = index + direction;
+            if (targetIdx < 0 || targetIdx >= tracks.length) return;
+            const temp = tracks[index];
+            tracks[index] = tracks[targetIdx];
+            tracks[targetIdx] = temp;
+
+            if (currentTrackIndex === index) currentTrackIndex = targetIdx;
+            else if (currentTrackIndex === targetIdx) currentTrackIndex = index;
+
+            renderPlaylist();
+        }
+
+        async function deleteTrack(trackId) {
+            if (!isOwnerMode) return;
+            const idx = tracks.findIndex(t => t.id === trackId);
+            if (idx === -1) return;
+
+            const removed = tracks[idx];
+            if (removed.blob && removed.url) URL.revokeObjectURL(removed.url);
+            await deleteTrackFromDB(trackId);
+            tracks.splice(idx, 1);
+
+            if (tracks.length === 0) {
+                audioEl.pause();
+                audioEl.removeAttribute('src');
+                isPlaying = false;
+                currentTrackIndex = 0;
+                updatePlayPauseUI();
+                updateDeckAndFooterText();
+            } else if (idx === currentTrackIndex) {
+                currentTrackIndex = idx % tracks.length;
+                audioEl.src = tracks[currentTrackIndex].url;
+                if (isPlaying) audioEl.play();
+                updateDeckAndFooterText();
+            } else if (idx < currentTrackIndex) {
+                currentTrackIndex--;
+            }
+
+            renderPlaylist();
+            showToast(`Đã xóa bài hát: ${removed.title}`, 'purple');
+        }
+
+        async function handleClearAllClick() {
+            if (!isOwnerMode) return;
+            const btnText = document.getElementById('clearAllBtnText');
+            if (!isAwaitingClearConfirm) {
+                isAwaitingClearConfirm = true;
+                btnText.textContent = 'Bấm lần nữa để xóa!';
+                clearTimeout(clearConfirmTimeout);
+                clearConfirmTimeout = setTimeout(() => {
+                    isAwaitingClearConfirm = false;
+                    btnText.textContent = 'Xóa hết nhạc';
+                }, 3000);
+                return;
+            }
+
+            isAwaitingClearConfirm = false;
+            btnText.textContent = 'Xóa hết nhạc';
+            tracks.forEach(t => { if (t.blob && t.url) URL.revokeObjectURL(t.url); });
+            tracks = [];
+            ownerConfig.playlist = [];
+            await clearAllTracksFromDB();
+
+            audioEl.pause();
+            audioEl.removeAttribute('src');
+            isPlaying = false;
+            currentTrackIndex = 0;
+            updatePlayPauseUI();
+            updateDeckAndFooterText();
+            renderPlaylist();
+            showToast('Đã xóa toàn bộ bài hát trong danh sách.', 'rose');
+        }
+
+        function setPlaylistFilter(filter) {
+            playlistFilter = filter;
+            const tabAll = document.getElementById('tabAll');
+            const tabFav = document.getElementById('tabFav');
+            if (filter === 'all') {
+                tabAll.className = 'px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition';
+                tabFav.className = 'px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition flex items-center gap-1';
+            } else {
+                tabFav.className = 'px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition flex items-center gap-1';
+                tabAll.className = 'px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition';
+            }
+            renderPlaylist();
+        }
+
+        function selectAndPlayTrack(index) {
+            if (index < 0 || index >= tracks.length) return;
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            currentTrackIndex = index;
+            const track = tracks[currentTrackIndex];
+            audioEl.src = track.url || track.src;
+            audioEl.playbackRate = dspState.speed;
+
+            audioEl.play().then(() => {
+                isPlaying = true;
+                updatePlayPauseUI();
+                updateDeckAndFooterText();
+                renderPlaylist();
+            }).catch(err => {
+                console.warn('Playback warning:', err);
+                showToast(`Không tìm thấy file nhạc tại "${track.src}". Nếu bạn vừa up lên GitHub, hãy đảm bảo đã tải file nhạc vào thư mục music/!`, 'rose');
+            });
+        }
+
+        function togglePlayPause() {
+            if (tracks.length === 0) {
+                if (isOwnerMode) {
+                    showToast('Hãy thêm bài hát vào danh sách của bạn trước!', 'gold');
+                    document.getElementById('fileUploadInput').click();
+                } else {
+                    showToast('Danh sách nhạc hiện đang trống!', 'gold');
+                }
+                return;
+            }
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (!audioEl.src) {
+                selectAndPlayTrack(currentTrackIndex);
+                return;
+            }
+
+            if (audioEl.paused) {
+                audioEl.play().then(() => {
+                    isPlaying = true;
+                    updatePlayPauseUI();
+                    renderPlaylist();
+                }).catch(() => {
+                    selectAndPlayTrack(currentTrackIndex);
+                });
+            } else {
+                audioEl.pause();
+                isPlaying = false;
+                updatePlayPauseUI();
+                renderPlaylist();
+            }
+        }
+
+        function updatePlayPauseUI() {
+            const icon = document.getElementById('playPauseIcon');
+            const disc = document.getElementById('footerDiscIcon');
+            const badge = document.getElementById('deckBadge');
+            if (tracks.length === 0) {
+                icon.className = 'fa-solid fa-play ml-0.5';
+                disc.classList.remove('fa-spin');
+                badge.textContent = 'CHỜ PHÁT NHẠC';
+                badge.className = 'px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-purple-900/60 text-purple-300 border border-purple-500/30';
+                return;
+            }
+            if (isPlaying) {
+                icon.className = 'fa-solid fa-pause';
+                disc.classList.add('fa-spin');
+                badge.textContent = 'ĐANG PHÁT #7';
+                badge.className = 'px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40';
+            } else {
+                icon.className = 'fa-solid fa-play ml-0.5';
+                disc.classList.remove('fa-spin');
+                badge.textContent = 'TẠM DỪNG';
+                badge.className = 'px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-amber-400/20 text-amber-300 border border-amber-400/30';
+            }
+        }
+
+        function updateDeckAndFooterText() {
+            const track = tracks[currentTrackIndex];
+            const presetName = CR7_PRESETS[activePresetKey]?.name || 'Tùy Chỉnh';
+
+            if (!track) {
+                document.getElementById('deckTitle').textContent = 'Chọn bài hát để thưởng thức';
+                document.getElementById('deckArtist').textContent = ownerConfig.ownerName || 'Kho nhạc tuyển chọn CR7';
+                document.getElementById('deckFormatBadge').textContent = `CR7 DSP • ${dspState.speed.toFixed(2)}x`;
+                document.getElementById('deckFavBtn').innerHTML = `<i class="fa-regular text-gray-300 fa-heart"></i>`;
+                document.getElementById('footerTrackTitle').textContent = 'Chưa chọn bài hát';
+                document.getElementById('footerTrackSub').textContent = `Chế độ ${presetName}`;
+                document.getElementById('currentTimeText').textContent = '00:00';
+                document.getElementById('durationTimeText').textContent = '00:00';
+                document.getElementById('seekBar').value = 0;
+                return;
+            }
+
+            document.getElementById('deckTitle').textContent = track.title;
+            document.getElementById('deckArtist').textContent = `${track.artist} • ${presetName}`;
+            document.getElementById('deckFormatBadge').textContent = `${(track.fileExt || 'MP3').toUpperCase()} • ${dspState.speed.toFixed(2)}x`;
+
+            const favBtn = document.getElementById('deckFavBtn');
+            favBtn.innerHTML = `<i class="${track.favorite ? 'fa-solid text-rose-500' : 'fa-regular text-gray-300'} fa-heart"></i>`;
+
+            document.getElementById('footerTrackTitle').textContent = track.title;
+            document.getElementById('footerTrackSub').textContent = `${track.artist} • Chế độ ${presetName}`;
+        }
+
+        function playNextTrack() {
+            if (tracks.length === 0) return;
+            if (isShuffle && tracks.length > 1) {
+                let nextIdx = currentTrackIndex;
+                while (nextIdx === currentTrackIndex) {
+                    nextIdx = Math.floor(Math.random() * tracks.length);
+                }
+                selectAndPlayTrack(nextIdx);
+            } else {
+                const nextIdx = (currentTrackIndex + 1) % tracks.length;
+                selectAndPlayTrack(nextIdx);
+            }
+        }
+
+        function playPreviousTrack() {
+            if (tracks.length === 0) return;
+            if (audioEl.currentTime > 4) {
+                audioEl.currentTime = 0;
+                return;
+            }
+            const prevIdx = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+            selectAndPlayTrack(prevIdx);
+        }
+
+        function toggleShuffle() {
+            isShuffle = !isShuffle;
+            const btn = document.getElementById('btnShuffle');
+            btn.className = isShuffle ? 'text-amber-400 text-sm transition scale-110' : 'text-gray-400 hover:text-white text-sm transition';
+            showToast(isShuffle ? 'Đã bật Phát Ngẫu Nhiên' : 'Đã tắt Phát Ngẫu Nhiên', 'purple');
+        }
+
+        function toggleRepeat() {
+            isRepeat = !isRepeat;
+            const btn = document.getElementById('btnRepeat');
+            btn.className = isRepeat ? 'text-amber-400 text-sm transition scale-110' : 'text-gray-400 hover:text-white text-sm transition';
+            showToast(isRepeat ? 'Đã bật Lặp Lại Bài Hát' : 'Đã tắt Lặp Lại', 'purple');
+        }
+
+        function toggleTrackFavorite(trackId) {
+            const track = tracks.find(t => t.id === trackId);
+            if (!track) return;
+            track.favorite = !track.favorite;
+
+            // Save visitor favorite state in localStorage
+            let liked = getVisitorLikedIds();
+            if (track.favorite) {
+                if (!liked.includes(trackId)) liked.push(trackId);
+            } else {
+                liked = liked.filter(id => id !== trackId);
+            }
+            setVisitorLikedIds(liked);
+
+            if (isOwnerMode) {
+                saveTrackToDB(track);
+            }
+            renderPlaylist();
+            updateDeckAndFooterText();
+        }
+
+        function toggleCurrentTrackFavorite() {
+            const track = tracks[currentTrackIndex];
+            if (!track) return;
+            toggleTrackFavorite(track.id);
+        }
+
+        // Audio Element Events
+        audioEl.addEventListener('timeupdate', () => {
+            if (isSeeking) return;
+            const cur = audioEl.currentTime || 0;
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            document.getElementById('currentTimeText').textContent = formatTime(cur);
+            document.getElementById('durationTimeText').textContent = formatTime(dur);
+            if (dur > 0) {
+                document.getElementById('seekBar').value = (cur / dur) * 100;
+            }
+        });
+
+        audioEl.addEventListener('loadedmetadata', () => {
+            const dur = audioEl.duration;
+            if (dur && isFinite(dur) && tracks[currentTrackIndex]) {
+                tracks[currentTrackIndex].duration = dur;
+                document.getElementById('durationTimeText').textContent = formatTime(dur);
+                renderPlaylist();
+            }
+        });
+
+        audioEl.addEventListener('ended', () => {
+            if (isRepeat) {
+                audioEl.currentTime = 0;
+                audioEl.play();
+            } else {
+                playNextTrack();
+            }
+        });
+
+        // Seekbar interaction
+        const seekBar = document.getElementById('seekBar');
+        seekBar.addEventListener('mousedown', () => { isSeeking = true; });
+        seekBar.addEventListener('touchstart', () => { isSeeking = true; }, { passive: true });
+        seekBar.addEventListener('input', (e) => {
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            const previewTime = (parseFloat(e.target.value) / 100) * dur;
+            document.getElementById('currentTimeText').textContent = formatTime(previewTime);
+        });
+        seekBar.addEventListener('change', (e) => {
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            if (dur > 0) {
+                audioEl.currentTime = (parseFloat(e.target.value) / 100) * dur;
+            }
+            isSeeking = false;
+        });
+
+        // Volume & Mute
+        function onVolumeChange(val) {
+            const v = parseFloat(val);
+            if (masterGainNode && audioCtx) {
+                masterGainNode.gain.setTargetAtTime(v, audioCtx.currentTime, 0.02);
+            } else {
+                audioEl.volume = v;
+            }
+            isMuted = (v === 0);
+            updateVolumeIcon(v);
+        }
+
+        function toggleMute() {
+            const slider = document.getElementById('volumeSlider');
+            if (!isMuted) {
+                lastVolume = parseFloat(slider.value) || 0.8;
+                slider.value = 0;
+                onVolumeChange(0);
+                isMuted = true;
+            } else {
+                slider.value = lastVolume;
+                onVolumeChange(lastVolume);
+                isMuted = false;
+            }
+        }
+
+        function updateVolumeIcon(v) {
+            const icon = document.getElementById('volumeIcon');
+            if (v === 0) icon.className = 'fa-solid fa-volume-xmark text-rose-400';
+            else if (v < 0.5) icon.className = 'fa-solid fa-volume-low';
+            else icon.className = 'fa-solid fa-volume-high';
+        }
+
+        /********************************************************************
+         * 7. OWNER-ONLY UPLOAD & EXPORT TO GITHUB PAGES (`index.html` & `playlist.json`)
+         ********************************************************************/
+        async function handleUploadedFiles(fileList) {
+            if (!isOwnerMode) {
+                showToast('Chỉ Chủ Nhân mới được phép thêm nhạc vào danh sách!', 'rose');
+                return;
+            }
+            if (!fileList || fileList.length === 0) return;
+            let addedCount = 0;
+
+            for (const file of Array.from(fileList)) {
+                if (!file.type.startsWith('audio/') && !file.name.match(/\.(mp3|wav|flac|ogg|m4a|aac)$/i)) {
+                    continue;
+                }
+                const cleanName = file.name.replace(/\.[^/.]+$/, '');
+                const extMatch = file.name.match(/\.([^/.]+)$/);
+                const ext = extMatch ? extMatch[1].toLowerCase() : 'mp3';
+                const url = URL.createObjectURL(file);
+
+                // Keep exact filename inside `music/` folder so when Owner uploads file to `music/` on GitHub it works seamlessly!
+                const githubRelativePath = `music/${file.name}`;
+
+                const newTrack = {
+                    id: 'cr7-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+                    title: cleanName,
+                    artist: ownerConfig.ownerName || 'Tuyển Chọn #7',
+                    src: githubRelativePath,
+                    blob: file,
+                    size: file.size,
+                    url: url,
+                    duration: 0,
+                    favorite: false,
+                    fileExt: ext,
+                    createdAt: Date.now()
+                };
+
+                await saveTrackToDB(newTrack);
+
+                const tempAudio = new Audio(url);
+                tempAudio.addEventListener('loadedmetadata', () => {
+                    if (tempAudio.duration && isFinite(tempAudio.duration)) {
+                        newTrack.duration = tempAudio.duration;
+                        saveTrackToDB(newTrack);
+                        renderPlaylist();
+                    }
+                });
+
+                tracks.unshift(newTrack);
+                addedCount++;
+            }
+
+            if (addedCount > 0) {
+                renderPlaylist();
+                selectAndPlayTrack(0);
+                showToast(`Đã thêm ${addedCount} bài hát! Hãy nhớ bỏ file nhạc vào thư mục music/ khi up lên GitHub.`, 'gold');
+            }
+        }
+
+        function addTrackByDirectUrl() {
+            if (!isOwnerMode) return;
+            const titleEl = document.getElementById('directTrackTitleInput');
+            const artistEl = document.getElementById('directTrackArtistInput');
+            const urlEl = document.getElementById('directTrackUrlInput');
+
+            const rawUrl = urlEl.value.trim();
+            if (!rawUrl) {
+                showToast('Vui lòng nhập đường dẫn file nhạc (VD: music/bai-hat.mp3 hoặc https://...)', 'rose');
+                return;
+            }
+
+            const fallbackTitle = rawUrl.split('/').pop().split('?')[0].replace(/\.[^/.]+$/, '') || 'Bản Nhạc CR7 #7';
+            const title = titleEl.value.trim() || fallbackTitle;
+            const artist = artistEl.value.trim() || ownerConfig.ownerName || 'Tuyển Chọn #7';
+            const extMatch = rawUrl.split('?')[0].match(/\.([a-zA-Z0-9]+)$/);
+            const ext = extMatch ? extMatch[1].toLowerCase() : 'mp3';
+
+            const newTrack = {
+                id: 'cr7-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+                title: title,
+                artist: artist,
+                src: rawUrl,
+                blob: null,
+                size: 0,
+                url: rawUrl,
+                duration: 0,
+                favorite: false,
+                fileExt: ext,
+                createdAt: Date.now()
+            };
+
+            saveTrackToDB(newTrack);
+            tracks.unshift(newTrack);
+
+            titleEl.value = '';
+            artistEl.value = '';
+            urlEl.value = '';
+
+            renderPlaylist();
+            selectAndPlayTrack(0);
+            showToast(`Đã thêm "${title}" vào danh sách phát!`, 'gold');
+        }
+
+        document.getElementById('fileUploadInput').addEventListener('change', (e) => {
+            handleUploadedFiles(e.target.files);
+            e.target.value = '';
+        });
+
+        function buildExportableConfigObject() {
+            updateOwnerConfigFromInputs();
+            return {
+                ownerName: ownerConfig.ownerName,
+                ownerBio: ownerConfig.ownerBio,
+                facebookUrl: ownerConfig.facebookUrl,
+                ownerPin: ownerConfig.ownerPin || '7777',
+                playlist: tracks.map(t => ({
+                    id: t.id,
+                    title: t.title,
+                    artist: t.artist,
+                    src: t.src || `music/${t.title}.${t.fileExt || 'mp3'}`,
+                    duration: t.duration || 0,
+                    fileExt: t.fileExt || 'mp3',
+                    favorite: !!t.favorite
+                }))
+            };
+        }
+
+        function exportPlaylistJsonFile() {
+            if (!isOwnerMode) return;
+            const exportObj = buildExportableConfigObject();
+            // Do not expose PIN in public playlist.json
+            const publicJson = {
+                ownerName: exportObj.ownerName,
+                ownerBio: exportObj.ownerBio,
+                facebookUrl: exportObj.facebookUrl,
+                playlist: exportObj.playlist
+            };
+            const blob = new Blob([JSON.stringify(publicJson, null, 2)], { type: 'application/json' });
+            triggerBrowserDownload(blob, 'playlist.json');
+            showToast('Đã tải xuống file playlist.json chuẩn GitHub Pages!', 'gold');
+        }
+
+        /**
+         * Exports a complete, self-contained `index.html` with the Owner's current playlist,
+         * Owner Name, Bio, Facebook URL, and PIN baked directly into `window.CR7_OWNER_CONFIG`,
+         * and locked in Read-Only Visitor Mode by default.
+         */
+        function exportEmbeddedIndexHtml() {
+            const exportObj = buildExportableConfigObject();
+
+            // Temporarily ensure the DOM reflects Visitor Mode before serializing
+            const wasOwner = isOwnerMode;
+            if (wasOwner) setOwnerStudioMode(false);
+
+            const cloneDoc = document.documentElement.cloneNode(true);
+
+            // Restore Owner Mode for current session
+            if (wasOwner) setOwnerStudioMode(true);
+
+            // Update the embedded config script inside the cloned HTML
+            const configScript = cloneDoc.querySelector('#cr7OwnerConfigScript');
+            if (configScript) {
+                configScript.textContent = `\n        window.CR7_OWNER_CONFIG = ${JSON.stringify(exportObj, null, 4)};\n    `;
+            }
+
+            // Clear transient toast notifications or open modals in the exported snapshot
+            const toastBox = cloneDoc.querySelector('#toastContainer');
+            if (toastBox) toastBox.innerHTML = '';
+            ['downloadModal', 'ownerPinModal', 'githubGuideModal'].forEach(modalId => {
+                const m = cloneDoc.querySelector('#' + modalId);
+                if (m) {
+                    m.classList.add('hidden');
+                    m.classList.remove('flex');
+                }
+            });
+
+            const finalHtml = '<!DOCTYPE html>\n' + cloneDoc.outerHTML;
+            const blob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
+            triggerBrowserDownload(blob, 'index.html');
+            showToast('Đã xuất file index.html chứa sẵn Playlist của bạn! Hãy up file này cùng thư mục music/ lên GitHub.', 'gold');
+        }
+
+        /********************************************************************
+         * 8. REAL-TIME CANVAS VISUALIZER (3 MODES + TELEMETRY METERS)
+         ********************************************************************/
+        const canvas = document.getElementById('visualizerCanvas');
+        const ctx2d = canvas.getContext('2d');
+
+        function setVisualizerMode(mode) {
+            visualizerMode = mode;
+            ['ring', 'bars', 'wave'].forEach(m => {
+                const btn = document.getElementById(`visBtn-${m}`);
+                if (m === mode) {
+                    btn.className = 'px-2.5 py-1 rounded-lg bg-purple-600 text-white font-semibold transition';
+                } else {
+                    btn.className = 'px-2.5 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition';
+                }
+            });
+            const crest = document.getElementById('centerCrestOverlay');
+            crest.style.opacity = (mode === 'ring') ? '1' : '0.18';
+        }
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width || 400;
+            canvas.height = 250;
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function animateVisualizer() {
+            requestAnimationFrame(animateVisualizer);
+
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx2d.clearRect(0, 0, w, h);
+
+            let freqData = new Uint8Array(128);
+            let timeData = new Uint8Array(128);
+
+            if (analyserNode && isPlaying) {
+                analyserNode.getByteFrequencyData(freqData);
+                analyserNode.getByteTimeDomainData(timeData);
+            } else {
+                const t = performance.now() * 0.002;
+                for (let i = 0; i < 128; i++) {
+                    freqData[i] = Math.floor(14 + 10 * Math.sin(t + i * 0.15));
+                    timeData[i] = Math.floor(128 + 6 * Math.sin(t * 1.5 + i * 0.1));
+                }
+            }
+
+            let bassSum = 0, midSum = 0, trebleSum = 0;
+            for (let i = 0; i < 12; i++) bassSum += freqData[i];
+            for (let i = 12; i < 48; i++) midSum += freqData[i];
+            for (let i = 48; i < 96; i++) trebleSum += freqData[i];
+
+            const bassPct = Math.min(100, Math.round((bassSum / (12 * 255)) * 115));
+            const midPct = Math.min(100, Math.round((midSum / (36 * 255)) * 125));
+            const treblePct = Math.min(100, Math.round((trebleSum / (48 * 255)) * 135));
+
+            document.getElementById('meterBassVal').textContent = `${bassPct}%`;
+            document.getElementById('meterBassBar').style.width = `${bassPct}%`;
+            document.getElementById('meterMidVal').textContent = `${midPct}%`;
+            document.getElementById('meterMidBar').style.width = `${midPct}%`;
+            document.getElementById('meterTrebleVal').textContent = `${treblePct}%`;
+            document.getElementById('meterTrebleBar').style.width = `${treblePct}%`;
+
+            const crestCircle = document.getElementById('crestCircle');
+            const scale = 1 + (bassPct / 100) * 0.22;
+            crestCircle.style.transform = `scale(${scale.toFixed(3)})`;
+
+            if (visualizerMode === 'ring') {
+                const cx = w / 2;
+                const cy = h / 2;
+                const baseRadius = 46 + (bassPct * 0.12);
+                const bars = 64;
+
+                ctx2d.beginPath();
+                ctx2d.arc(cx, cy, baseRadius + 4, 0, Math.PI * 2);
+                ctx2d.strokeStyle = 'rgba(251, 191, 36, 0.35)';
+                ctx2d.lineWidth = 2;
+                ctx2d.stroke();
+
+                for (let i = 0; i < bars; i++) {
+                    const angle = (i / bars) * Math.PI * 2 - Math.PI / 2;
+                    const val = freqData[i] / 255;
+                    const barLen = 8 + val * 58;
+
+                    const x1 = cx + Math.cos(angle) * baseRadius;
+                    const y1 = cy + Math.sin(angle) * baseRadius;
+                    const x2 = cx + Math.cos(angle) * (baseRadius + barLen);
+                    const y2 = cy + Math.sin(angle) * (baseRadius + barLen);
+
+                    const grad = ctx2d.createLinearGradient(x1, y1, x2, y2);
+                    grad.addColorStop(0, '#8b5cf6');
+                    grad.addColorStop(0.65, '#d946ef');
+                    grad.addColorStop(1, '#fbbf24');
+
+                    ctx2d.strokeStyle = grad;
+                    ctx2d.lineWidth = 3.2;
+                    ctx2d.lineCap = 'round';
+                    ctx2d.beginPath();
+                    ctx2d.moveTo(x1, y1);
+                    ctx2d.lineTo(x2, y2);
+                    ctx2d.stroke();
+                }
+            } else if (visualizerMode === 'bars') {
+                const numBars = 48;
+                const barWidth = (w - 20) / numBars;
+                for (let i = 0; i < numBars; i++) {
+                    const val = freqData[i] / 255;
+                    const barHeight = Math.max(6, val * (h - 30));
+                    const x = 10 + i * barWidth;
+                    const y = h - barHeight - 10;
+
+                    const grad = ctx2d.createLinearGradient(0, y + barHeight, 0, y);
+                    grad.addColorStop(0, '#4c1d95');
+                    grad.addColorStop(0.6, '#a855f7');
+                    grad.addColorStop(1, '#fbbf24');
+
+                    ctx2d.fillStyle = grad;
+                    ctx2d.beginPath();
+                    ctx2d.roundRect(x, y, barWidth - 3, barHeight, 4);
+                    ctx2d.fill();
+                }
+            } else {
+                ctx2d.lineWidth = 3;
+                const grad = ctx2d.createLinearGradient(0, 0, w, 0);
+                grad.addColorStop(0, '#8b5cf6');
+                grad.addColorStop(0.5, '#fbbf24');
+                grad.addColorStop(1, '#d946ef');
+                ctx2d.strokeStyle = grad;
+
+                ctx2d.beginPath();
+                const sliceWidth = w / timeData.length;
+                let x = 0;
+                for (let i = 0; i < timeData.length; i++) {
+                    const v = timeData[i] / 128.0;
+                    const y = (v * h) / 2;
+                    if (i === 0) ctx2d.moveTo(x, y);
+                    else ctx2d.lineTo(x, y);
+                    x += sliceWidth;
+                }
+                ctx2d.stroke();
+            }
+        }
+
+        /********************************************************************
+         * 9. DOWNLOAD ENGINE (ORIGINAL + OFFLINE CUSTOM DSP RENDERING)
+         ********************************************************************/
+        function openDownloadModal(trackId) {
+            const track = tracks.find(t => t.id === trackId) || tracks[currentTrackIndex];
+            if (!track) {
+                showToast('Hãy chọn một bài hát trước khi tải xuống!', 'gold');
+                return;
+            }
+            selectedDownloadTrackId = track.id;
+
+            document.getElementById('modalTrackTitle').textContent = track.title;
+            const presetName = CR7_PRESETS[activePresetKey]?.name || 'Tùy Chỉnh (Custom EQ)';
+            document.getElementById('modalPresetName').textContent = presetName;
+            document.getElementById('modalDspSummary').textContent = `+${dspState.bassBoost} dB / Vang ${dspState.reverbMix}%`;
+            document.getElementById('modalSpeedSummary').textContent = `${dspState.speed.toFixed(2)}x`;
+
+            document.getElementById('renderProgressBox').classList.add('hidden');
+            document.getElementById('downloadModal').classList.remove('hidden');
+            document.getElementById('downloadModal').classList.add('flex');
+        }
+
+        function openDownloadModalForCurrent() {
+            const current = tracks[currentTrackIndex];
+            if (!current) {
+                showToast('Chưa có bài hát nào để tải xuống!', 'gold');
+                return;
+            }
+            openDownloadModal(current.id);
+        }
+
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').classList.add('hidden');
+            document.getElementById('downloadModal').classList.remove('flex');
+        }
+
+        function triggerOriginalDownload() {
+            const track = tracks.find(t => t.id === selectedDownloadTrackId) || tracks[currentTrackIndex];
+            if (!track) return;
+
+            const safeName = track.title.replace(/[^a-zA-Z0-9_\-\u00C0-\u1EF9 ]/g, '').trim() || 'CR7-Audio';
+            if (track.blob) {
+                triggerBrowserDownload(track.blob, `${safeName}_Original.${track.fileExt || 'mp3'}`);
+            } else {
+                const a = document.createElement('a');
+                a.href = track.src || track.url;
+                a.download = `${safeName}_Original.${track.fileExt || 'mp3'}`;
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+            showToast(`Đang tải bản gốc: ${track.title}`, 'purple');
+            closeDownloadModal();
+        }
+
+        async function triggerProcessedWavDownload() {
+            const track = tracks.find(t => t.id === selectedDownloadTrackId) || tracks[currentTrackIndex];
+            if (!track) return;
+
+            const progressBox = document.getElementById('renderProgressBox');
+            const progressBar = document.getElementById('renderProgressBar');
+            const percentText = document.getElementById('renderPercentText');
+            const statusText = document.getElementById('renderStatusText');
+            const btnProc = document.getElementById('btnDownloadProcessed');
+
+            progressBox.classList.remove('hidden');
+            btnProc.disabled = true;
+            btnProc.classList.add('opacity-60');
+
+            try {
+                statusText.textContent = 'Đang giải mã dữ liệu âm thanh...';
+                progressBar.style.width = '25%';
+                percentText.textContent = '25%';
+
+                let arrayBuffer;
+                if (track.blob) {
+                    arrayBuffer = await track.blob.arrayBuffer();
+                } else {
+                    const response = await fetch(track.src || track.url);
+                    arrayBuffer = await response.arrayBuffer();
+                }
+
+                const tempCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const decodedBuffer = await tempCtx.decodeAudioData(arrayBuffer);
+
+                statusText.textContent = 'Đang áp dụng 6-Band EQ, SIUUU Bass & Reverb...';
+                progressBar.style.width = '60%';
+                percentText.textContent = '60%';
+
+                const speed = dspState.speed || 1.0;
+                const extraTailSeconds = (dspState.reverbMix > 5) ? 1.6 : 0.2;
+                const outputLength = Math.ceil((decodedBuffer.length / speed) + (decodedBuffer.sampleRate * extraTailSeconds));
+
+                const offlineCtx = new OfflineAudioContext(
+                    decodedBuffer.numberOfChannels,
+                    outputLength,
+                    decodedBuffer.sampleRate
+                );
+
+                const source = offlineCtx.createBufferSource();
+                source.buffer = decodedBuffer;
+                source.playbackRate.value = speed;
+
+                const offSubBass = offlineCtx.createBiquadFilter();
+                offSubBass.type = 'lowshelf';
+                offSubBass.frequency.value = 65;
+                offSubBass.gain.value = dspState.bassBoost;
+
+                let prev = offSubBass;
+                source.connect(offSubBass);
+
+                EQ_FREQUENCIES.forEach((freq, idx) => {
+                    const f = offlineCtx.createBiquadFilter();
+                    if (idx === 0) f.type = 'lowshelf';
+                    else if (idx === EQ_FREQUENCIES.length - 1) f.type = 'highshelf';
+                    else f.type = 'peaking';
+                    f.frequency.value = freq;
+                    f.Q.value = 1.1;
+                    f.gain.value = dspState.eq[idx];
+                    prev.connect(f);
+                    prev = f;
+                });
+
+                const wet = dspState.reverbMix / 100;
+                const dry = Math.max(0.35, 1 - wet * 0.45);
+
+                const offDry = offlineCtx.createGain();
+                offDry.gain.value = dry;
+
+                const offWet = offlineCtx.createGain();
+                offWet.gain.value = wet;
+
+                const offConv = offlineCtx.createConvolver();
+                offConv.buffer = createStadiumImpulseResponse(offlineCtx, 2.2, 2.2);
+
+                const offPan = offlineCtx.createStereoPanner();
+                offPan.pan.value = dspState.pan;
+
+                prev.connect(offDry);
+                prev.connect(offConv);
+                offConv.connect(offWet);
+
+                offDry.connect(offPan);
+                offWet.connect(offPan);
+                offPan.connect(offlineCtx.destination);
+
+                source.start(0);
+
+                const renderedBuffer = await offlineCtx.startRendering();
+
+                statusText.textContent = 'Đang đóng gói file WAV chất lượng cao...';
+                progressBar.style.width = '90%';
+                percentText.textContent = '90%';
+
+                const wavBlob = encodeAudioBufferToWavBlob(renderedBuffer);
+                await tempCtx.close();
+
+                progressBar.style.width = '100%';
+                percentText.textContent = '100%';
+
+                const presetSlug = activePresetKey.toUpperCase();
+                const safeName = track.title.replace(/[^a-zA-Z0-9_\-\u00C0-\u1EF9 ]/g, '').trim() || 'CR7-Track';
+                triggerBrowserDownload(wavBlob, `${safeName}_CR7_${presetSlug}.wav`);
+
+                showToast(`Đã tải xuống bản độ âm thanh (.WAV) của "${track.title}"!`, 'gold');
+                setTimeout(() => closeDownloadModal(), 600);
+            } catch (err) {
+                console.error('Offline render error:', err);
+                showToast('Không thể kết xuất Offline do giới hạn CORS của link nhạc ngoài. Vui lòng chọn Tải Bản Gốc!', 'rose');
+            } finally {
+                btnProc.disabled = false;
+                btnProc.classList.remove('opacity-60');
+            }
+        }
+
+        function triggerBrowserDownload(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 2000);
+        }
+
+        /********************************************************************
+         * 10. CR7 "SIUUU!" SYNTHESIZED AUDIO & VISUAL CELEBRATION
+         ********************************************************************/
+        function triggerSiuuuCelebration() {
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const overlay = document.getElementById('siuuuOverlay');
+            const banner = document.getElementById('siuuuBanner');
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+            banner.classList.remove('scale-90');
+            banner.classList.add('scale-105');
+
+            setTimeout(() => {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                banner.classList.remove('scale-105');
+                banner.classList.add('scale-90');
+            }, 1300);
+
+            if (audioCtx) {
+                const now = audioCtx.currentTime;
+
+                const subOsc = audioCtx.createOscillator();
+                const subGain = audioCtx.createGain();
+                subOsc.type = 'sine';
+                subOsc.frequency.setValueAtTime(130, now);
+                subOsc.frequency.exponentialRampToValueAtTime(38, now + 0.85);
+                subGain.gain.setValueAtTime(0.65, now);
+                subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+                subOsc.connect(subGain);
+                subGain.connect(audioCtx.destination);
+                subOsc.start(now);
+                subOsc.stop(now + 0.92);
+
+                const leadOsc = audioCtx.createOscillator();
+                const leadGain = audioCtx.createGain();
+                leadOsc.type = 'sawtooth';
+                leadOsc.frequency.setValueAtTime(440, now + 0.05);
+                leadOsc.frequency.linearRampToValueAtTime(587.33, now + 0.22);
+                leadOsc.frequency.exponentialRampToValueAtTime(293.66, now + 0.85);
+
+                leadGain.gain.setValueAtTime(0.18, now + 0.05);
+                leadGain.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+
+                leadOsc.connect(leadGain);
+                leadGain.connect(audioCtx.destination);
+                leadOsc.start(now + 0.05);
+                leadOsc.stop(now + 0.92);
+            }
+
+            showToast('SIUUUUU! #7 — Năng lượng GOAT đã kích hoạt!', 'gold');
+        }
+
+        /********************************************************************
+         * 11. UTILITIES & INITIALIZATION
+         ********************************************************************/
+        function formatTime(sec) {
+            if (!sec || !isFinite(sec) || sec < 0) return '00:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, s => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[s]));
+        }
+
+        function showToast(message, theme = 'purple') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+
+            let borderClass = 'border-purple-400/50 bg-purple-950/90 text-purple-100';
+            let iconHtml = '<i class="fa-solid fa-circle-check text-purple-400"></i>';
+
+            if (theme === 'gold') {
+                borderClass = 'border-amber-400/70 bg-black/90 text-amber-300 shadow-neon-gold';
+                iconHtml = '<i class="fa-solid fa-bolt text-amber-400"></i>';
+            } else if (theme === 'rose') {
+                borderClass = 'border-rose-500/60 bg-rose-950/90 text-rose-200';
+                iconHtml = '<i class="fa-solid fa-triangle-exclamation text-rose-400"></i>';
+            }
+
+            toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-xl border backdrop-blur-md text-xs font-semibold transition-all duration-300 transform translate-x-5 opacity-0 ${borderClass}`;
+            toast.innerHTML = `${iconHtml}<span>${escapeHtml(message)}</span>`;
+
+            container.appendChild(toast);
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-x-5', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('translate-x-5', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3400);
+        }
+
+        window.addEventListener('load', async () => {
+            resizeCanvas();
+            // Always start in Read-Only Visitor Mode so anyone clicking from Facebook cannot edit songs
+            setOwnerStudioMode(false);
+            await initializeShowcaseData();
+
+            if (tracks.length > 0) {
+                audioEl.src = tracks[0].url || tracks[0].src;
+                updateDeckAndFooterText();
+            } else {
+                updateDeckAndFooterText();
+            }
+
+            animateVisualizer();
+        });
+    </script>
+
+</body></html>

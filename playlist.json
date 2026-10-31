@@ -1,0 +1,34 @@
+{
+  "ownerName": "QuangMinhMusic",
+  "ownerBio": "Chào mừng bạn từ Facebook! Đây là danh sách nhạc yêu thích của mình — hãy bấm nghe và thử chỉnh chế độ SIUUU Bass nhé!",
+  "facebookUrl": "https://facebook.com//Minhkhomatquahuhu",
+  "playlist": [
+    {
+      "id": "cr7-1793467010959-4o63i",
+      "title": "TALAGI",
+      "artist": "kidsai,Dangrangto",
+      "src": "https://files.catbox.moe/hcwyj1.mp3",
+      "duration": 216.897596,
+      "fileExt": "mp3",
+      "favorite": false
+    },
+    {
+      "id": "cr7-1793466926438-20wxx",
+      "title": "ROI TU DO",
+      "artist": "SunXix",
+      "src": "https://files.catbox.moe/tphjfe.mp3",
+      "duration": 220.705669,
+      "fileExt": "mp3",
+      "favorite": false
+    },
+    {
+      "id": "cr7-1793466466763-v3q8l",
+      "title": "Anh Đã Từ Bỏ Rồi Đấy",
+      "artist": "QuangMinhMusic",
+      "src": "music/Anh Đã Từ Bỏ Rồi Đấy.mp3",
+      "duration": 304.013396,
+      "fileExt": "mp3",
+      "favorite": false
+    }
+  ]
+}
