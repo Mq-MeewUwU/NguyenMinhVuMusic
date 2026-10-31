@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Music — Trình Phát Nhạc Hiện Đại</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 16s linear infinite',
+                        'pulse-glow': 'pulseGlow 8s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { transform: 'scale(1) translate(0px, 0px)', opacity: '0.45' },
+                            '50%': { transform: 'scale(1.18) translate(25px, -20px)', opacity: '0.65' },
+                            '100%': { transform: 'scale(0.95) translate(-20px, 25px)', opacity: '0.45' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+            background-color: #07080d;
+            color: #f3f4f6;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(18, 20, 30, 0.62);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.035);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.075);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .glass-modal {
+            background: rgba(15, 17, 26, 0.88);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* Vinyl Record Animation & Grooves */
+        .vinyl-disc {
+            background: 
+                radial-gradient(circle at center, #141418 0%, #141418 14%, transparent 14.5%),
+                repeating-radial-gradient(circle at center, #111217 0px, #111217 2px, #1c1e26 3px, #111217 4px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(255, 255, 255, 0.08);
+            animation: vinylSpin 14s linear infinite;
+            animation-play-state: paused;
+        }
+        .vinyl-disc.playing {
+            animation-play-state: running;
+        }
+        .vinyl-shine {
+            background: conic-gradient(
+                from 35deg,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.09) 25deg,
+                transparent 55deg,
+                transparent 180deg,
+                rgba(255, 255, 255, 0.09) 205deg,
+                transparent 235deg
+            );
+        }
+        @keyframes vinylSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Tonearm transition */
+        .tonearm {
+            transform-origin: 78% 22%;
+            transform: rotate(-28deg);
+            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .tonearm.playing {
+            transform: rotate(2deg);
+        }
+
+        /* Custom Range Sliders */
+        input[type="range"].aura-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"].aura-slider::-webkit-slider-runnable-track {
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+        }
+        input[type="range"].aura-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.9);
+            margin-top: -4px;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type="range"].aura-slider:hover::-webkit-slider-thumb {
+            transform: scale(1.25);
+        }
+
+        /* Mini Playing Equalizer Animation */
+        .eq-bar {
+            width: 3px;
+            border-radius: 999px;
+            background: currentColor;
+            animation: eqBounce 0.8s ease-in-out infinite alternate;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.2s; animation-duration: 0.65s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.4s; animation-duration: 0.9s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.15s; animation-duration: 0.75s; }
+        @keyframes eqBounce {
+            0% { height: 4px; }
+            100% { height: 16px; }
+        }
+        .eq-paused .eq-bar {
+            animation-play-state: paused;
+            height: 4px !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-violet-500 selection:text-white">
+
+    <!-- DYNAMIC AMBIENT BACKGROUND BLOBS -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div id="ambientBlob1" class=" -top-24 -left-24 w-[480px] h-[480px] rounded-full blur-[130px] animate-pulse-glow transition-colors duration-1000" style="background: #7c3aed;"></div>
+        <div id="ambientBlob2" class=" top-1/3 -right-28 w-[420px] h-[420px] rounded-full blur-[140px] animate-pulse-glow transition-colors duration-1000" style="background: #ec4899; animation-delay: 2s;"></div>
+        <div id="ambientBlob3" class=" -bottom-32 left-1/3 w-[520px] h-[520px] rounded-full blur-[150px] animate-pulse-glow transition-colors duration-1000" style="background: #06b6d4; animation-delay: 4s;"></div>
+        <div class="absolute inset-0 bg-[#07080d]/60 backdrop-blur-[40px]"></div>
+    </div>
+
+    <!-- GLOBAL DRAG & DROP OVERLAY -->
+    <div id="dropOverlay" class="fixed inset-0 z-50 bg-violet-950/80 backdrop-blur-xl border-4 border-dashed border-violet-400 rounded-3xl m-4 hidden flex-col items-center justify-center text-center p-8 transition-all">
+        <div class="w-24 h-24 rounded-full bg-violet-500/20 border border-violet-400/40 flex items-center justify-center mb-6 animate-bounce">
+            <i class="fa-solid fa-cloud-arrow-up text-5xl text-violet-300"></i>
+        </div>
+        <h2 class="text-3xl font-display font-bold text-white mb-2">Thả file nhạc vào đây để thêm ngay!</h2>
+        <p class="text-violet-200/80 max-w-md">Hỗ trợ chọn nhiều file .MP3, .WAV, .OGG, .M4A, .FLAC cùng lúc. Nhạc sẽ được tự động lưu vào trình duyệt của bạn.</p>
+    </div>
+
+    <!-- TOP HEADER BAR -->
+    <header class="relative z-20 px-4 sm:px-6 pt-4 pb-2">
+        <div class="max-w-[1600px] mx-auto glass-panel rounded-2xl px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <div id="brandIconBox" class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/30">
+                    <i class="fa-solid fa-wave-square text-white text-lg"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-display font-extrabold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-white via-violet-200 to-fuchsia-200 bg-clip-text text-transparent">AURA MUSIC</h1>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">Studio Hi-Fi</span>
+                    </div>
+                    <p class="text-xs text-slate-400 hidden sm:block">Trình phát nhạc cá nhân hóa • Lưu trữ IndexedDB</p>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-md mx-2 order-3 md:order-2 w-full md:w-auto">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input id="searchInput" type="text" placeholder="Tìm bài hát, nghệ sĩ, thể loại..." 
+                        class="w-full pl-10 pr-9 py-2 rounded-xl bg-white/5 border border-white/10 focus:border-violet-400/60 focus:bg-white/10 focus:outline-none text-sm text-white placeholder-slate-400 transition">
+                    <button id="clearSearchBtn" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white hidden">
+                        <i class="fa-solid fa-circle-xmark text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="flex items-center gap-2 sm:gap-2.5 order-2 md:order-3">
+                <!-- Quick Upload Button -->
+                <button id="openAddModalBtn" class="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-medium text-xs sm:text-sm shadow-lg shadow-violet-600/25 transition active:scale-95">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Thêm bài hát</span>
+                </button>
+
+                <!-- Direct File Input Trigger -->
+                <label for="quickFileInput" class="cursor-pointer flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 text-xs sm:text-sm transition" title="Tải file nhạc từ máy tính/điện thoại">
+                    <i class="fa-solid fa-folder-open text-violet-400"></i>
+                    <span class="hidden lg:inline">Tải File</span>
+                </label>
+                <input id="quickFileInput" type="file" accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac" multiple class="hidden">
+
+                <!-- Sound FX / Equalizer Preset Button -->
+                <button id="eqPresetBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 text-xs sm:text-sm transition" title="Chế độ Âm thanh (Equalizer)">
+                    <i class="fa-solid fa-sliders text-cyan-400"></i>
+                    <span id="eqPresetLabel" class="hidden sm:inline">Chuẩn Hi-Fi</span>
+                </button>
+
+                <!-- Shortcuts Help Button -->
+                <button id="shortcutsBtn" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white transition" title="Phím tắt bàn phím">
+                    <i class="fa-regular fa-keyboard"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="relative z-10 flex-1 max-w-[1600px] w-full mx-auto px-4 sm:px-6 py-3 grid grid-cols-1 lg:grid-cols-12 gap-5 overflow-hidden">
+        
+        <!-- LEFT / CENTER COLUMN: PLAYLIST & LIBRARY (7 cols on large screens) -->
+        <section class="lg:col-span-7 flex flex-col glass-panel rounded-3xl p-4 sm:p-6 overflow-hidden min-h-[460px] lg:h-[calc(100vh-215px)]">
+            
+            <!-- Filter Tabs & Sorting Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+                    <button data-filter="all" class="filter-tab active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-white/15 text-white border border-white/15 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-music text-violet-400"></i>
+                        <span>Tất cả</span>
+                        <span id="countAll" class="text-[11px] px-1.5 py-0.2 rounded-full bg-white/10">0</span>
+                    </button>
+                    <button data-filter="favorites" class="filter-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-transparent transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart text-rose-400"></i>
+                        <span>Yêu thích</span>
+                        <span id="countFav" class="text-[11px] px-1.5 py-0.2 rounded-full bg-white/10">0</span>
+                    </button>
+                    <button data-filter="custom" class="filter-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-transparent transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-cloud-arrow-up text-emerald-400"></i>
+                        <span>Nhạc của tôi</span>
+                        <span id="countCustom" class="text-[11px] px-1.5 py-0.2 rounded-full bg-white/10">0</span>
+                    </button>
+                    <button data-filter="demo" class="filter-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-transparent transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+                        <span>Nhạc mẫu</span>
+                    </button>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="flex items-center gap-2">
+                    <div class="relative">
+                        <select id="sortSelect" class="appearance-none bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl pl-3 pr-8 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-violet-400 cursor-pointer">
+                            <option value="recent" class="bg-slate-900">Mới thêm gần đây</option>
+                            <option value="title" class="bg-slate-900">Tên bài hát (A - Z)</option>
+                            <option value="artist" class="bg-slate-900">Nghệ sĩ (A - Z)</option>
+                            <option value="duration" class="bg-slate-900">Thời lượng</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drag & Drop Quick Banner -->
+            <div id="inlineDropZone" class="mt-3 mb-2 p-3 rounded-2xl bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-dashed border-white/15 hover:border-violet-400/50 flex flex-wrap items-center justify-between gap-2 transition cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-300">
+                        <i class="fa-solid fa-file-audio"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm font-medium text-slate-200">Kéo thả file nhạc (.mp3, .wav, .flac, .m4a) vào bất kỳ đâu hoặc bấm vào đây</p>
+                        <p class="text-[11px] text-slate-400">Tự động lưu trữ vào IndexedDB trên trình duyệt — Không bị mất khi tải lại trang</p>
+                    </div>
+                </div>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-lg bg-white/10 text-violet-200 hover:bg-white/15 transition">+ Chọn file / Link URL</span>
+            </div>
+
+            <!-- Track List Header -->
+            <div class="grid grid-cols-12 gap-2 px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-white/5">
+                <div class="col-span-1 text-center">#</div>
+                <div class="col-span-6 sm:col-span-5">Bài hát</div>
+                <div class="hidden sm:block sm:col-span-3">Nghệ sĩ / Nguồn</div>
+                <div class="col-span-2 sm:col-span-1 text-right">Thời lượng</div>
+                <div class="col-span-3 sm:col-span-2 text-right pr-2">Thao tác</div>
+            </div>
+
+            <!-- Scrollable Playlist Container -->
+            <div id="playlistContainer" class="flex-1 overflow-y-auto space-y-1.5 py-2 pr-1">
+                <!-- Tracks rendered dynamically by JS -->
+            </div>
+
+            <!-- Footer Info Bar inside Playlist -->
+            <div class="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                <div id="librarySummary">Đang khởi tạo kho nhạc...</div>
+                <div class="flex items-center gap-3">
+                    <button id="restoreDemoBtn" class="hover:text-violet-300 transition flex items-center gap-1" title="Khôi phục các bản nhạc mẫu mặc định">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Khôi phục nhạc mẫu</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: NOW PLAYING SHOWCASE, VINYL & REAL-TIME AUDIO VISUALIZER (5 cols on large screens) -->
+        <section class="lg:col-span-5 flex flex-col glass-panel rounded-3xl p-4 sm:p-6 overflow-hidden justify-between min-h-[460px] lg:h-[calc(100vh-215px)] relative">
+            
+            <!-- Top Row: Display Mode Switcher & Visualizer Style Selector -->
+            <div class="flex flex-wrap items-center justify-between gap-2 z-10">
+                <!-- Vinyl vs Cover Art Switch -->
+                <div class="inline-flex p-1 rounded-xl bg-white/5 border border-white/10">
+                    <button id="modeVinylBtn" class="px-3 py-1 rounded-lg text-xs font-medium bg-violet-600 text-white shadow transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-compact-disc"></i>
+                        <span>Đĩa Than</span>
+                    </button>
+                    <button id="modeCoverBtn" class="px-3 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                        <i class="fa-regular fa-image"></i>
+                        <span>Ảnh Bìa 3D</span>
+                    </button>
+                </div>
+
+                <!-- Visualizer Style Switcher -->
+                <div class="flex items-center gap-1 bg-white/5 border border-white/10 p-1 rounded-xl">
+                    <button data-viz="bars" class="viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-white/15 text-white transition" title="Sóng cột Neon">Bars</button>
+                    <button data-viz="wave" class="viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition" title="Sóng âm mềm mại">Wave</button>
+                    <button data-viz="circle" class="viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition" title="Vòng phổ nhạc">Circle</button>
+                    <button data-viz="particles" class="viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition" title="Hạt ánh sáng Bass">Bass</button>
+                </div>
+            </div>
+
+            <!-- Center Showcase: Vinyl / Cover Art + Circular/Background Canvas Visualizer -->
+            <div class="relative flex-1 flex flex-col items-center justify-center my-2 min-h-[230px]">
+                
+                <!-- Real-Time Audio Visualizer Canvas -->
+                <canvas id="visualizerCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+                <!-- VINYL RECORD VIEW -->
+                <div id="vinylShowcase" class="relative z-10 flex items-center justify-center">
+                    <!-- Glowing Halo behind Vinyl -->
+                    <div id="vinylGlow" class="absolute w-56 h-56 sm:w-64 sm:h-64 rounded-full blur-2xl opacity-50 transition-colors duration-700" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+                    
+                    <!-- Vinyl Disc -->
+                    <div id="vinylDisc" class="vinyl-disc relative w-52 h-52 sm:w-60 sm:h-60 rounded-full flex items-center justify-center border border-white/15 overflow-hidden">
+                        <div class="vinyl-shine absolute inset-0 rounded-full pointer-events-none"></div>
+                        <!-- Center Cover Art Label -->
+                        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-zinc-900 shadow-inner">
+                            <img id="vinylCoverImg" src="https://placehold.co/400x400/3b0764/e9d5ff?text=AURA" alt="Cover" class="w-full h-full object-cover">
+                            <!-- Center Spindle Hole -->
+                            <div class="absolute inset-0 m-auto w-4 h-4 rounded-full bg-zinc-950 border-2 border-zinc-700"></div>
+                        </div>
+                    </div>
+
+                    <!-- Realistic Tonearm (Cần đọc đĩa than) -->
+                    <div id="vinylTonearm" class="tonearm absolute -top-2 -right-8 w-24 h-44 pointer-events-none hidden sm:block">
+                        <svg viewBox="0 0 100 180" class="w-full h-full drop-shadow-xl">
+                            <circle cx="78" cy="38" r="16" fill="#27272a" stroke="#52525b" stroke-width="3"/>
+                            <circle cx="78" cy="38" r="7" fill="#a1a1aa"/>
+                            <path d="M78 38 L66 135 L52 152" fill="none" stroke="#d4d4d8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="44" y="146" width="14" height="20" rx="3" transform="rotate(25 51 156)" fill="#8b5cf6" stroke="#ffffff" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 3D COVER ART VIEW (Hidden by default) -->
+                <div id="coverShowcase" class="relative z-10 hidden items-center justify-center">
+                    <div class="relative group">
+                        <div id="coverGlow" class="absolute -inset-2 rounded-3xl blur-xl opacity-60 transition duration-700" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+                        <img id="largeCoverImg" src="https://placehold.co/400x400/3b0764/e9d5ff?text=AURA" alt="Cover Art" class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-3xl object-cover shadow-2xl border border-white/20 transition-transform duration-500 group-hover:scale-[1.03]">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Track Details & Quick Metadata Actions -->
+            <div class="relative z-10 bg-black/30 backdrop-blur-md rounded-2xl p-4 border border-white/10">
+                <div class="flex items-start justify-between gap-3">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span id="nowPlayingBadge" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30">Sẵn sàng phát</span>
+                            <span id="nowPlayingGenre" class="text-[11px] text-slate-400 truncate">Lo-Fi / Chill</span>
+                        </div>
+                        <h2 id="nowPlayingTitle" class="font-display font-bold text-lg sm:text-xl text-white truncate">Chọn bài hát để thưởng thức</h2>
+                        <p id="nowPlayingArtist" class="text-sm text-slate-300 truncate">AURA Studio Synthesizer</p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 shrink-0">
+                        <!-- Favorite Current Track -->
+                        <button id="favCurrentBtn" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-slate-300 hover:text-rose-400 transition" title="Yêu thích (Phím F)">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <!-- Edit Current Track Metadata -->
+                        <button id="editCurrentBtn" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-slate-300 hover:text-violet-300 transition" title="Chỉnh sửa tên bài hát, nghệ sĩ, ảnh bìa">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </button>
+                        <!-- Sleep Timer Button -->
+                        <button id="sleepTimerBtn" class="px-2.5 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center gap-1 text-xs text-slate-300 hover:text-amber-300 transition" title="Hẹn giờ tắt nhạc">
+                            <i class="fa-regular fa-clock"></i>
+                            <span id="sleepTimerLabel" class="hidden sm:inline">Hẹn giờ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOTTOM MASTER AUDIO PLAYER CONTROLS -->
+    <footer class="relative z-30 px-4 sm:px-6 pb-4 pt-1">
+        <div class="max-w-[1600px] mx-auto glass-panel rounded-3xl px-4 sm:px-6 py-3.5 border border-white/15 shadow-2xl">
+            
+            <!-- Progress / Seek Bar Row -->
+            <div class="flex items-center gap-3 mb-2">
+                <span id="currentTimeEl" class="text-xs font-mono text-slate-300 w-11 text-right">00:00</span>
+                <div class="relative flex-1 flex items-center group">
+                    <!-- Custom Visual Progress Fill -->
+                    <div class="w-full h-1.5 bg-white/15 rounded-full overflow-hidden pointer-events-none">
+                        <div id="seekFillBar" class="h-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-400 w-0 transition-all duration-75"></div>
+                    </div>
+                    <input id="seekSlider" type="range" min="0" max="1000" value="0" class="aura-slider absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                </div>
+                <span id="totalDurationEl" class="text-xs font-mono text-slate-400 w-11">00:00</span>
+            </div>
+
+            <!-- Controls Row -->
+            <div class="grid grid-cols-12 items-center gap-2">
+                
+                <!-- Left: Mini Track Info -->
+                <div class="col-span-4 sm:col-span-3 flex items-center gap-3 min-w-0">
+                    <div class="relative w-11 h-11 rounded-xl overflow-hidden shrink-0 border border-white/15 hidden sm:block">
+                        <img id="miniCoverImg" src="https://placehold.co/400x400/3b0764/e9d5ff?text=AURA" alt="Mini Cover" class="w-full h-full object-cover">
+                    </div>
+                    <div class="min-w-0">
+                        <div id="miniTitle" class="text-xs sm:text-sm font-semibold text-white truncate">Chưa phát nhạc</div>
+                        <div id="miniArtist" class="text-[11px] text-slate-400 truncate">Bấm Play để bắt đầu</div>
+                    </div>
+                </div>
+
+                <!-- Center: Main Transport Buttons (Shuffle, Prev, Play/Pause, Next, Repeat) -->
+                <div class="col-span-8 sm:col-span-6 flex items-center justify-end sm:justify-center gap-2 sm:gap-4">
+                    <!-- Shuffle -->
+                    <button id="shuffleBtn" class="w-9 h-9 rounded-xl hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition relative" title="Trộn bài (Phím S)">
+                        <i class="fa-solid fa-shuffle text-sm"></i>
+                    </button>
+
+                    <!-- Previous -->
+                    <button id="prevBtn" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition active:scale-90" title="Bài trước">
+                        <i class="fa-solid fa-backward-step text-base"></i>
+                    </button>
+
+                    <!-- Play / Pause Master Button -->
+                    <button id="playPauseBtn" class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-violet-600 via-fuchsia-500 to-pink-500 hover:from-violet-500 hover:to-pink-400 text-white shadow-xl shadow-violet-600/35 flex items-center justify-center transition transform hover:scale-105 active:scale-95" title="Phát / Tạm dừng (Phím Space)">
+                        <i id="playPauseIcon" class="fa-solid fa-play text-lg sm:text-xl ml-0.5"></i>
+                    </button>
+
+                    <!-- Next -->
+                    <button id="nextBtn" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition active:scale-90" title="Bài tiếp theo">
+                        <i class="fa-solid fa-forward-step text-base"></i>
+                    </button>
+
+                    <!-- Repeat -->
+                    <button id="repeatBtn" class="w-9 h-9 rounded-xl hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition relative" title="Chế độ lặp (Phím R)">
+                        <i id="repeatIcon" class="fa-solid fa-repeat text-sm"></i>
+                        <span id="repeatOneBadge" class="hidden absolute -top-1 -right-1 text-[9px] font-bold bg-violet-500 text-white w-4 h-4 rounded-full items-center justify-center">1</span>
+                    </button>
+                </div>
+
+                <!-- Right: Playback Speed & Volume Controls -->
+                <div class="hidden sm:flex sm:col-span-3 items-center justify-end gap-3">
+                    <!-- Playback Speed Button -->
+                    <button id="speedBtn" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-xs font-mono font-semibold text-violet-300 transition" title="Tốc độ phát">
+                        1.0x
+                    </button>
+
+                    <!-- Mute / Volume Icon -->
+                    <button id="muteBtn" class="w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center text-slate-300 hover:text-white transition" title="Tắt / Bật tiếng (Phím M)">
+                        <i id="volumeIcon" class="fa-solid fa-volume-high text-sm"></i>
+                    </button>
+
+                    <!-- Volume Slider -->
+                    <div class="w-24 lg:w-28 flex items-center">
+                        <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.85" class="aura-slider w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL 1: ADD SONG (UPLOAD FILES OR URL)
+    =========================================== -->
+    <div id="addSongModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-modal rounded-3xl max-w-lg w-full p-6 border border-white/15 shadow-2xl animate-fadeIn">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-violet-500/20 border border-violet-500/40 flex items-center justify-center text-violet-300">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg text-white">Thêm Bài Hát Mới</h3>
+                        <p class="text-xs text-slate-400">Tải file từ máy hoặc dán đường dẫn URL trực tiếp</p>
+                    </div>
+                </div>
+                <button id="closeAddModalBtn" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 flex items-center justify-center text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Mode Tabs -->
+            <div class="grid grid-cols-2 gap-2 p-1 bg-white/5 rounded-xl my-4 border border-white/10">
+                <button id="tabUploadBtn" class="py-2 rounded-lg text-xs sm:text-sm font-semibold bg-violet-600 text-white shadow transition">
+                    <i class="fa-solid fa-cloud-arrow-up mr-1.5"></i>Tải file từ thiết bị
+                </button>
+                <button id="tabUrlBtn" class="py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition">
+                    <i class="fa-solid fa-link mr-1.5"></i>Thêm qua Link URL
+                </button>
+            </div>
+
+            <!-- TAB 1 CONTENT: FILE UPLOAD -->
+            <div id="tabUploadContent" class="space-y-4">
+                <label for="modalFileInput" class="cursor-pointer flex flex-col items-center justify-center p-8 border-2 border-dashed border-violet-400/40 hover:border-violet-400 rounded-2xl bg-violet-500/5 hover:bg-violet-500/10 transition text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-violet-500/20 flex items-center justify-center text-violet-300 mb-3">
+                        <i class="fa-solid fa-file-audio text-2xl"></i>
+                    </div>
+                    <p class="text-sm font-semibold text-white mb-1">Bấm để chọn file nhạc hoặc Kéo thả vào đây</p>
+                    <p class="text-xs text-slate-400">Hỗ trợ chọn nhiều file (.MP3, .WAV, .OGG, .M4A, .FLAC)</p>
+                </label>
+                <input id="modalFileInput" type="file" accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac" multiple class="hidden">
+
+                <div class="bg-white/5 rounded-xl p-3.5 border border-white/10 text-xs text-slate-300 space-y-1">
+                    <div class="font-semibold text-violet-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-database"></i>
+                        <span>Lưu trữ thông minh với IndexedDB</span>
+                    </div>
+                    <p class="text-slate-400">Các file nhạc bạn tải lên sẽ được lưu trực tiếp trong bộ nhớ IndexedDB của trình duyệt. Bạn có thể đóng tab hoặc tải lại trang mà không cần chọn lại file.</p>
+                </div>
+            </div>
+
+            <!-- TAB 2 CONTENT: DIRECT AUDIO URL -->
+            <form id="addUrlForm" class="space-y-3.5 hidden">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Tên bài hát *</label>
+                    <input id="urlTitleInput" type="text" required placeholder="Ví dụ: Nơi Này Có Anh / Lofi Midnight..." class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nghệ sĩ</label>
+                        <input id="urlArtistInput" type="text" placeholder="Tên ca sĩ / Nhạc sĩ" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Thể loại</label>
+                        <input id="urlGenreInput" type="text" placeholder="Pop, Ballad, Lo-Fi, EDM..." class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Đường dẫn file nhạc (Direct Audio URL: .mp3, .wav, .ogg) *</label>
+                    <input id="urlAudioInput" type="url" required placeholder="https://example.com/music/song.mp3" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Link Ảnh bìa (Tùy chọn)</label>
+                    <input id="urlCoverInput" type="url" placeholder="https://example.com/images/cover.jpg (Bỏ trống sẽ tự tạo ảnh)" class="w-full px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" id="fillSampleUrlBtn" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-violet-300 transition">
+                        Dùng thử Link mẫu
+                    </button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-semibold text-sm shadow-lg shadow-violet-600/30 transition">
+                        Thêm vào danh sách
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 2: EDIT TRACK METADATA & COVER ART
+    =========================================== -->
+    <div id="editTrackModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-modal rounded-3xl max-w-md w-full p-6 border border-white/15 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <h3 class="font-display font-bold text-lg text-white">Chỉnh Sửa Thông Tin Bài Hát</h3>
+                <button id="closeEditModalBtn" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 flex items-center justify-center text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="editTrackForm" class="space-y-4 mt-4">
+                <input type="hidden" id="editTrackId">
+                
+                <!-- Cover Preview + Upload new cover image -->
+                <div class="flex items-center gap-4">
+                    <img id="editCoverPreview" src="https://placehold.co/400x400/3b0764/e9d5ff?text=AURA" alt="Preview" class="w-20 h-20 rounded-2xl object-cover border border-white/15 shrink-0">
+                    <div class="flex-1 space-y-2">
+                        <label for="editCoverFileInput" class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-medium text-white transition">
+                            <i class="fa-solid fa-camera text-violet-300"></i>
+                            <span>Tải ảnh bìa từ máy</span>
+                        </label>
+                        <input id="editCoverFileInput" type="file" accept="image/*" class="hidden">
+                        <input id="editCoverUrlInput" type="text" placeholder="Hoặc dán Link URL ảnh bìa..." class="w-full px-3 py-1.5 rounded-xl bg-white/5 border border-white/15 text-xs text-white focus:outline-none focus:border-violet-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Tên bài hát *</label>
+                    <input id="editTitleInput" type="text" required class="w-full px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Nghệ sĩ</label>
+                        <input id="editArtistInput" type="text" class="w-full px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Thể loại</label>
+                        <input id="editGenreInput" type="text" class="w-full px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 focus:border-violet-400 focus:outline-none text-sm text-white">
+                    </div>
+                </div>
+
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" id="cancelEditBtn" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs sm:text-sm text-slate-300">Hủy</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-violet-600/30">Lưu thay đổi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 3: KEYBOARD SHORTCUTS
+    =========================================== -->
+    <div id="shortcutsModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-modal rounded-3xl max-w-md w-full p-6 border border-white/15 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+                    <i class="fa-regular fa-keyboard text-violet-400"></i>
+                    <span>Phím Tắt Nhanh</span>
+                </h3>
+                <button id="closeShortcutsBtn" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 flex items-center justify-center text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-2.5 my-4 text-xs sm:text-sm">
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Phát / Tạm dừng nhạc</span>
+                    <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">Space</kbd>
+                </div>
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Tua lùi / Tua tiến 5 giây</span>
+                    <div class="flex gap-1">
+                        <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">←</kbd>
+                        <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">→</kbd>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Tăng / Giảm âm lượng</span>
+                    <div class="flex gap-1">
+                        <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">↑</kbd>
+                        <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">↓</kbd>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Tắt / Bật tiếng (Mute)</span>
+                    <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">M</kbd>
+                </div>
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Bật / Tắt Trộn bài (Shuffle)</span>
+                    <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">S</kbd>
+                </div>
+                <div class="flex justify-between items-center py-1.5 border-b border-white/5">
+                    <span class="text-slate-300">Đổi chế độ Lặp lại (Repeat)</span>
+                    <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">R</kbd>
+                </div>
+                <div class="flex justify-between items-center py-1.5">
+                    <span class="text-slate-300">Yêu thích bài đang phát</span>
+                    <kbd class="px-2.5 py-1 rounded-lg bg-white/10 border border-white/20 font-mono text-xs text-violet-200">F</kbd>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed top-20 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- HIDDEN HTML5 AUDIO ELEMENT -->
+    <audio id="audioElement" crossorigin="anonymous" preload="auto"></audio>
+
+    <!-- =========================================================================
+         MAIN APPLICATION JAVASCRIPT (INDEXEDDB + SYNTH DEMO + WEB AUDIO + UI)
+    ========================================================================== -->
+    <script>
+        /********************************************************************
+         * 1. PROCEDURAL STUDIO DEMO TRACK GENERATOR (WEB AUDIO -> WAV BLOB)
+         * Generates 5 rich, stereo musical demo tracks in-memory so the player
+         * works out-of-the-box with full seeking, speed control, and visualizer!
+         ********************************************************************/
+        const DemoSynthGenerator = {
+            createWavBlobFromTrackSpec(spec) {
+                const sampleRate = 22050; // Fast generation & warm lo-fi/synth fidelity
+                const duration = spec.duration || 36;
+                const numSamples = sampleRate * duration;
+                const left = new Float32Array(numSamples);
+                const right = new Float32Array(numSamples);
+
+                const bpm = spec.bpm || 90;
+                const beatLen = 60 / bpm;
+
+                for (let i = 0; i < numSamples; i++) {
+                    const t = i / sampleRate;
+                    const beatPos = t / beatLen;
+                    const barIndex = Math.floor(beatPos / 4) % spec.chords.length;
+                    const chord = spec.chords[barIndex];
+
+                    let sampleL = 0;
+                    let sampleR = 0;
+
+                    // 1. Lush Pad / Electric Piano Chords
+                    const envPad = 0.5 + 0.5 * Math.sin((beatPos % 4) * Math.PI / 4);
+                    for (let n = 0; n < chord.length; n++) {
+                        const freq = chord[n];
+                        const voice = Math.sin(2 * Math.PI * freq * t) * 0.55 +
+                                      Math.sin(2 * Math.PI * (freq * 1.003) * t) * 0.3 +
+                                      Math.sin(2 * Math.PI * (freq * 2) * t) * (spec.brightness || 0.12);
+                        const pan = (n % 2 === 0) ? 0.65 : 0.35;
+                        sampleL += voice * pan * 0.11 * envPad;
+                        sampleR += voice * (1 - pan) * 0.11 * envPad;
+                    }
+
+                    // 2. Arpeggio / Melody Note
+                    const stepIndex = Math.floor(beatPos * 2);
+                    const stepFrac = (beatPos * 2) % 1;
+                    const melDecay = Math.exp(-stepFrac * (spec.pluckDecay || 5.5));
+                    const noteFreq = chord[stepIndex % chord.length] * (spec.melodyOctave || 2);
+                    const melWave = Math.sin(2 * Math.PI * noteFreq * t + 0.6 * Math.sin(2 * Math.PI * noteFreq * 2 * t));
+                    const pingPong = (stepIndex % 2 === 0) ? 0.75 : 0.25;
+                    sampleL += melWave * melDecay * 0.14 * pingPong;
+                    sampleR += melWave * melDecay * 0.14 * (1 - pingPong);
+
+                    // 3. Warm Sub Bassline
+                    const bassFreq = chord[0] * 0.5;
+                    const bassEnv = Math.exp(-((beatPos % 1) * 2.5));
+                    const bassWave = Math.tanh(Math.sin(2 * Math.PI * bassFreq * t) * 1.8) * 0.22 * bassEnv;
+                    sampleL += bassWave;
+                    sampleR += bassWave;
+
+                    // 4. Drum Groove (Soft Kick, Snare/Clap, Hi-hat)
+                    if (spec.drums !== false) {
+                        const beatFrac = beatPos % 1;
+                        // Kick on beat 0 and 2
+                        if (Math.floor(beatPos) % 2 === 0 && beatFrac < 0.25) {
+                            const kickFreq = 52 + 110 * Math.exp(-beatFrac * 32);
+                            const kickEnv = Math.exp(-beatFrac * 16);
+                            const kick = Math.sin(2 * Math.PI * kickFreq * t) * kickEnv * 0.32;
+                            sampleL += kick;
+                            sampleR += kick;
+                        }
+                        // Soft Snare on beat 1 and 3
+                        if (Math.floor(beatPos) % 2 === 1 && beatFrac < 0.2) {
+                            const snareEnv = Math.exp(-beatFrac * 24);
+                            const noise = (Math.sin(i * 12.9898) * 43758.5453 % 1) * 2 - 1;
+                            const snare = noise * snareEnv * 0.12;
+                            sampleL += snare;
+                            sampleR += snare;
+                        }
+                        // Hi-hat on 8th notes
+                        const eighthFrac = (beatPos * 2) % 1;
+                        if (eighthFrac < 0.08) {
+                            const hatEnv = Math.exp(-eighthFrac * 45);
+                            const hat = ((Math.sin(i * 78.233) * 43758.5453 % 1) * 2 - 1) * hatEnv * 0.05;
+                            sampleL += hat * 0.8;
+                            sampleR += hat * 1.1;
+                        }
+                    }
+
+                    // Fade in/out for smooth loop
+                    let masterEnv = 1;
+                    if (t < 0.8) masterEnv = t / 0.8;
+                    else if (t > duration - 1.2) masterEnv = (duration - t) / 1.2;
+
+                    left[i] = Math.max(-0.95, Math.min(0.95, sampleL * masterEnv));
+                    right[i] = Math.max(-0.95, Math.min(0.95, sampleR * masterEnv));
+                }
+
+                return this.encodeStereoWAV(left, right, sampleRate);
+            },
+
+            encodeStereoWAV(left, right, sampleRate) {
+                const numChannels = 2;
+                const length = left.length * numChannels * 2 + 44;
+                const buffer = new ArrayBuffer(length);
+                const view = new DataView(buffer);
+
+                const writeStr = (offset, str) => {
+                    for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+                };
+
+                writeStr(0, 'RIFF');
+                view.setUint32(4, length - 8, true);
+                writeStr(8, 'WAVE');
+                writeStr(12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true); // PCM
+                view.setUint16(22, numChannels, true);
+                view.setUint32(24, sampleRate, true);
+                view.setUint32(28, sampleRate * numChannels * 2, true);
+                view.setUint16(32, numChannels * 2, true);
+                view.setUint16(34, 16, true);
+                writeStr(36, 'data');
+                view.setUint32(40, left.length * numChannels * 2, true);
+
+                let offset = 44;
+                for (let i = 0; i < left.length; i++) {
+                    const sL = Math.max(-1, Math.min(1, left[i]));
+                    const sR = Math.max(-1, Math.min(1, right[i]));
+                    view.setInt16(offset, sL < 0 ? sL * 0x8000 : sL * 0x7FFF, true);
+                    offset += 2;
+                    view.setInt16(offset, sR < 0 ? sR * 0x8000 : sR * 0x7FFF, true);
+                    offset += 2;
+                }
+
+                return new Blob([buffer], { type: 'audio/wav' });
+            }
+        };
+
+        // SVG Cover Art DataURL Generator for rich aesthetics without external broken images
+        function createCoverSvgDataUrl(title, subtitle, c1, c2, c3, iconType = 'disc') {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+                <defs>
+                    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="${c1}"/>
+                        <stop offset="55%" stop-color="${c2}"/>
+                        <stop offset="100%" stop-color="${c3}"/>
+                    </linearGradient>
+                    <radialGradient id="r" cx="80%" cy="20%" r="65%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+                        <stop offset="100%" stop-color="#000000" stop-opacity="0.35"/>
+                    </radialGradient>
+                </defs>
+                <rect width="400" height="400" fill="url(#g)"/>
+                <rect width="400" height="400" fill="url(#r)"/>
+                <circle cx="320" cy="80" r="110" fill="#ffffff" fill-opacity="0.08"/>
+                <circle cx="80" cy="310" r="140" fill="#000000" fill-opacity="0.18"/>
+                <g stroke="#ffffff" stroke-opacity="0.2" fill="none" stroke-width="2">
+                    <circle cx="200" cy="175" r="72"/>
+                    <circle cx="200" cy="175" r="46"/>
+                    <circle cx="200" cy="175" r="18" fill="#ffffff" fill-opacity="0.25"/>
+                </g>
+                <text x="32" y="330" fill="#ffffff" font-family="Plus Jakarta Sans, Inter, sans-serif" font-weight="800" font-size="26" letter-spacing="-0.5">${title.replace(/[<>&"']/g, '')}</text>
+                <text x="32" y="360" fill="#e2e8f0" fill-opacity="0.85" font-family="Inter, sans-serif" font-weight="500" font-size="15">${subtitle.replace(/[<>&"']/g, '')}</text>
+            </svg>`;
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+        }
+
+        // Built-in Demo Tracks Specification
+        const BUILTIN_DEMO_SPECS = [
+            {
+                id: 'demo-lofi-rain',
+                title: 'Mưa Đêm Hà Nội (Lo-Fi Chill)',
+                artist: 'AURA Chillhop Collective',
+                genre: 'Lo-Fi Chill',
+                duration: 36,
+                bpm: 82,
+                chords: [
+                    [261.63, 311.13, 392.00, 466.16], // Cm7
+                    [233.08, 293.66, 349.23, 440.00], // BbMaj7
+                    [207.65, 261.63, 311.13, 392.00], // AbMaj7
+                    [196.00, 246.94, 293.66, 349.23]  // G7
+                ],
+                melodyOctave: 2,
+                pluckDecay: 6.0,
+                drums: true,
+                colors: ['#7c3aed', '#ec4899', '#06b6d4'],
+                cover: createCoverSvgDataUrl('Mưa Đêm Hà Nội', 'AURA Chillhop • Lo-Fi', '#3b0764', '#7e22ce', '#db2777')
+            },
+            {
+                id: 'demo-synthwave-neon',
+                title: 'Cyberpunk Saigon 2088',
+                artist: 'Neon Horizon Synth',
+                genre: 'Synthwave / Retrowave',
+                duration: 38,
+                bpm: 108,
+                chords: [
+                    [220.00, 261.63, 329.63, 392.00], // Am7
+                    [174.61, 220.00, 261.63, 329.63], // FMaj7
+                    [261.63, 329.63, 392.00, 493.88], // CMaj7
+                    [196.00, 246.94, 293.66, 392.00]  // G
+                ],
+                melodyOctave: 2,
+                brightness: 0.22,
+                pluckDecay: 4.2,
+                drums: true,
+                colors: ['#db2777', '#7c3aed', '#2563eb'],
+                cover: createCoverSvgDataUrl('Cyberpunk 2088', 'Neon Horizon • Synthwave', '#831843', '#701a75', '#1e3a8a')
+            },
+            {
+                id: 'demo-piano-serenity',
+                title: 'Bình Minh Trên Đồi Mây',
+                artist: 'Acoustic Serenity Piano',
+                genre: 'Ambient Piano',
+                duration: 40,
+                bpm: 72,
+                chords: [
+                    [293.66, 369.99, 440.00, 554.37], // DMaj7
+                    [246.94, 293.66, 369.99, 440.00], // Bm7
+                    [196.00, 246.94, 293.66, 369.99], // GMaj7
+                    [220.00, 277.18, 329.63, 440.00]  // A
+                ],
+                melodyOctave: 2,
+                brightness: 0.08,
+                pluckDecay: 3.5,
+                drums: false,
+                colors: ['#059669', '#0ea5e9', '#6366f1'],
+                cover: createCoverSvgDataUrl('Đồi Mây Bình Minh', 'Acoustic Serenity • Ambient', '#064e3b', '#0f766e', '#1d4ed8')
+            },
+            {
+                id: 'demo-deep-sunset',
+                title: 'Hoàng Hôn Phú Quốc (Deep Groove)',
+                artist: 'Oceanic Vibes',
+                genre: 'Chill House',
+                duration: 36,
+                bpm: 116,
+                chords: [
+                    [246.94, 293.66, 369.99, 440.00], // Bm7
+                    [220.00, 277.18, 329.63, 392.00], // A7
+                    [196.00, 246.94, 293.66, 369.99], // GMaj7
+                    [185.00, 233.08, 277.18, 369.99]  // F#7
+                ],
+                melodyOctave: 2,
+                brightness: 0.18,
+                pluckDecay: 5.0,
+                drums: true,
+                colors: ['#ea580c', '#db2777', '#7c3aed'],
+                cover: createCoverSvgDataUrl('Hoàng Hôn Biển', 'Oceanic Vibes • Chill House', '#7c2d12', '#be185d', '#4c1d95')
+            },
+            {
+                id: 'demo-starlight-dream',
+                title: 'Dải Ngân Hà Tĩnh Lặng',
+                artist: 'Cosmos Soundscape',
+                genre: 'Dream Pop / Chill',
+                duration: 38,
+                bpm: 88,
+                chords: [
+                    [329.63, 392.00, 493.88, 587.33], // Em7
+                    [261.63, 329.63, 392.00, 493.88], // CMaj7
+                    [293.66, 369.99, 440.00, 587.33], // D
+                    [246.94, 311.13, 369.99, 493.88]  // B7
+                ],
+                melodyOctave: 1,
+                brightness: 0.15,
+                pluckDecay: 4.8,
+                drums: true,
+                colors: ['#2563eb', '#7c3aed', '#06b6d4'],
+                cover: createCoverSvgDataUrl('Dải Ngân Hà', 'Cosmos Soundscape • Dream', '#1e1b4b', '#312e81', '#0891b2')
+            }
+        ];
+
+        /********************************************************************
+         * 2. INDEXEDDB STORAGE ENGINE (PERSISTENT AUDIO FILES & METADATA)
+         ********************************************************************/
+        const AuraDB = {
+            dbName: 'AuraMusicPlayerDB',
+            dbVersion: 1,
+            storeName: 'tracks',
+            db: null,
+
+            async init() {
+                return new Promise((resolve, reject) => {
+                    const req = indexedDB.open(this.dbName, this.dbVersion);
+                    req.onupgradeneeded = (e) => {
+                        const db = e.target.result;
+                        if (!db.objectStoreNames.contains(this.storeName)) {
+                            db.createObjectStore(this.storeName, { keyPath: 'id' });
+                        }
+                    };
+                    req.onsuccess = (e) => {
+                        this.db = e.target.result;
+                        resolve(this.db);
+                    };
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async getAllTracks() {
+                if (!this.db) await this.init();
+                return new Promise((resolve, reject) => {
+                    const tx = this.db.transaction(this.storeName, 'readonly');
+                    const store = tx.objectStore(this.storeName);
+                    const req = store.getAll();
+                    req.onsuccess = () => resolve(req.result || []);
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async saveTrack(track) {
+                if (!this.db) await this.init();
+                // Create a clean clone without temporary runtime objectUrl
+                const toStore = { ...track };
+                delete toStore.runtimeObjectUrl;
+                return new Promise((resolve, reject) => {
+                    const tx = this.db.transaction(this.storeName, 'readwrite');
+                    const store = tx.objectStore(this.storeName);
+                    const req = store.put(toStore);
+                    req.onsuccess = () => resolve(track);
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            },
+
+            async deleteTrack(id) {
+                if (!this.db) await this.init();
+                return new Promise((resolve, reject) => {
+                    const tx = this.db.transaction(this.storeName, 'readwrite');
+                    const store = tx.objectStore(this.storeName);
+                    const req = store.delete(id);
+                    req.onsuccess = () => resolve(true);
+                    req.onerror = (e) => reject(e.target.error);
+                });
+            }
+        };
+
+        /********************************************************************
+         * 3. APPLICATION STATE & WEB AUDIO API VISUALIZER ENGINE
+         ********************************************************************/
+        const AppState = {
+            tracks: [],
+            filteredTracks: [],
+            currentTrackIndex: -1,
+            currentTrackId: null,
+            isPlaying: false,
+            isShuffle: false,
+            repeatMode: 'all', // 'none', 'all', 'one'
+            volume: 0.85,
+            isMuted: false,
+            playbackSpeed: 1.0,
+            activeFilter: 'all', // 'all', 'favorites', 'custom', 'demo'
+            searchQuery: '',
+            sortBy: 'recent',
+            displayMode: 'vinyl', // 'vinyl' or 'cover'
+            visualizerStyle: 'bars', // 'bars', 'wave', 'circle', 'particles'
+            eqPresetIndex: 0,
+            sleepTimerId: null,
+            sleepMinutesLeft: 0
+        };
+
+        const EQ_PRESETS = [
+            { name: 'Chuẩn Hi-Fi', bass: 0, mid: 0, treble: 0 },
+            { name: 'Bass Boost', bass: 8, mid: -1, treble: 2 },
+            { name: 'Lo-Fi Ấm Áp', bass: 5, mid: 2, treble: -7 },
+            { name: 'Vocal Rõ Nét', bass: -2, mid: 6, treble: 3 },
+            { name: 'Cyber Treble', bass: 4, mid: -2, treble: 7 }
+        ];
+
+        // DOM Elements Reference
+        const audioEl = document.getElementById('audioElement');
+        const playlistContainer = document.getElementById('playlistContainer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playPauseIcon = document.getElementById('playPauseIcon');
+        const seekSlider = document.getElementById('seekSlider');
+        const seekFillBar = document.getElementById('seekFillBar');
+        const currentTimeEl = document.getElementById('currentTimeEl');
+        const totalDurationEl = document.getElementById('totalDurationEl');
+        const vinylDisc = document.getElementById('vinylDisc');
+        const vinylTonearm = document.getElementById('vinylTonearm');
+        const vizCanvas = document.getElementById('visualizerCanvas');
+        const vizCtx = vizCanvas.getContext('2d');
+
+        // Web Audio Graph State
+        let audioCtx = null;
+        let mediaSourceNode = null;
+        let analyserNode = null;
+        let bassFilter = null;
+        let midFilter = null;
+        let trebleFilter = null;
+        let freqDataArray = null;
+        let timeDataArray = null;
+        let particles = [];
+
+        function initWebAudioGraph() {
+            if (audioCtx) {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                return;
+            }
+            try {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+                analyserNode = audioCtx.createAnalyser();
+                analyserNode.fftSize = 256;
+                analyserNode.smoothingTimeConstant = 0.82;
+
+                // 3-Band EQ Filters
+                bassFilter = audioCtx.createBiquadFilter();
+                bassFilter.type = 'lowshelf';
+                bassFilter.frequency.value = 180;
+
+                midFilter = audioCtx.createBiquadFilter();
+                midFilter.type = 'peaking';
+                midFilter.frequency.value = 1100;
+                midFilter.Q.value = 1.0;
+
+                trebleFilter = audioCtx.createBiquadFilter();
+                trebleFilter.type = 'highshelf';
+                trebleFilter.frequency.value = 4200;
+
+                mediaSourceNode = audioCtx.createMediaElementSource(audioEl);
+                mediaSourceNode.connect(bassFilter);
+                bassFilter.connect(midFilter);
+                midFilter.connect(trebleFilter);
+                trebleFilter.connect(analyserNode);
+                analyserNode.connect(audioCtx.destination);
+
+                freqDataArray = new Uint8Array(analyserNode.frequencyBinCount);
+                timeDataArray = new Uint8Array(analyserNode.frequencyBinCount);
+                applyEqPreset(AppState.eqPresetIndex);
+            } catch (err) {
+                console.warn('Web Audio API fallback:', err);
+            }
+        }
+
+        function applyEqPreset(index) {
+            const preset = EQ_PRESETS[index] || EQ_PRESETS[0];
+            document.getElementById('eqPresetLabel').textContent = preset.name;
+            if (bassFilter && midFilter && trebleFilter) {
+                bassFilter.gain.value = preset.bass;
+                midFilter.gain.value = preset.mid;
+                trebleFilter.gain.value = preset.treble;
+            }
+        }
+
+        /********************************************************************
+         * 4. REAL-TIME CANVAS VISUALIZER LOOP
+         ********************************************************************/
+        function resizeVisualizerCanvas() {
+            const rect = vizCanvas.parentElement.getBoundingClientRect();
+            vizCanvas.width = rect.width * window.devicePixelRatio;
+            vizCanvas.height = rect.height * window.devicePixelRatio;
+            vizCtx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+        }
+
+        window.addEventListener('resize', resizeVisualizerCanvas);
+
+        function renderVisualizerFrame() {
+            requestAnimationFrame(renderVisualizerFrame);
+
+            const width = vizCanvas.width / window.devicePixelRatio;
+            const height = vizCanvas.height / window.devicePixelRatio;
+            vizCtx.clearRect(0, 0, width, height);
+
+            if (!analyserNode || !freqDataArray) return;
+
+            analyserNode.getByteFrequencyData(freqDataArray);
+            analyserNode.getByteTimeDomainData(timeDataArray);
+
+            const currentTrack = getCurrentTrack();
+            const colors = (currentTrack && currentTrack.colors) ? currentTrack.colors : ['#8b5cf6', '#ec4899', '#06b6d4'];
+
+            // Calculate average bass energy
+            let bassSum = 0;
+            for (let i = 0; i < 12; i++) bassSum += freqDataArray[i];
+            const bassAvg = bassSum / 12;
+
+            // Subtle reactive pulse on Vinyl / Cover glow
+            if (AppState.isPlaying) {
+                const scale = 1 + (bassAvg / 255) * 0.16;
+                document.getElementById('vinylGlow').style.transform = `scale(${scale.toFixed(3)})`;
+            }
+
+            const style = AppState.visualizerStyle;
+
+            if (style === 'bars') {
+                const barCount = 44;
+                const totalWidth = width * 0.9;
+                const startX = (width - totalWidth) / 2;
+                const barWidth = (totalWidth / barCount) * 0.65;
+                const gap = (totalWidth / barCount) * 0.35;
+
+                const grad = vizCtx.createLinearGradient(0, height, 0, height * 0.15);
+                grad.addColorStop(0, colors[0] + '66');
+                grad.addColorStop(0.5, colors[1] + 'aa');
+                grad.addColorStop(1, colors[2] + 'ee');
+                vizCtx.fillStyle = grad;
+
+                for (let i = 0; i < barCount; i++) {
+                    // Mirror from center for aesthetic symmetry
+                    const dataIdx = Math.floor(Math.abs(i - barCount / 2) * 1.6);
+                    const val = freqDataArray[dataIdx] || 4;
+                    const barHeight = Math.max(6, (val / 255) * (height * 0.65));
+                    const x = startX + i * (barWidth + gap);
+                    const y = height - barHeight - 8;
+
+                    vizCtx.beginPath();
+                    vizCtx.roundRect(x, y, barWidth, barHeight, 4);
+                    vizCtx.fill();
+                }
+            } else if (style === 'wave') {
+                vizCtx.lineWidth = 3;
+                const grad = vizCtx.createLinearGradient(0, 0, width, 0);
+                grad.addColorStop(0, colors[0]);
+                grad.addColorStop(0.5, colors[1]);
+                grad.addColorStop(1, colors[2]);
+                vizCtx.strokeStyle = grad;
+
+                vizCtx.beginPath();
+                const sliceWidth = width / (timeDataArray.length - 1);
+                let x = 0;
+                for (let i = 0; i < timeDataArray.length; i++) {
+                    const v = timeDataArray[i] / 128.0;
+                    const y = (v * height) / 2;
+                    if (i === 0) vizCtx.moveTo(x, y);
+                    else vizCtx.lineTo(x, y);
+                    x += sliceWidth;
+                }
+                vizCtx.stroke();
+            } else if (style === 'circle') {
+                const cx = width / 2;
+                const cy = height / 2;
+                const baseRadius = Math.min(width, height) * 0.38;
+                const rays = 64;
+
+                vizCtx.lineWidth = 3;
+                for (let i = 0; i < rays; i++) {
+                    const angle = (i / rays) * Math.PI * 2;
+                    const val = freqDataArray[i % 48] || 0;
+                    const len = 6 + (val / 255) * 48;
+
+                    const x1 = cx + Math.cos(angle) * baseRadius;
+                    const y1 = cy + Math.sin(angle) * baseRadius;
+                    const x2 = cx + Math.cos(angle) * (baseRadius + len);
+                    const y2 = cy + Math.sin(angle) * (baseRadius + len);
+
+                    vizCtx.strokeStyle = i % 2 === 0 ? colors[0] : colors[1];
+                    vizCtx.beginPath();
+                    vizCtx.moveTo(x1, y1);
+                    vizCtx.lineTo(x2, y2);
+                    vizCtx.stroke();
+                }
+            } else if (style === 'particles') {
+                if (particles.length < 36) {
+                    for (let i = particles.length; i < 36; i++) {
+                        particles.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            r: 2 + Math.random() * 4,
+                            vx: (Math.random() - 0.5) * 0.8,
+                            vy: -0.4 - Math.random() * 1.2,
+                            color: colors[i % colors.length]
+                        });
+                    }
+                }
+                const boost = 1 + (bassAvg / 255) * 3.2;
+                for (let p of particles) {
+                    p.x += p.vx * boost;
+                    p.y += p.vy * boost;
+                    if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
+                    if (p.x < -10) p.x = width + 10;
+                    if (p.x > width + 10) p.x = -10;
+
+                    vizCtx.beginPath();
+                    vizCtx.arc(p.x, p.y, p.r * (0.8 + (bassAvg / 255) * 0.9), 0, Math.PI * 2);
+                    vizCtx.fillStyle = p.color + '88';
+                    vizCtx.fill();
+                }
+            }
+        }
+
+        /********************************************************************
+         * 5. TRACK LIBRARY & PLAYBACK CONTROLLER
+         ********************************************************************/
+        function formatTime(sec) {
+            if (!sec || isNaN(sec) || !isFinite(sec)) return '00:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function getCurrentTrack() {
+            return AppState.tracks.find(t => t.id === AppState.currentTrackId) || null;
+        }
+
+        function getRandomColorPalette() {
+            const palettes = [
+                ['#7c3aed', '#ec4899', '#06b6d4'],
+                ['#2563eb', '#7c3aed', '#f43f5e'],
+                ['#059669', '#10b981', '#3b82f6'],
+                ['#ea580c', '#db2777', '#8b5cf6'],
+                ['#4f46e5', '#06b6d4', '#ec4899']
+            ];
+            return palettes[Math.floor(Math.random() * palettes.length)];
+        }
+
+        async function initializeLibrary() {
+            await AuraDB.init();
+            let storedTracks = await AuraDB.getAllTracks();
+
+            // Generate built-in demo tracks if none exist
+            const hasDemos = storedTracks.some(t => t.isDemo);
+            if (!hasDemos) {
+                for (let i = 0; i < BUILTIN_DEMO_SPECS.length; i++) {
+                    const spec = BUILTIN_DEMO_SPECS[i];
+                    const wavBlob = DemoSynthGenerator.createWavBlobFromTrackSpec(spec);
+                    const demoTrack = {
+                        id: spec.id,
+                        title: spec.title,
+                        artist: spec.artist,
+                        genre: spec.genre,
+                        duration: spec.duration,
+                        audioBlob: wavBlob,
+                        audioUrl: null,
+                        cover: spec.cover,
+                        colors: spec.colors,
+                        favorite: i === 0,
+                        isDemo: true,
+                        createdAt: Date.now() - (BUILTIN_DEMO_SPECS.length - i) * 1000
+                    };
+                    await AuraDB.saveTrack(demoTrack);
+                    storedTracks.push(demoTrack);
+                }
+            }
+
+            // Prepare runtime object URLs for tracks with Blobs
+            AppState.tracks = storedTracks.map(track => {
+                if (track.audioBlob instanceof Blob) {
+                    track.runtimeObjectUrl = URL.createObjectURL(track.audioBlob);
+                }
+                return track;
+            });
+
+            applyFiltersAndRender();
+
+            // Pre-load first track into player UI without auto-playing
+            if (AppState.filteredTracks.length > 0) {
+                loadTrackById(AppState.filteredTracks[0].id, false);
+            }
+        }
+
+        function applyFiltersAndRender() {
+            const q = AppState.searchQuery.trim().toLowerCase();
+
+            // Update Badge Counts
+            document.getElementById('countAll').textContent = AppState.tracks.length;
+            document.getElementById('countFav').textContent = AppState.tracks.filter(t => t.favorite).length;
+            document.getElementById('countCustom').textContent = AppState.tracks.filter(t => !t.isDemo).length;
+
+            let list = AppState.tracks.filter(t => {
+                if (AppState.activeFilter === 'favorites' && !t.favorite) return false;
+                if (AppState.activeFilter === 'custom' && t.isDemo) return false;
+                if (AppState.activeFilter === 'demo' && !t.isDemo) return false;
+                if (q) {
+                    const matchTitle = (t.title || '').toLowerCase().includes(q);
+                    const matchArtist = (t.artist || '').toLowerCase().includes(q);
+                    const matchGenre = (t.genre || '').toLowerCase().includes(q);
+                    return matchTitle || matchArtist || matchGenre;
+                }
+                return true;
+            });
+
+            // Sort
+            list.sort((a, b) => {
+                if (AppState.sortBy === 'title') return (a.title || '').localeCompare(b.title || '', 'vi');
+                if (AppState.sortBy === 'artist') return (a.artist || '').localeCompare(b.artist || '', 'vi');
+                if (AppState.sortBy === 'duration') return (b.duration || 0) - (a.duration || 0);
+                return (b.createdAt || 0) - (a.createdAt || 0);
+            });
+
+            AppState.filteredTracks = list;
+            renderPlaylist();
+        }
+
+        function renderPlaylist() {
+            playlistContainer.innerHTML = '';
+
+            const totalSeconds = AppState.filteredTracks.reduce((acc, t) => acc + (t.duration || 0), 0);
+            document.getElementById('librarySummary').textContent = 
+                `Hiển thị ${AppState.filteredTracks.length} bài hát • Tổng thời lượng ${formatTime(totalSeconds)}`;
+
+            if (AppState.filteredTracks.length === 0) {
+                playlistContainer.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-14 text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 mb-3">
+                            <i class="fa-solid fa-music text-2xl"></i>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-300">Không tìm thấy bài hát nào</p>
+                        <p class="text-xs text-slate-400 mt-1 max-w-xs">Hãy bấm "Thêm bài hát" hoặc kéo thả file nhạc từ máy tính của bạn vào trang web.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            AppState.filteredTracks.forEach((track, idx) => {
+                const isCurrent = track.id === AppState.currentTrackId;
+                const row = document.createElement('div');
+                row.className = `glass-card rounded-2xl px-3 py-2.5 grid grid-cols-12 items-center gap-2 cursor-pointer group ${
+                    isCurrent ? 'bg-violet-500/20 border-violet-400/50 shadow-lg shadow-violet-950/40' : ''
+                }`;
+
+                const sourceBadge = track.isDemo
+                    ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/25">Mẫu</span>`
+                    : (track.audioBlob
+                        ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">File máy</span>`
+                        : `<span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/25">URL</span>`);
+
+                row.innerHTML = `
+                    <!-- Index or Animated Equalizer -->
+                    <div class="col-span-1 flex items-center justify-center">
+                        ${isCurrent ? `
+                            <div class="flex items-end gap-0.5 h-4 text-violet-400 ${AppState.isPlaying ? '' : 'eq-paused'}">
+                                <span class="eq-bar"></span>
+                                <span class="eq-bar"></span>
+                                <span class="eq-bar"></span>
+                                <span class="eq-bar"></span>
+                            </div>
+                        ` : `
+                            <span class="text-xs font-mono text-slate-400 group-hover:hidden">${idx + 1}</span>
+                            <i class="fa-solid fa-play text-xs text-white hidden group-hover:inline-block"></i>
+                        `}
+                    </div>
+
+                    <!-- Cover & Title -->
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 min-w-0">
+                        <img src="${track.cover}" alt="Cover" onerror="this.src='https://placehold.co/200x200/3b0764/e9d5ff?text=MUSIC'" class="w-10 h-10 rounded-xl object-cover border border-white/10 shrink-0">
+                        <div class="min-w-0">
+                            <div class="text-xs sm:text-sm font-semibold ${isCurrent ? 'text-violet-300' : 'text-white'} truncate">${escapeHtml(track.title)}</div>
+                            <div class="text-[11px] text-slate-400 truncate sm:hidden">${escapeHtml(track.artist || 'Nghệ sĩ chưa rõ')}</div>
+                        </div>
+                    </div>
+
+                    <!-- Artist & Source Badge -->
+                    <div class="hidden sm:flex sm:col-span-3 items-center gap-2 min-w-0">
+                        <span class="text-xs text-slate-300 truncate">${escapeHtml(track.artist || 'Nghệ sĩ chưa rõ')}</span>
+                        ${sourceBadge}
+                    </div>
+
+                    <!-- Duration -->
+                    <div class="col-span-2 sm:col-span-1 text-right text-xs font-mono text-slate-400">
+                        ${formatTime(track.duration)}
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="col-span-3 sm:col-span-2 flex items-center justify-end gap-1" onclick="event.stopPropagation()">
+                        <button class="track-fav-btn w-7 h-7 rounded-lg hover:bg-white/10 flex items-center justify-center transition ${track.favorite ? 'text-rose-400' : 'text-slate-400 hover:text-white'}" title="Yêu thích">
+                            <i class="${track.favorite ? 'fa-solid' : 'fa-regular'} fa-heart text-xs"></i>
+                        </button>
+                        <button class="track-edit-btn w-7 h-7 rounded-lg hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-violet-300 transition" title="Chỉnh sửa bài hát">
+                            <i class="fa-regular fa-pen-to-square text-xs"></i>
+                        </button>
+                        <button class="track-delete-btn w-7 h-7 rounded-lg hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-rose-400 transition" title="Xóa bài hát">
+                            <i class="fa-regular fa-trash-can text-xs"></i>
+                        </button>
+                    </div>
+                `;
+
+                // Click row to play track
+                row.addEventListener('click', () => {
+                    if (AppState.currentTrackId === track.id) {
+                        togglePlayPause();
+                    } else {
+                        loadTrackById(track.id, true);
+                    }
+                });
+
+                // Favorite button
+                row.querySelector('.track-fav-btn').addEventListener('click', () => toggleFavoriteTrack(track.id));
+                // Edit button
+                row.querySelector('.track-edit-btn').addEventListener('click', () => openEditTrackModal(track.id));
+                // Delete button
+                row.querySelector('.track-delete-btn').addEventListener('click', () => deleteTrackById(track.id));
+
+                playlistContainer.appendChild(row);
+            });
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/[&<>"']/g, s => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[s]));
+        }
+
+        function loadTrackById(id, autoPlay = true) {
+            const track = AppState.tracks.find(t => t.id === id);
+            if (!track) return;
+
+            AppState.currentTrackId = track.id;
+            const src = track.runtimeObjectUrl || track.audioUrl;
+            if (!src) {
+                showToast('Không tìm thấy nguồn âm thanh cho bài hát này!', 'error');
+                return;
+            }
+
+            audioEl.src = src;
+            audioEl.playbackRate = AppState.playbackSpeed;
+            audioEl.volume = AppState.isMuted ? 0 : AppState.volume;
+
+            // Update UI Showcase & Ambient Colors
+            updateNowPlayingUI(track);
+            renderPlaylist();
+
+            if (autoPlay) {
+                playCurrentAudio();
+            } else {
+                setPlayingUIState(false);
+            }
+        }
+
+        function updateNowPlayingUI(track) {
+            const cover = track.cover || 'https://placehold.co/400x400/3b0764/e9d5ff?text=AURA';
+            document.getElementById('vinylCoverImg').src = cover;
+            document.getElementById('largeCoverImg').src = cover;
+            document.getElementById('miniCoverImg').src = cover;
+
+            document.getElementById('nowPlayingTitle').textContent = track.title || 'Không có tiêu đề';
+            document.getElementById('nowPlayingArtist').textContent = track.artist || 'Nghệ sĩ chưa rõ';
+            document.getElementById('nowPlayingGenre').textContent = track.genre || 'Âm nhạc';
+
+            document.getElementById('miniTitle').textContent = track.title || 'Không có tiêu đề';
+            document.getElementById('miniArtist').textContent = track.artist || 'Nghệ sĩ chưa rõ';
+
+            const favBtn = document.getElementById('favCurrentBtn');
+            favBtn.innerHTML = `<i class="${track.favorite ? 'fa-solid text-rose-400' : 'fa-regular'} fa-heart"></i>`;
+
+            // Update Ambient Background Blobs dynamically
+            const colors = track.colors || ['#7c3aed', '#ec4899', '#06b6d4'];
+            document.getElementById('ambientBlob1').style.background = colors[0];
+            document.getElementById('ambientBlob2').style.background = colors[1];
+            document.getElementById('ambientBlob3').style.background = colors[2];
+            document.getElementById('vinylGlow').style.background = `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`;
+            document.getElementById('coverGlow').style.background = `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`;
+
+            totalDurationEl.textContent = formatTime(track.duration);
+        }
+
+        async function playCurrentAudio() {
+            initWebAudioGraph();
+            try {
+                await audioEl.play();
+                setPlayingUIState(true);
+            } catch (err) {
+                console.warn('Playback error:', err);
+                setPlayingUIState(false);
+                showToast('Không thể phát nguồn nhạc này. Hãy kiểm tra lại file hoặc đường dẫn URL.', 'error');
+            }
+        }
+
+        function pauseCurrentAudio() {
+            audioEl.pause();
+            setPlayingUIState(false);
+        }
+
+        function togglePlayPause() {
+            if (!AppState.currentTrackId && AppState.filteredTracks.length > 0) {
+                loadTrackById(AppState.filteredTracks[0].id, true);
+                return;
+            }
+            if (audioEl.paused) {
+                playCurrentAudio();
+            } else {
+                pauseCurrentAudio();
+            }
+        }
+
+        function setPlayingUIState(playing) {
+            AppState.isPlaying = playing;
+            playPauseIcon.className = playing ? 'fa-solid fa-pause text-lg sm:text-xl' : 'fa-solid fa-play text-lg sm:text-xl ml-0.5';
+            
+            const badge = document.getElementById('nowPlayingBadge');
+            if (playing) {
+                vinylDisc.classList.add('playing');
+                vinylTonearm.classList.add('playing');
+                badge.textContent = 'Đang phát';
+                badge.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+            } else {
+                vinylDisc.classList.remove('playing');
+                vinylTonearm.classList.remove('playing');
+                badge.textContent = 'Tạm dừng';
+                badge.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-violet-500/20 text-violet-300 border border-violet-500/30';
+            }
+            renderPlaylist();
+        }
+
+        function playNextTrack(isAutoEnded = false) {
+            const list = AppState.filteredTracks.length > 0 ? AppState.filteredTracks : AppState.tracks;
+            if (list.length === 0) return;
+
+            if (isAutoEnded && AppState.repeatMode === 'one') {
+                audioEl.currentTime = 0;
+                playCurrentAudio();
+                return;
+            }
+
+            const currentIdx = list.findIndex(t => t.id === AppState.currentTrackId);
+
+            if (AppState.isShuffle && list.length > 1) {
+                let randIdx = currentIdx;
+                while (randIdx === currentIdx) {
+                    randIdx = Math.floor(Math.random() * list.length);
+                }
+                loadTrackById(list[randIdx].id, true);
+                return;
+            }
+
+            const nextIdx = currentIdx + 1;
+            if (nextIdx >= list.length) {
+                if (isAutoEnded && AppState.repeatMode === 'none') {
+                    setPlayingUIState(false);
+                    audioEl.currentTime = 0;
+                    return;
+                }
+                loadTrackById(list[0].id, true);
+            } else {
+                loadTrackById(list[nextIdx].id, true);
+            }
+        }
+
+        function playPrevTrack() {
+            if (audioEl.currentTime > 3) {
+                audioEl.currentTime = 0;
+                return;
+            }
+            const list = AppState.filteredTracks.length > 0 ? AppState.filteredTracks : AppState.tracks;
+            if (list.length === 0) return;
+
+            const currentIdx = list.findIndex(t => t.id === AppState.currentTrackId);
+            const prevIdx = (currentIdx - 1 + list.length) % list.length;
+            loadTrackById(list[prevIdx].id, true);
+        }
+
+        /********************************************************************
+         * 6. ADDING SONGS (LOCAL FILE UPLOAD / DRAG & DROP / URL)
+         ********************************************************************/
+        function parseFilenameMetadata(filename) {
+            const cleanName = filename.replace(/\.[^/.]+$/, '').replace(/[_]+/g, ' ').trim();
+            if (cleanName.includes(' - ')) {
+                const parts = cleanName.split(' - ');
+                return {
+                    artist: parts[0].trim(),
+                    title: parts.slice(1).join(' - ').trim()
+                };
+            }
+            return {
+                artist: 'Nghệ sĩ cá nhân',
+                title: cleanName
+            };
+        }
+
+        function probeAudioDuration(srcUrl) {
+            return new Promise((resolve) => {
+                const tempAudio = new Audio();
+                tempAudio.preload = 'metadata';
+                const timeout = setTimeout(() => resolve(0), 4000);
+                tempAudio.onloadedmetadata = () => {
+                    clearTimeout(timeout);
+                    resolve(isFinite(tempAudio.duration) ? tempAudio.duration : 0);
+                };
+                tempAudio.onerror = () => {
+                    clearTimeout(timeout);
+                    resolve(0);
+                };
+                tempAudio.src = srcUrl;
+            });
+        }
+
+        async function handleUploadedFiles(fileList) {
+            if (!fileList || fileList.length === 0) return;
+            const validFiles = Array.from(fileList).filter(file => 
+                file.type.startsWith('audio/') || /\.(mp3|wav|ogg|m4a|flac|aac)$/i.test(file.name)
+            );
+
+            if (validFiles.length === 0) {
+                showToast('Vui lòng chọn file định dạng âm thanh (.mp3, .wav, .ogg, .m4a, .flac)!', 'error');
+                return;
+            }
+
+            showToast(`Đang xử lý và lưu ${validFiles.length} bài hát...`, 'info');
+            let firstAddedId = null;
+
+            for (const file of validFiles) {
+                const meta = parseFilenameMetadata(file.name);
+                const objectUrl = URL.createObjectURL(file);
+                const duration = await probeAudioDuration(objectUrl);
+                const colors = getRandomColorPalette();
+                const cover = createCoverSvgDataUrl(
+                    meta.title.slice(0, 22),
+                    meta.artist.slice(0, 28),
+                    colors[0], colors[1], colors[2]
+                );
+
+                const newTrack = {
+                    id: 'track-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+                    title: meta.title,
+                    artist: meta.artist,
+                    genre: 'Nhạc tải lên',
+                    duration: duration,
+                    audioBlob: file,
+                    runtimeObjectUrl: objectUrl,
+                    audioUrl: null,
+                    cover: cover,
+                    colors: colors,
+                    favorite: false,
+                    isDemo: false,
+                    createdAt: Date.now()
+                };
+
+                await AuraDB.saveTrack(newTrack);
+                AppState.tracks.unshift(newTrack);
+                if (!firstAddedId) firstAddedId = newTrack.id;
+            }
+
+            applyFiltersAndRender();
+            closeAddSongModal();
+            showToast(`Đã thêm thành công ${validFiles.length} bài hát vào thư viện!`, 'success');
+
+            if (firstAddedId) {
+                loadTrackById(firstAddedId, true);
+            }
+        }
+
+        async function handleAddUrlTrack(e) {
+            e.preventDefault();
+            const title = document.getElementById('urlTitleInput').value.trim();
+            const artist = document.getElementById('urlArtistInput').value.trim() || 'Nghệ sĩ Online';
+            const genre = document.getElementById('urlGenreInput').value.trim() || 'Stream URL';
+            const audioUrl = document.getElementById('urlAudioInput').value.trim();
+            const customCover = document.getElementById('urlCoverInput').value.trim();
+
+            if (!title || !audioUrl) return;
+
+            showToast('Đang kiểm tra đường dẫn âm thanh...', 'info');
+            const duration = await probeAudioDuration(audioUrl);
+            const colors = getRandomColorPalette();
+            const cover = customCover || createCoverSvgDataUrl(title.slice(0, 22), artist.slice(0, 28), colors[0], colors[1], colors[2]);
+
+            const newTrack = {
+                id: 'url-' + Date.now(),
+                title,
+                artist,
+                genre,
+                duration,
+                audioBlob: null,
+                audioUrl,
+                cover,
+                colors,
+                favorite: false,
+                isDemo: false,
+                createdAt: Date.now()
+            };
+
+            await AuraDB.saveTrack(newTrack);
+            AppState.tracks.unshift(newTrack);
+            applyFiltersAndRender();
+            document.getElementById('addUrlForm').reset();
+            closeAddSongModal();
+            showToast(`Đã thêm "${title}" vào danh sách phát!`, 'success');
+            loadTrackById(newTrack.id, true);
+        }
+
+        /********************************************************************
+         * 7. TRACK ACTIONS: FAVORITE, EDIT METADATA, DELETE, RESTORE DEMOS
+         ********************************************************************/
+        async function toggleFavoriteTrack(id) {
+            const track = AppState.tracks.find(t => t.id === id);
+            if (!track) return;
+            track.favorite = !track.favorite;
+            await AuraDB.saveTrack(track);
+
+            if (AppState.currentTrackId === id) {
+                const favBtn = document.getElementById('favCurrentBtn');
+                favBtn.innerHTML = `<i class="${track.favorite ? 'fa-solid text-rose-400' : 'fa-regular'} fa-heart"></i>`;
+            }
+            applyFiltersAndRender();
+            showToast(track.favorite ? `Đã thêm "${track.title}" vào Yêu thích` : `Đã bỏ "${track.title}" khỏi Yêu thích`, 'info');
+        }
+
+        function openEditTrackModal(id) {
+            const track = AppState.tracks.find(t => t.id === id);
+            if (!track) return;
+
+            document.getElementById('editTrackId').value = track.id;
+            document.getElementById('editTitleInput').value = track.title || '';
+            document.getElementById('editArtistInput').value = track.artist || '';
+            document.getElementById('editGenreInput').value = track.genre || '';
+            document.getElementById('editCoverPreview').src = track.cover;
+            document.getElementById('editCoverUrlInput').value = track.cover.startsWith('data:') ? '' : track.cover;
+
+            const modal = document.getElementById('editTrackModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditTrackModal() {
+            const modal = document.getElementById('editTrackModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Convert uploaded cover image file to DataURL
+        document.getElementById('editCoverFileInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                document.getElementById('editCoverPreview').src = ev.target.result;
+                document.getElementById('editCoverUrlInput').value = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('editTrackForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('editTrackId').value;
+            const track = AppState.tracks.find(t => t.id === id);
+            if (!track) return;
+
+            track.title = document.getElementById('editTitleInput').value.trim() || track.title;
+            track.artist = document.getElementById('editArtistInput').value.trim() || 'Nghệ sĩ chưa rõ';
+            track.genre = document.getElementById('editGenreInput').value.trim() || 'Âm nhạc';
+            const newCover = document.getElementById('editCoverUrlInput').value.trim();
+            if (newCover) track.cover = newCover;
+
+            await AuraDB.saveTrack(track);
+            if (AppState.currentTrackId === track.id) {
+                updateNowPlayingUI(track);
+            }
+            applyFiltersAndRender();
+            closeEditTrackModal();
+            showToast('Đã cập nhật thông tin bài hát!', 'success');
+        });
+
+        async function deleteTrackById(id) {
+            const track = AppState.tracks.find(t => t.id === id);
+            if (!track) return;
+
+            if (track.runtimeObjectUrl) {
+                URL.revokeObjectURL(track.runtimeObjectUrl);
+            }
+            await AuraDB.deleteTrack(id);
+            AppState.tracks = AppState.tracks.filter(t => t.id !== id);
+
+            if (AppState.currentTrackId === id) {
+                pauseCurrentAudio();
+                AppState.currentTrackId = null;
+                if (AppState.tracks.length > 0) {
+                    loadTrackById(AppState.tracks[0].id, false);
+                }
+            }
+            applyFiltersAndRender();
+            showToast(`Đã xóa bài hát "${track.title}"`, 'info');
+        }
+
+        /********************************************************************
+         * 8. TOAST NOTIFICATIONS
+         ********************************************************************/
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            const iconMap = {
+                success: 'fa-circle-check text-emerald-400',
+                error: 'fa-circle-exclamation text-rose-400',
+                info: 'fa-wand-magic-sparkles text-violet-400'
+            };
+            toast.className = 'glass-panel px-4 py-3 rounded-2xl border border-white/15 shadow-2xl flex items-center gap-3 text-xs sm:text-sm text-white pointer-events-auto transition-all duration-300 transform translate-x-0';
+            toast.innerHTML = `
+                <i class="fa-solid ${iconMap[type] || iconMap.info} text-base"></i>
+                <span>${escapeHtml(message)}</span>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        /********************************************************************
+         * 9. EVENT LISTENERS & KEYBOARD SHORTCUTS
+         ********************************************************************/
+        // Audio Element Events
+        audioEl.addEventListener('timeupdate', () => {
+            if (!audioEl.duration) return;
+            const progress = (audioEl.currentTime / audioEl.duration) * 1000;
+            seekSlider.value = progress;
+            seekFillBar.style.width = `${(progress / 10).toFixed(2)}%`;
+            currentTimeEl.textContent = formatTime(audioEl.currentTime);
+        });
+
+        audioEl.addEventListener('loadedmetadata', () => {
+            totalDurationEl.textContent = formatTime(audioEl.duration);
+            const current = getCurrentTrack();
+            if (current && (!current.duration || current.duration === 0)) {
+                current.duration = audioEl.duration;
+                AuraDB.saveTrack(current);
+                renderPlaylist();
+            }
+        });
+
+        audioEl.addEventListener('ended', () => {
+            playNextTrack(true);
+        });
+
+        // Seek bar interaction
+        seekSlider.addEventListener('input', () => {
+            if (!audioEl.duration) return;
+            const pct = seekSlider.value / 1000;
+            seekFillBar.style.width = `${(pct * 100).toFixed(2)}%`;
+            audioEl.currentTime = pct * audioEl.duration;
+        });
+
+        // Transport Buttons
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        document.getElementById('nextBtn').addEventListener('click', () => playNextTrack(false));
+        document.getElementById('prevBtn').addEventListener('click', playPrevTrack);
+
+        // Shuffle Button
+        document.getElementById('shuffleBtn').addEventListener('click', () => {
+            AppState.isShuffle = !AppState.isShuffle;
+            const btn = document.getElementById('shuffleBtn');
+            btn.className = `w-9 h-9 rounded-xl flex items-center justify-center transition relative ${
+                AppState.isShuffle ? 'bg-violet-500/25 text-violet-300 border border-violet-500/40' : 'hover:bg-white/10 text-slate-400 hover:text-white'
+            }`;
+            showToast(AppState.isShuffle ? 'Đã bật chế độ Trộn bài (Shuffle)' : 'Đã tắt chế độ Trộn bài', 'info');
+        });
+
+        // Repeat Button
+        document.getElementById('repeatBtn').addEventListener('click', () => {
+            const modes = ['all', 'one', 'none'];
+            const nextIdx = (modes.indexOf(AppState.repeatMode) + 1) % modes.length;
+            AppState.repeatMode = modes[nextIdx];
+
+            const btn = document.getElementById('repeatBtn');
+            const oneBadge = document.getElementById('repeatOneBadge');
+
+            if (AppState.repeatMode === 'none') {
+                btn.className = 'w-9 h-9 rounded-xl hover:bg-white/10 flex items-center justify-center text-slate-400 hover:text-white transition relative';
+                oneBadge.classList.add('hidden');
+                showToast('Chế độ lặp: Không lặp lại', 'info');
+            } else if (AppState.repeatMode === 'all') {
+                btn.className = 'w-9 h-9 rounded-xl bg-violet-500/25 text-violet-300 border border-violet-500/40 flex items-center justify-center transition relative';
+                oneBadge.classList.add('hidden');
+                showToast('Chế độ lặp: Lặp toàn bộ danh sách', 'info');
+            } else {
+                btn.className = 'w-9 h-9 rounded-xl bg-violet-500/25 text-violet-300 border border-violet-500/40 flex items-center justify-center transition relative';
+                oneBadge.classList.remove('hidden');
+                oneBadge.classList.add('flex');
+                showToast('Chế độ lặp: Lặp lại 1 bài hiện tại', 'info');
+            }
+        });
+
+        // Volume & Mute
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        function updateVolumeUI() {
+            const effVol = AppState.isMuted ? 0 : AppState.volume;
+            audioEl.volume = effVol;
+            volumeSlider.value = effVol;
+            if (effVol === 0) volumeIcon.className = 'fa-solid fa-volume-xmark text-sm text-rose-400';
+            else if (effVol < 0.5) volumeIcon.className = 'fa-solid fa-volume-low text-sm';
+            else volumeIcon.className = 'fa-solid fa-volume-high text-sm';
+        }
+
+        volumeSlider.addEventListener('input', (e) => {
+            AppState.volume = parseFloat(e.target.value);
+            AppState.isMuted = AppState.volume === 0;
+            updateVolumeUI();
+        });
+
+        document.getElementById('muteBtn').addEventListener('click', () => {
+            AppState.isMuted = !AppState.isMuted;
+            updateVolumeUI();
+        });
+
+        // Playback Speed Cycle (0.5x, 0.75x, 1.0x, 1.25x, 1.5x, 2.0x)
+        const SPEEDS = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0];
+        document.getElementById('speedBtn').addEventListener('click', () => {
+            const idx = (SPEEDS.indexOf(AppState.playbackSpeed) + 1) % SPEEDS.length;
+            AppState.playbackSpeed = SPEEDS[idx];
+            audioEl.playbackRate = AppState.playbackSpeed;
+            document.getElementById('speedBtn').textContent = `${AppState.playbackSpeed}x`;
+            showToast(`Tốc độ phát: ${AppState.playbackSpeed}x`, 'info');
+        });
+
+        // Equalizer Presets Cycle
+        document.getElementById('eqPresetBtn').addEventListener('click', () => {
+            initWebAudioGraph();
+            AppState.eqPresetIndex = (AppState.eqPresetIndex + 1) % EQ_PRESETS.length;
+            applyEqPreset(AppState.eqPresetIndex);
+            showToast(`Chế độ âm thanh: ${EQ_PRESETS[AppState.eqPresetIndex].name}`, 'info');
+        });
+
+        // Sleep Timer Cycle
+        const SLEEP_OPTIONS = [0, 5, 15, 30, 60];
+        let sleepOptionIndex = 0;
+        document.getElementById('sleepTimerBtn').addEventListener('click', () => {
+            sleepOptionIndex = (sleepOptionIndex + 1) % SLEEP_OPTIONS.length;
+            const mins = SLEEP_OPTIONS[sleepOptionIndex];
+            if (AppState.sleepTimerId) clearInterval(AppState.sleepTimerId);
+
+            const label = document.getElementById('sleepTimerLabel');
+            if (mins === 0) {
+                label.textContent = 'Hẹn giờ';
+                showToast('Đã tắt hẹn giờ dừng nhạc', 'info');
+            } else {
+                AppState.sleepMinutesLeft = mins;
+                label.textContent = `${mins} phút`;
+                showToast(`Hẹn giờ tắt nhạc sau ${mins} phút`, 'success');
+                AppState.sleepTimerId = setInterval(() => {
+                    AppState.sleepMinutesLeft--;
+                    if (AppState.sleepMinutesLeft <= 0) {
+                        clearInterval(AppState.sleepTimerId);
+                        pauseCurrentAudio();
+                        label.textContent = 'Hẹn giờ';
+                        showToast('Đã tự động dừng nhạc theo hẹn giờ!', 'info');
+                    } else {
+                        label.textContent = `${AppState.sleepMinutesLeft} phút`;
+                    }
+                }, 60000);
+            }
+        });
+
+        // Display Mode Switch: Vinyl vs Cover Art 3D
+        const modeVinylBtn = document.getElementById('modeVinylBtn');
+        const modeCoverBtn = document.getElementById('modeCoverBtn');
+        const vinylShowcase = document.getElementById('vinylShowcase');
+        const coverShowcase = document.getElementById('coverShowcase');
+
+        modeVinylBtn.addEventListener('click', () => {
+            modeVinylBtn.className = 'px-3 py-1 rounded-lg text-xs font-medium bg-violet-600 text-white shadow transition flex items-center gap-1.5';
+            modeCoverBtn.className = 'px-3 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+            vinylShowcase.classList.remove('hidden');
+            vinylShowcase.classList.add('flex');
+            coverShowcase.classList.add('hidden');
+            coverShowcase.classList.remove('flex');
+        });
+
+        modeCoverBtn.addEventListener('click', () => {
+            modeCoverBtn.className = 'px-3 py-1 rounded-lg text-xs font-medium bg-violet-600 text-white shadow transition flex items-center gap-1.5';
+            modeVinylBtn.className = 'px-3 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition flex items-center gap-1.5';
+            coverShowcase.classList.remove('hidden');
+            coverShowcase.classList.add('flex');
+            vinylShowcase.classList.add('hidden');
+            vinylShowcase.classList.remove('flex');
+        });
+
+        // Visualizer Mode Buttons
+        document.querySelectorAll('.viz-mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                AppState.visualizerStyle = btn.dataset.viz;
+                document.querySelectorAll('.viz-mode-btn').forEach(b => {
+                    b.className = b === btn
+                        ? 'viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium bg-white/15 text-white transition'
+                        : 'viz-mode-btn px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+                });
+            });
+        });
+
+        // Filter Tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                AppState.activeFilter = tab.dataset.filter;
+                document.querySelectorAll('.filter-tab').forEach(t => {
+                    if (t === tab) {
+                        t.className = 'filter-tab active px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-white/15 text-white border border-white/15 transition flex items-center gap-1.5';
+                    } else {
+                        t.className = 'filter-tab px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 border border-transparent transition flex items-center gap-1.5';
+                    }
+                });
+                applyFiltersAndRender();
+            });
+        });
+
+        // Search & Sort
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+        searchInput.addEventListener('input', (e) => {
+            AppState.searchQuery = e.target.value;
+            clearSearchBtn.classList.toggle('hidden', !AppState.searchQuery);
+            applyFiltersAndRender();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            AppState.searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            applyFiltersAndRender();
+        });
+
+        document.getElementById('sortSelect').addEventListener('change', (e) => {
+            AppState.sortBy = e.target.value;
+            applyFiltersAndRender();
+        });
+
+        // Current Track Favorite & Edit Buttons
+        document.getElementById('favCurrentBtn').addEventListener('click', () => {
+            if (AppState.currentTrackId) toggleFavoriteTrack(AppState.currentTrackId);
+        });
+        document.getElementById('editCurrentBtn').addEventListener('click', () => {
+            if (AppState.currentTrackId) openEditTrackModal(AppState.currentTrackId);
+        });
+
+        // Add Song Modal Controls
+        const addSongModal = document.getElementById('addSongModal');
+        function openAddSongModal() {
+            addSongModal.classList.remove('hidden');
+            addSongModal.classList.add('flex');
+        }
+        function closeAddSongModal() {
+            addSongModal.classList.add('hidden');
+            addSongModal.classList.remove('flex');
+        }
+
+        document.getElementById('openAddModalBtn').addEventListener('click', openAddSongModal);
+        document.getElementById('inlineDropZone').addEventListener('click', openAddSongModal);
+        document.getElementById('closeAddModalBtn').addEventListener('click', closeAddSongModal);
+
+        // Switch Tabs inside Add Song Modal
+        const tabUploadBtn = document.getElementById('tabUploadBtn');
+        const tabUrlBtn = document.getElementById('tabUrlBtn');
+        const tabUploadContent = document.getElementById('tabUploadContent');
+        const addUrlForm = document.getElementById('addUrlForm');
+
+        tabUploadBtn.addEventListener('click', () => {
+            tabUploadBtn.className = 'py-2 rounded-lg text-xs sm:text-sm font-semibold bg-violet-600 text-white shadow transition';
+            tabUrlBtn.className = 'py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition';
+            tabUploadContent.classList.remove('hidden');
+            addUrlForm.classList.add('hidden');
+        });
+
+        tabUrlBtn.addEventListener('click', () => {
+            tabUrlBtn.className = 'py-2 rounded-lg text-xs sm:text-sm font-semibold bg-violet-600 text-white shadow transition';
+            tabUploadBtn.className = 'py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition';
+            addUrlForm.classList.remove('hidden');
+            tabUploadContent.classList.add('hidden');
+        });
+
+        // File Inputs
+        document.getElementById('quickFileInput').addEventListener('change', (e) => handleUploadedFiles(e.target.files));
+        document.getElementById('modalFileInput').addEventListener('change', (e) => handleUploadedFiles(e.target.files));
+
+        // URL Form Submit & Sample URL Fill
+        addUrlForm.addEventListener('submit', handleAddUrlTrack);
+        document.getElementById('fillSampleUrlBtn').addEventListener('click', () => {
+            // Generate a fresh studio synth WAV blob URL so the sample URL is guaranteed 100% online & playable
+            const sampleSpec = {
+                duration: 32,
+                bpm: 96,
+                chords: [
+                    [261.63, 329.63, 392.00, 493.88],
+                    [220.00, 261.63, 329.63, 392.00],
+                    [174.61, 220.00, 261.63, 349.23],
+                    [196.00, 246.94, 293.66, 392.00]
+                ],
+                melodyOctave: 2,
+                drums: true
+            };
+            const sampleBlob = DemoSynthGenerator.createWavBlobFromTrackSpec(sampleSpec);
+            const sampleUrl = URL.createObjectURL(sampleBlob);
+            document.getElementById('urlTitleInput').value = 'Ánh Sao Đêm (Synth Stream)';
+            document.getElementById('urlArtistInput').value = 'AURA Cloud Stream';
+            document.getElementById('urlGenreInput').value = 'Chill Synth';
+            document.getElementById('urlAudioInput').value = sampleUrl;
+            showToast('Đã điền link nhạc mẫu! Hãy bấm "Thêm vào danh sách".', 'info');
+        });
+
+        // Edit Modal Close Buttons
+        document.getElementById('closeEditModalBtn').addEventListener('click', closeEditTrackModal);
+        document.getElementById('cancelEditBtn').addEventListener('click', closeEditTrackModal);
+
+        // Shortcuts Modal
+        const shortcutsModal = document.getElementById('shortcutsModal');
+        document.getElementById('shortcutsBtn').addEventListener('click', () => {
+            shortcutsModal.classList.remove('hidden');
+            shortcutsModal.classList.add('flex');
+        });
+        document.getElementById('closeShortcutsBtn').addEventListener('click', () => {
+            shortcutsModal.classList.add('hidden');
+            shortcutsModal.classList.remove('flex');
+        });
+
+        // Restore Default Demo Tracks Button
+        document.getElementById('restoreDemoBtn').addEventListener('click', async () => {
+            showToast('Đang khôi phục kho nhạc mẫu...', 'info');
+            for (let i = 0; i < BUILTIN_DEMO_SPECS.length; i++) {
+                const spec = BUILTIN_DEMO_SPECS[i];
+                const exists = AppState.tracks.some(t => t.id === spec.id);
+                if (!exists) {
+                    const wavBlob = DemoSynthGenerator.createWavBlobFromTrackSpec(spec);
+                    const demoTrack = {
+                        id: spec.id,
+                        title: spec.title,
+                        artist: spec.artist,
+                        genre: spec.genre,
+                        duration: spec.duration,
+                        audioBlob: wavBlob,
+                        runtimeObjectUrl: URL.createObjectURL(wavBlob),
+                        audioUrl: null,
+                        cover: spec.cover,
+                        colors: spec.colors,
+                        favorite: false,
+                        isDemo: true,
+                        createdAt: Date.now()
+                    };
+                    await AuraDB.saveTrack(demoTrack);
+                    AppState.tracks.push(demoTrack);
+                }
+            }
+            applyFiltersAndRender();
+            showToast('Đã khôi phục đầy đủ 5 bản nhạc mẫu!', 'success');
+        });
+
+        // Global Drag & Drop File Upload Support
+        const dropOverlay = document.getElementById('dropOverlay');
+        let dragCounter = 0;
+
+        window.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            dragCounter++;
+            dropOverlay.classList.remove('hidden');
+            dropOverlay.classList.add('flex');
+        });
+
+        window.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dragCounter--;
+            if (dragCounter <= 0) {
+                dragCounter = 0;
+                dropOverlay.classList.add('hidden');
+                dropOverlay.classList.remove('flex');
+            }
+        });
+
+        window.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        window.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragCounter = 0;
+            dropOverlay.classList.add('hidden');
+            dropOverlay.classList.remove('flex');
+            if (e.dataTransfer && e.dataTransfer.files.length > 0) {
+                handleUploadedFiles(e.dataTransfer.files);
+            }
+        });
+
+        // Global Keyboard Shortcuts
+        window.addEventListener('keydown', (e) => {
+            const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+            if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            } else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                if (audioEl.duration) audioEl.currentTime = Math.min(audioEl.duration, audioEl.currentTime + 5);
+            } else if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                if (audioEl.duration) audioEl.currentTime = Math.max(0, audioEl.currentTime - 5);
+            } else if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                AppState.volume = Math.min(1, AppState.volume + 0.05);
+                AppState.isMuted = false;
+                updateVolumeUI();
+            } else if (e.code === 'ArrowDown') {
+                e.preventDefault();
+                AppState.volume = Math.max(0, AppState.volume - 0.05);
+                updateVolumeUI();
+            } else if (e.key.toLowerCase() === 'm') {
+                AppState.isMuted = !AppState.isMuted;
+                updateVolumeUI();
+            } else if (e.key.toLowerCase() === 's') {
+                document.getElementById('shuffleBtn').click();
+            } else if (e.key.toLowerCase() === 'r') {
+                document.getElementById('repeatBtn').click();
+            } else if (e.key.toLowerCase() === 'f') {
+                if (AppState.currentTrackId) toggleFavoriteTrack(AppState.currentTrackId);
+            }
+        });
+
+        // Start App on Window Load
+        window.onload = async function () {
+            resizeVisualizerCanvas();
+            renderVisualizerFrame();
+            await initializeLibrary();
+        };
+    </script>
+</body>
+</html>
