@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR7 AUDIO ARENA #7 | Hệ Thống Âm Thanh & Độ Nhạc GOAT</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#08060c',
+                        obsidianLight: '#120d1d',
+                        cr7Purple: '#8b5cf6',
+                        cr7Neon: '#a855f7',
+                        cr7Deep: '#4c1d95',
+                        cr7Gold: '#fbbf24',
+                        cr7Silver: '#e2e8f0'
+                    },
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                        display: ['"Orbitron"', 'sans-serif'],
+                        tech: ['"Rajdhani"', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon-purple': '0 0 20px rgba(168, 85, 247, 0.45), 0 0 40px rgba(139, 92, 246, 0.2)',
+                        'neon-gold': '0 0 20px rgba(251, 191, 36, 0.45), 0 0 40px rgba(245, 158, 11, 0.25)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.65)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-obsidian: #08060c;
+            --neon-purple: #a855f7;
+            --royal-purple: #8b5cf6;
+            --gold: #fbbf24;
+        }
+
+        body {
+            background-color: #08060c;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.16) 0%, transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(168, 85, 247, 0.14) 0%, transparent 35%),
+                radial-gradient(circle at 50% 85%, rgba(251, 191, 36, 0.07) 0%, transparent 45%),
+                linear-gradient(180deg, #08060c 0%, #0d0816 50%, #060409 100%);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Hexagonal / Carbon Stadium Mesh Overlay */
+        .stadium-mesh {
+            background-image: radial-gradient(rgba(168, 85, 247, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Glassmorphism Panels */
+        .glass-panel {
+            background: rgba(18, 13, 29, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(168, 85, 247, 0.22);
+            box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-gold {
+            background: linear-gradient(135deg, rgba(24, 16, 38, 0.85) 0%, rgba(14, 10, 22, 0.9) 100%);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 18px rgba(251, 191, 36, 0.12);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09060e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #7c3aed, #a855f7);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fbbf24;
+        }
+
+        /* Custom Range Input (Sliders) */
+        input[type="range"].cr7-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        input[type="range"].cr7-slider::-webkit-slider-runnable-track {
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(88, 28, 135, 0.45);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        input[type="range"].cr7-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            border: 2px solid #fff;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input[type="range"].cr7-slider:hover::-webkit-slider-thumb {
+            transform: scale(1.2);
+            box-shadow: 0 0 16px rgba(168, 85, 247, 1);
+            background: linear-gradient(135deg, #c084fc, #9333ea);
+        }
+
+        /* Vertical EQ Sliders */
+        .eq-slider-wrapper {
+            position: relative;
+            height: 135px;
+            width: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input[type="range"].eq-vertical {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 125px;
+            height: 6px;
+            background: rgba(76, 29, 149, 0.5);
+            border-radius: 999px;
+            transform: rotate(-90deg);
+            cursor: pointer;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        input[type="range"].eq-vertical::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #fbbf24);
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.9);
+            transition: transform 0.15s ease;
+        }
+
+        input[type="range"].eq-vertical:hover::-webkit-slider-thumb {
+            transform: scale(1.25);
+        }
+
+        /* Preset Card Active State */
+        .preset-btn.active {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.38) 0%, rgba(88, 28, 135, 0.65) 100%);
+            border-color: #fbbf24;
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.45), inset 0 0 10px rgba(251, 191, 36, 0.2);
+        }
+
+        /* SIUUU Button Animation */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.5), 0 0 30px rgba(168, 85, 247, 0.35); }
+            50% { box-shadow: 0 0 28px rgba(251, 191, 36, 0.85), 0 0 50px rgba(168, 85, 247, 0.65); }
+        }
+
+        .siuuu-btn {
+            animation: pulse-glow 2.5s infinite;
+        }
+
+        /* Playing Bars Animation in Playlist */
+        @keyframes eq-bar {
+            0%, 100% { height: 4px; }
+            50% { height: 16px; }
+        }
+        .playing-bar-1 { animation: eq-bar 0.6s ease-in-out infinite; }
+        .playing-bar-2 { animation: eq-bar 0.8s ease-in-out infinite 0.2s; }
+        .playing-bar-3 { animation: eq-bar 0.5s ease-in-out infinite 0.4s; }
+
+        /* Dragover Dropzone */
+        .dropzone-active {
+            border-color: #fbbf24 !important;
+            background: rgba(168, 85, 247, 0.2) !important;
+            transform: scale(1.01);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between stadium-mesh select-none pb-28">
+
+    <!-- SIUUU Celebration Fullscreen Flash Overlay -->
+    <div id="siuuuOverlay" class="fixed inset-0 pointer-events-none z-50 flex items-center justify-center opacity-0 transition-opacity duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-amber-500/20"></div>
+        <div class="relative text-center transform scale-90 transition-transform duration-500" id="siuuuBanner">
+            <div class="font-display font-black text-7xl md:text-9xl italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-purple-400 to-amber-400 drop-shadow-[0_0_45px_rgba(251,191,36,0.9)]">
+                SIUUUUU! #7
+            </div>
+            <p class="font-tech text-xl md:text-2xl tracking-[0.35em] text-white uppercase mt-2 font-bold drop-shadow">
+                CHẾ ĐỘ HUYỀN THOẠI CRISTIANO RONALDO KÍCH HOẠT
+            </p>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+    <!-- Download & Offline DSP Export Modal -->
+    <div id="downloadModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel-gold rounded-2xl max-w-lg w-full p-6 relative border border-purple-500/40 animate-fadeIn">
+            <button onclick="closeDownloadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-purple-950/70 hover:bg-purple-800 text-gray-300 hover:text-white flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-amber-500 flex items-center justify-center shadow-neon-purple">
+                    <i class="fa-solid fa-download text-xl text-black font-bold"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-tech uppercase tracking-widest text-amber-400 font-bold">CR7 MASTERING STUDIO EXPORT</span>
+                    <h3 class="text-xl font-bold text-white leading-tight" id="modalTrackTitle">Tên Bài Hát</h3>
+                </div>
+            </div>
+
+            <p class="text-sm text-gray-300 mb-5">
+                Chọn định dạng bạn muốn tải về máy. Bạn có thể tải file gốc hoặc <span class="text-amber-400 font-semibold">xuất bản nhạc đã áp dụng trực tiếp cấu hình EQ, Bass Boost, Độ rộng 3D & Tốc độ phát</span> hiện tại.
+            </p>
+
+            <!-- Current Active FX Summary inside Modal -->
+            <div class="bg-black/50 border border-purple-500/30 rounded-xl p-3.5 mb-5 text-xs space-y-1.5">
+                <div class="flex justify-between text-gray-400">
+                    <span>Chế độ âm thanh (Preset):</span>
+                    <span id="modalPresetName" class="text-purple-300 font-bold">SIUUU Bass (Gym)</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Tăng cường Sub-Bass & Vang Sân Vận Động:</span>
+                    <span id="modalBassReverbInfo" class="text-amber-400 font-semibold">+6 dB | 25% Reverb</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Tốc độ phát (Speed / Pitch):</span>
+                    <span id="modalSpeedInfo" class="text-emerald-400 font-semibold">1.00x (Chuẩn)</span>
+                </div>
+            </div>
+
+            <!-- Export Progress Bar (Hidden by default) -->
+            <div id="exportProgressBox" class="hidden mb-5">
+                <div class="flex justify-between text-xs mb-1.5">
+                    <span class="text-purple-300 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-spinner fa-spin text-amber-400"></i>
+                        <span id="exportStatusText">Đang xử lý DSP qua OfflineAudioContext...</span>
+                    </span>
+                    <span id="exportPercentText" class="text-amber-400 font-bold">0%</span>
+                </div>
+                <div class="w-full h-2.5 bg-purple-950 rounded-full overflow-hidden border border-purple-600/30">
+                    <div id="exportProgressBar" class="h-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-amber-400 w-0 transition-all duration-200"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button id="btnDownloadOriginal" onclick="triggerOriginalDownload()" class="flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-purple-950/80 hover:bg-purple-900 border border-purple-500/40 text-white font-semibold text-sm transition hover:scale-[1.02]">
+                    <i class="fa-solid fa-file-audio text-purple-400 text-lg"></i>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Tải Bản Gốc</div>
+                        <div class="text-[11px] text-gray-400 font-normal">Giữ nguyên file ban đầu</div>
+                    </div>
+                </button>
+
+                <button id="btnDownloadProcessed" onclick="triggerProcessedWavDownload()" class="flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-white font-bold text-sm shadow-neon-purple transition hover:scale-[1.02]">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-200 text-lg"></i>
+                    <div class="text-left">
+                        <div class="text-sm font-bold">Tải Bản Đã Độ (WAV)</div>
+                        <div class="text-[11px] text-amber-100 font-normal">Áp dụng EQ + Bass + Speed</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="sticky top-0 z-30 glass-panel border-b border-purple-500/30 px-4 lg:px-8 py-3">
+        <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-4">
+            <!-- Brand & CR7 Crest -->
+            <div class="flex items-center gap-3.5">
+                <div class="relative group cursor-pointer" onclick="triggerSiuuuCelebration()">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-700 via-purple-900 to-black p-0.5 shadow-neon-purple border border-amber-400/60 flex items-center justify-center">
+                        <!-- Custom SVG #7 Crest -->
+                        <svg class="w-9 h-9" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 10H52L48 22H28L46 22L26 56H12L30 22H12V10Z" fill="url(#cr7Grad)" stroke="#fbbf24" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="cr7Grad" x1="12" y1="10" x2="52" y2="56" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fbbf24"/>
+                                    <stop offset="0.5" stop-color="#a855f7"/>
+                                    <stop offset="1" stop-color="#7e22ce"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-amber-400 text-black font-display font-black text-[10px] px-1.5 py-0.2 rounded-full shadow">
+                        GOAT
+                    </span>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-display font-black text-lg md:text-2xl tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-300 to-amber-400">
+                            CR7 AUDIO ARENA
+                        </h1>
+                        <span class="hidden sm:inline-block text-[11px] font-tech font-bold uppercase tracking-widest px-2 py-0.5 rounded-md bg-purple-900/70 text-amber-300 border border-amber-400/30">
+                            DSP PRO #7
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-400 font-medium">
+                        Phòng Thu Độ Nhạc Cá Nhân • Web Audio Equalizer & Xuất File WAV
+                    </p>
+                </div>
+            </div>
+
+            <!-- Center Status Badges -->
+            <div class="hidden xl:flex items-center gap-6 bg-black/40 border border-purple-500/20 px-4 py-2 rounded-xl">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span class="text-xs font-tech tracking-wider uppercase text-gray-300">DSP Engine: <strong id="headerEngineState" class="text-purple-400">SẴN SÀNG</strong></span>
+                </div>
+                <div class="h-4 w-[1px] bg-purple-800"></div>
+                <div class="text-xs font-tech tracking-wider uppercase text-gray-300">
+                    Chế độ: <strong id="headerPresetBadge" class="text-amber-400">SIUUU BASS (GYM)</strong>
+                </div>
+                <div class="h-4 w-[1px] bg-purple-800"></div>
+                <div class="text-xs font-tech tracking-wider uppercase text-gray-300">
+                    Tổng bài hát: <strong id="headerTrackCount" class="text-white">4</strong>
+                </div>
+            </div>
+
+            <!-- Right Actions: Quick Upload & SIUUU Button -->
+            <div class="flex items-center gap-3">
+                <label for="fileUploadInput" class="cursor-pointer flex items-center gap-2 px-3.5 py-2 rounded-xl bg-purple-900/60 hover:bg-purple-800/80 border border-purple-400/40 text-xs sm:text-sm font-semibold text-purple-100 transition hover:scale-105">
+                    <i class="fa-solid fa-cloud-arrow-up text-purple-300"></i>
+                    <span>Thêm Nhạc Của Bạn</span>
+                </label>
+                <input id="fileUploadInput" type="file" accept="audio/*" multiple class="hidden">
+
+                <button onclick="triggerSiuuuCelebration()" class="siuuu-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-black font-display font-black text-xs sm:text-sm tracking-wider uppercase transition transform active:scale-95">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>SIUUU!</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN 3-COLUMN WORKSPACE ==================== -->
+    <main class="max-w-[1600px] w-full mx-auto px-4 lg:px-8 py-6 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- ==================== COLUMN 1: PLAYLIST & UPLOAD (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <!-- Drag & Drop Upload Box -->
+            <div id="dropZone" class="glass-panel rounded-2xl p-4 border-2 border-dashed border-purple-500/40 hover:border-amber-400/70 transition-all duration-200 cursor-pointer group text-center relative overflow-hidden" onclick="document.getElementById('fileUploadInput').click()">
+                <div class="absolute -right-6 -bottom-6 text-7xl font-display font-black text-purple-500/10 pointer-events-none select-none">
+                    #7
+                </div>
+                <div class="w-11 h-11 rounded-full bg-purple-900/60 border border-purple-400/40 mx-auto flex items-center justify-center mb-2 group-hover:scale-110 group-hover:bg-purple-700 transition">
+                    <i class="fa-solid fa-music text-purple-300 group-hover:text-amber-300 text-lg"></i>
+                </div>
+                <h2 class="text-sm font-bold text-white group-hover:text-amber-300 transition">
+                    Kéo thả file nhạc vào đây hoặc Nhấn để chọn
+                </h2>
+                <p class="text-[11px] text-gray-400 mt-0.5">
+                    Hỗ trợ MP3, WAV, FLAC, OGG, M4A (Chọn nhiều bài cùng lúc)
+                </p>
+            </div>
+
+            <!-- Playlist Box -->
+            <div class="glass-panel rounded-2xl p-4 flex-1 flex flex-col min-h-[420px] max-h-[600px]">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-list-ul text-purple-400"></i>
+                        <h3 class="font-display font-bold text-sm tracking-wider uppercase text-white">
+                            Danh Sách Phát GOAT
+                        </h3>
+                    </div>
+
+                    <!-- Filter Tabs: All vs Favorites -->
+                    <div class="flex bg-black/50 p-1 rounded-xl border border-purple-500/20 text-xs">
+                        <button id="tabAll" onclick="setPlaylistFilter('all')" class="px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition">
+                            Tất cả (<span id="countAll">0</span>)
+                        </button>
+                        <button id="tabFav" onclick="setPlaylistFilter('fav')" class="px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition flex items-center gap-1">
+                            <i class="fa-solid fa-heart text-rose-500 text-[10px]"></i>
+                            <span>Yêu thích (<span id="countFav">0</span>)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative mb-3">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input id="searchTrackInput" oninput="renderPlaylist()" type="text" placeholder="Tìm bài hát trong danh sách..." class="w-full bg-black/50 border border-purple-500/30 focus:border-amber-400 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder-gray-500 focus:outline-none transition">
+                </div>
+
+                <!-- Track List Scrollable Area -->
+                <div id="playlistContainer" class="flex-1 overflow-y-auto space-y-2 pr-1">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COLUMN 2: VISUALIZER ARENA & CURRENT DECK (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <!-- Visualizer Arena Card -->
+            <div class="glass-panel rounded-2xl p-4 flex-1 flex flex-col justify-between relative overflow-hidden min-h-[420px]">
+                <!-- Top Visualizer Bar -->
+                <div class="flex items-center justify-between z-10 mb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-950/90 border border-purple-500/40 text-[11px] font-tech font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-wave-square text-amber-400"></i>
+                            Sóng Nhạc Thời Gian Thực
+                        </span>
+                    </div>
+
+                    <!-- Visualizer Mode Switcher -->
+                    <div class="flex items-center gap-1 bg-black/60 p-1 rounded-xl border border-purple-500/30">
+                        <button onclick="setVisualizerMode('orb')" id="visBtn-orb" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-purple-600 text-white transition" title="Vòm Hào Quang CR7">
+                            Vòm #7
+                        </button>
+                        <button onclick="setVisualizerMode('bars')" id="visBtn-bars" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-gray-400 hover:text-white transition" title="Cột Sóng Sân Vận Động">
+                            Sóng Bass
+                        </button>
+                        <button onclick="setVisualizerMode('cyber')" id="visBtn-cyber" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold text-gray-400 hover:text-white transition" title="Mạch Xung Điện Tử">
+                            Cyber
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Canvas Container -->
+                <div class="relative flex-1 flex items-center justify-center my-1 min-h-[260px]">
+                    <canvas id="visualizerCanvas" class="w-full h-full rounded-xl"></canvas>
+
+                    <!-- Center Overlay CR7 Emblem (Only subtle when Orb mode is active) -->
+                    <div id="centerCrestOverlay" class="pointer-events-none absolute flex flex-col items-center justify-center transition-transform duration-75">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-b from-purple-900/80 to-black/90 border-2 border-amber-400/70 shadow-neon-purple flex flex-col items-center justify-center">
+                            <span class="font-display font-black text-2xl italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-white to-purple-400 leading-none">
+                                CR7
+                            </span>
+                            <span class="font-tech text-[9px] tracking-[0.25em] text-amber-400 uppercase font-bold mt-0.5">
+                                AUDIO
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Frequency Telemetry Bar -->
+                <div class="grid grid-cols-3 gap-2 pt-2 border-t border-purple-500/20 text-center z-10">
+                    <div class="bg-black/40 rounded-xl p-2 border border-purple-500/20">
+                        <div class="text-[10px] text-gray-400 uppercase font-tech">Lực Đập Sub-Bass</div>
+                        <div id="meterBass" class="font-display font-bold text-sm text-amber-400 mt-0.5">0%</div>
+                    </div>
+                    <div class="bg-black/40 rounded-xl p-2 border border-purple-500/20">
+                        <div class="text-[10px] text-gray-400 uppercase font-tech">Chi Tiết Vocal / Mid</div>
+                        <div id="meterMid" class="font-display font-bold text-sm text-purple-300 mt-0.5">0%</div>
+                    </div>
+                    <div class="bg-black/40 rounded-xl p-2 border border-purple-500/20">
+                        <div class="text-[10px] text-gray-400 uppercase font-tech">Độ Sáng Treble</div>
+                        <div id="meterTreble" class="font-display font-bold text-sm text-fuchsia-400 mt-0.5">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Track Quick Info & Direct Download Card -->
+            <div class="glass-panel-gold rounded-2xl p-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3.5 min-w-0">
+                    <div id="deckArtBox" class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-700 via-fuchsia-700 to-amber-500 flex items-center justify-center shrink-0 shadow-neon-purple border border-amber-300/40">
+                        <span class="font-display font-black text-xl text-white">#7</span>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2">
+                            <span id="deckBadge" class="px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                                ĐANG PHÁT
+                            </span>
+                            <span id="deckFormatBadge" class="text-[10px] font-tech text-purple-300 uppercase">
+                                STEREO PCM
+                            </span>
+                        </div>
+                        <h3 id="deckTitle" class="font-bold text-base text-white truncate mt-1">
+                            SIUUU! Phonk Workout #7
+                        </h3>
+                        <p id="deckArtist" class="text-xs text-gray-400 truncate">
+                            CR7 Audio Arena • Bản Demo Phòng Thu
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                    <button id="deckFavBtn" onclick="toggleCurrentTrackFavorite()" class="w-10 h-10 rounded-xl bg-purple-950/80 hover:bg-purple-800 border border-purple-500/30 flex items-center justify-center text-gray-300 hover:text-rose-500 transition" title="Yêu thích">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                    <button onclick="openDownloadModalForCurrent()" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-amber-500 hover:from-purple-500 hover:to-amber-400 text-black font-bold text-xs uppercase tracking-wider shadow-neon-gold transition hover:scale-105">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Tải Xuống</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COLUMN 3: REAL-TIME DSP & EQUALIZER (4 COLS) ==================== -->
+        <section class="lg:col-span-4 flex flex-col gap-5">
+            <!-- Sound Mode Presets Card -->
+            <div class="glass-panel rounded-2xl p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-amber-400"></i>
+                        <h3 class="font-display font-bold text-sm uppercase tracking-wider text-white">
+                            Chế Độ Âm Thanh CR7 (Presets)
+                        </h3>
+                    </div>
+                    <button onclick="resetAudioDSP()" class="text-xs text-purple-300 hover:text-amber-400 font-semibold flex items-center gap-1 transition">
+                        <i class="fa-solid fa-rotate-left"></i> Đặt lại mặc định
+                    </button>
+                </div>
+
+                <!-- 6 Preset Buttons Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                    <button onclick="applyPreset('studio')" id="preset-studio" class="preset-btn p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-headphones text-purple-400 group-hover:text-amber-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-gray-400">FLAT</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">Nguyên Bản</div>
+                        <div class="text-[10px] text-gray-400 truncate">Chuẩn phòng thu</div>
+                    </button>
+
+                    <button onclick="applyPreset('siuuu')" id="preset-siuuu" class="preset-btn active p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-dumbbell text-amber-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-amber-300 font-bold">HOT #7</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">SIUUU Bass</div>
+                        <div class="text-[10px] text-gray-400 truncate">Căng lực tập Gym</div>
+                    </button>
+
+                    <button onclick="applyPreset('stadium')" id="preset-stadium" class="preset-btn p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-futbol text-purple-400 group-hover:text-amber-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-gray-400">3D LIVE</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">Sân Vận Động</div>
+                        <div class="text-[10px] text-gray-400 truncate">Âm vang cầu trường</div>
+                    </button>
+
+                    <button onclick="applyPreset('goat')" id="preset-goat" class="preset-btn p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-crown text-amber-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-gray-400">HD VOCAL</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">Chế Độ GOAT</div>
+                        <div class="text-[10px] text-gray-400 truncate">Sáng lời & chi tiết</div>
+                    </button>
+
+                    <button onclick="applyPreset('night')" id="preset-night" class="preset-btn p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-moon text-purple-400 group-hover:text-amber-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-gray-400">WARM</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">Night Drive</div>
+                        <div class="text-[10px] text-gray-400 truncate">Trầm ấm ban đêm</div>
+                    </button>
+
+                    <button onclick="applyPreset('slowed')" id="preset-slowed" class="preset-btn p-2.5 rounded-xl bg-black/40 border border-purple-500/30 hover:border-purple-400 text-left transition group">
+                        <div class="flex items-center justify-between mb-1">
+                            <i class="fa-solid fa-bolt-lightning text-fuchsia-400 text-sm"></i>
+                            <span class="text-[10px] font-tech text-fuchsia-300">REMIX</span>
+                        </div>
+                        <div class="text-xs font-bold text-white">Slowed + Reverb</div>
+                        <div class="text-[10px] text-gray-400 truncate">Nhạc TikTok Edit #7</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 6-Band Parametric Equalizer & DSP Sliders -->
+            <div class="glass-panel rounded-2xl p-4 flex-1 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-display font-bold uppercase tracking-wider text-purple-200">
+                            Bộ Lọc 6 Dải Tần (6-Band Parametric EQ)
+                        </span>
+                        <span id="customPresetIndicator" class="text-[11px] font-tech font-bold px-2 py-0.5 rounded bg-purple-900/60 text-amber-300 border border-purple-500/30">
+                            Đang bật Real-time
+                        </span>
+                    </div>
+
+                    <!-- 6 Vertical EQ Bands -->
+                    <div class="grid grid-cols-6 gap-1 bg-black/40 rounded-xl p-3 border border-purple-500/20 my-2">
+                        <!-- Band 0: 60Hz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-0" class="text-[10px] font-tech font-bold text-amber-400 mb-1">+6dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="6" class="eq-vertical" oninput="onEqSliderChange(0, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">60Hz</span>
+                            <span class="text-[9px] text-gray-400">Sub-Bass</span>
+                        </div>
+
+                        <!-- Band 1: 150Hz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-1" class="text-[10px] font-tech font-bold text-amber-400 mb-1">+4.5dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="4.5" class="eq-vertical" oninput="onEqSliderChange(1, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">150Hz</span>
+                            <span class="text-[9px] text-gray-400">Punch</span>
+                        </div>
+
+                        <!-- Band 2: 400Hz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-2" class="text-[10px] font-tech font-bold text-purple-300 mb-1">0dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="0" class="eq-vertical" oninput="onEqSliderChange(2, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">400Hz</span>
+                            <span class="text-[9px] text-gray-400">Low-Mid</span>
+                        </div>
+
+                        <!-- Band 3: 1kHz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-3" class="text-[10px] font-tech font-bold text-purple-300 mb-1">+1.5dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="1.5" class="eq-vertical" oninput="onEqSliderChange(3, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">1kHz</span>
+                            <span class="text-[9px] text-gray-400">Vocal</span>
+                        </div>
+
+                        <!-- Band 4: 3.5kHz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-4" class="text-[10px] font-tech font-bold text-purple-300 mb-1">+3dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="3" class="eq-vertical" oninput="onEqSliderChange(4, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">3.5kHz</span>
+                            <span class="text-[9px] text-gray-400">Presence</span>
+                        </div>
+
+                        <!-- Band 5: 10kHz -->
+                        <div class="flex flex-col items-center">
+                            <span id="eqVal-5" class="text-[10px] font-tech font-bold text-amber-400 mb-1">+4dB</span>
+                            <div class="eq-slider-wrapper">
+                                <input type="range" min="-12" max="12" step="0.5" value="4" class="eq-vertical" oninput="onEqSliderChange(5, this.value)">
+                            </div>
+                            <span class="text-[11px] font-bold text-white mt-1">10kHz</span>
+                            <span class="text-[9px] text-gray-400">Treble</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special CR7 FX Rack (Bass Boost, Stadium Reverb, Stereo Pan, Playback Speed) -->
+                <div class="space-y-3 mt-2 pt-2 border-t border-purple-500/20">
+                    <!-- Sub-Bass Turbo & Stadium Reverb -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-black/40 p-2.5 rounded-xl border border-purple-500/20">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-semibold"><i class="fa-solid fa-fire text-amber-400 mr-1"></i>SIUUU Bass Boost</span>
+                                <span id="bassBoostLabel" class="font-tech font-bold text-amber-400">+6 dB</span>
+                            </div>
+                            <input id="bassBoostSlider" type="range" min="0" max="15" step="0.5" value="6" class="w-full cr7-slider" oninput="onBassBoostChange(this.value)">
+                        </div>
+
+                        <div class="bg-black/40 p-2.5 rounded-xl border border-purple-500/20">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-semibold"><i class="fa-solid fa-tower-broadcast text-purple-400 mr-1"></i>Vang Sân Vận Động</span>
+                                <span id="reverbLabel" class="font-tech font-bold text-purple-300">15%</span>
+                            </div>
+                            <input id="reverbSlider" type="range" min="0" max="100" step="1" value="15" class="w-full cr7-slider" oninput="onReverbChange(this.value)">
+                        </div>
+                    </div>
+
+                    <!-- Stereo Pan & Playback Speed -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-black/40 p-2.5 rounded-xl border border-purple-500/20">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-semibold"><i class="fa-solid fa-arrows-left-right text-fuchsia-400 mr-1"></i>Cân Bằng Trái/Phải</span>
+                                <span id="panLabel" class="font-tech font-bold text-fuchsia-300">Giữa (C)</span>
+                            </div>
+                            <input id="panSlider" type="range" min="-1" max="1" step="0.05" value="0" class="w-full cr7-slider" oninput="onPanChange(this.value)">
+                        </div>
+
+                        <div class="bg-black/40 p-2.5 rounded-xl border border-purple-500/20">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300 font-semibold"><i class="fa-solid fa-gauge-high text-emerald-400 mr-1"></i>Tốc Độ Phát</span>
+                                <span id="speedLabel" class="font-tech font-bold text-emerald-400">1.00x</span>
+                            </div>
+                            <input id="speedSlider" type="range" min="0.6" max="1.4" step="0.05" value="1.0" class="w-full cr7-slider" oninput="onSpeedChange(this.value)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FIXED BOTTOM PLAYER BAR ==================== -->
+    <footer class="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-purple-500/40 px-4 lg:px-8 py-3">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-12 items-center gap-4">
+            
+            <!-- Left: Mini Track Info -->
+            <div class="hidden md:flex md:col-span-3 items-center gap-3 min-w-0">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-amber-500 flex items-center justify-center shrink-0 shadow-neon-purple">
+                    <i id="footerDiscIcon" class="fa-solid fa-compact-disc text-2xl text-black"></i>
+                </div>
+                <div class="min-w-0">
+                    <div id="footerTrackTitle" class="font-bold text-sm text-white truncate">
+                        SIUUU! Phonk Workout #7
+                    </div>
+                    <div id="footerTrackSub" class="text-xs text-purple-300 truncate">
+                        CR7 Audio Arena • Chế độ SIUUU Bass
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center: Transport Controls & Seek Bar -->
+            <div class="md:col-span-6 flex flex-col items-center w-full">
+                <div class="flex items-center gap-4 sm:gap-6 mb-1.5">
+                    <button id="btnShuffle" onclick="toggleShuffle()" class="text-gray-400 hover:text-white text-sm transition" title="Phát ngẫu nhiên">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </button>
+
+                    <button onclick="playPreviousTrack()" class="text-gray-200 hover:text-amber-400 text-lg transition" title="Bài trước">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+
+                    <button id="btnPlayPause" onclick="togglePlayPause()" class="w-11 h-11 rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-600 to-amber-400 hover:scale-105 text-black flex items-center justify-center text-lg shadow-neon-purple transition">
+                        <i id="playPauseIcon" class="fa-solid fa-play ml-0.5"></i>
+                    </button>
+
+                    <button onclick="playNextTrack()" class="text-gray-200 hover:text-amber-400 text-lg transition" title="Bài tiếp theo">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+
+                    <button id="btnRepeat" onclick="toggleRepeat()" class="text-gray-400 hover:text-white text-sm transition" title="Lặp lại">
+                        <i class="fa-solid fa-repeat"></i>
+                    </button>
+                </div>
+
+                <!-- Seek Bar -->
+                <div class="w-full flex items-center gap-3">
+                    <span id="currentTimeText" class="text-[11px] font-tech font-bold text-gray-300 w-10 text-right">00:00</span>
+                    <input id="seekBar" type="range" min="0" max="100" step="0.1" value="0" class="flex-1 cr7-slider" oninput="onSeekInput(this.value)" onchange="onSeekCommit(this.value)">
+                    <span id="durationTimeText" class="text-[11px] font-tech font-bold text-gray-300 w-10">00:00</span>
+                </div>
+            </div>
+
+            <!-- Right: Volume & Quick Export -->
+            <div class="hidden md:flex md:col-span-3 items-center justify-end gap-3">
+                <button onclick="toggleMute()" class="text-gray-300 hover:text-amber-400 transition">
+                    <i id="volumeIcon" class="fa-solid fa-volume-high"></i>
+                </button>
+                <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.85" class="w-24 cr7-slider" oninput="onVolumeChange(this.value)">
+                
+                <button onclick="openDownloadModalForCurrent()" class="ml-2 p-2.5 rounded-xl bg-purple-900/70 hover:bg-amber-400 hover:text-black text-amber-300 border border-amber-400/40 transition" title="Tải bài hát đang phát">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden Audio Element -->
+    <audio id="mainAudio" crossorigin="anonymous"></audio>
+
+    <!-- ==================== APPLICATION JAVASCRIPT ==================== -->
+    <script>
+        /********************************************************************
+         * 1. STATE & CONFIGURATION
+         ********************************************************************/
+        const EQ_FREQUENCIES = [60, 150, 400, 1000, 3500, 10000];
+        
+        const CR7_PRESETS = {
+            studio: {
+                name: 'Nguyên Bản (Studio)',
+                gains: [0, 0, 0, 0, 0, 0],
+                bassBoost: 0,
+                reverb: 0,
+                pan: 0,
+                speed: 1.0
+            },
+            siuuu: {
+                name: 'SIUUU Bass (Gym)',
+                gains: [6, 4.5, 0, 1.5, 3, 4],
+                bassBoost: 6,
+                reverb: 15,
+                pan: 0,
+                speed: 1.0
+            },
+            stadium: {
+                name: 'Sân Vận Động (Live)',
+                gains: [4, 2.5, -1, 2.5, 4.5, 5],
+                bassBoost: 4,
+                reverb: 55,
+                pan: 0,
+                speed: 1.0
+            },
+            goat: {
+                name: 'Chế Độ GOAT (Vocal HD)',
+                gains: [2, 1, 2, 5, 4.5, 3.5],
+                bassBoost: 2,
+                reverb: 10,
+                pan: 0,
+                speed: 1.0
+            },
+            night: {
+                name: 'Night Drive (Trầm Ấm)',
+                gains: [5.5, 4, 1, -1.5, -3, -4],
+                bassBoost: 5,
+                reverb: 30,
+                pan: 0,
+                speed: 1.0
+            },
+            slowed: {
+                name: 'Slowed + Reverb #7',
+                gains: [5, 3.5, 0, 1, 2, 2.5],
+                bassBoost: 5.5,
+                reverb: 65,
+                pan: 0,
+                speed: 0.85
+            },
+            custom: {
+                name: 'Tùy Chỉnh (Custom #7)',
+                gains: [0, 0, 0, 0, 0, 0],
+                bassBoost: 0,
+                reverb: 0,
+                pan: 0,
+                speed: 1.0
+            }
+        };
+
+        let tracks = [];
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let isShuffle = false;
+        let isRepeat = false;
+        let playlistFilter = 'all'; // 'all' or 'fav'
+        let visualizerMode = 'orb'; // 'orb', 'bars', 'cyber'
+        let activePresetKey = 'siuuu';
+        let isSeeking = false;
+        let modalTargetTrackId = null;
+
+        // Current DSP values
+        let dspState = {
+            gains: [6, 4.5, 0, 1.5, 3, 4],
+            bassBoost: 6,
+            reverb: 15, // 0 - 100%
+            pan: 0,
+            speed: 1.0,
+            volume: 0.85,
+            muted: false
+        };
+
+        // Web Audio API Nodes
+        let audioCtx = null;
+        let mediaSource = null;
+        let bassBoostNode = null;
+        let eqNodes = [];
+        let convolverNode = null;
+        let dryGainNode = null;
+        let wetGainNode = null;
+        let pannerNode = null;
+        let compressorNode = null;
+        let analyserNode = null;
+        let masterGainNode = null;
+
+        const audioEl = document.getElementById('mainAudio');
+
+        /********************************************************************
+         * 2. PROCEDURAL DEMO TRACKS GENERATOR (REAL WAV BLOBS)
+         * Generates high-energy electronic/phonk beats into real WAV files
+         * so the user can test EQ, Seeking, Visualizer & WAV Export right away.
+         ********************************************************************/
+        function encodeAudioBufferToWavBlob(audioBuffer) {
+            const numOfChan = audioBuffer.numberOfChannels;
+            const length = audioBuffer.length * numOfChan * 2 + 44;
+            const buffer = new ArrayBuffer(length);
+            const view = new DataView(buffer);
+            const channels = [];
+            let sample, offset = 0, pos = 0;
+
+            function setUint16(data) { view.setUint16(pos, data, true); pos += 2; }
+            function setUint32(data) { view.setUint32(pos, data, true); pos += 4; }
+
+            // RIFF identifier
+            setUint32(0x46464952);
+            setUint32(length - 8);
+            setUint32(0x45564157);
+            // fmt chunk
+            setUint32(0x20746d66);
+            setUint32(16);
+            setUint16(1); // PCM
+            setUint16(numOfChan);
+            setUint32(audioBuffer.sampleRate);
+            setUint32(audioBuffer.sampleRate * 2 * numOfChan);
+            setUint16(numOfChan * 2);
+            setUint16(16);
+            // data chunk
+            setUint32(0x61746164);
+            setUint32(length - pos - 4);
+
+            for (let i = 0; i < numOfChan; i++) {
+                channels.push(audioBuffer.getChannelData(i));
+            }
+
+            while (pos < length) {
+                for (let i = 0; i < numOfChan; i++) {
+                    sample = Math.max(-1, Math.min(1, channels[i][offset]));
+                    sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0;
+                    view.setInt16(pos, sample, true);
+                    pos += 2;
+                }
+                offset++;
+            }
+
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        function createProceduralDemoTrack(type) {
+            const sampleRate = 44100;
+            const durationSeconds = 24; // 24-second rich loopable studio demo
+            const totalSamples = sampleRate * durationSeconds;
+            const offlineToggle = new OfflineAudioContext(2, totalSamples, sampleRate);
+            const left = new Float32Array(totalSamples);
+            const right = new Float32Array(totalSamples);
+
+            let bpm = 130;
+            let notes = [55, 65.41, 73.42, 82.41]; // A1, C2, D2, E2
+            let leadNotes = [440, 523.25, 587.33, 659.25, 587.33, 523.25, 392, 440];
+
+            if (type === 'phonk') {
+                bpm = 135;
+                notes = [49.00, 49.00, 58.27, 55.00]; // G1, Bb1, A1
+                leadNotes = [587.33, 698.46, 587.33, 523.25, 587.33, 783.99, 698.46, 587.33]; // Cowbell Phonk Riff
+            } else if (type === 'stadium') {
+                bpm = 128;
+                notes = [65.41, 49.00, 55.00, 43.65]; // C2, G1, A1, F1
+                leadNotes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 587.33, 659.25];
+            } else if (type === 'night') {
+                bpm = 108;
+                notes = [43.65, 51.91, 58.27, 49.00]; // F1, Ab1, Bb1, G1
+                leadNotes = [349.23, 415.30, 466.16, 523.25, 466.16, 415.30, 392.00, 349.23];
+            } else if (type === 'electro') {
+                bpm = 140;
+                notes = [41.20, 41.20, 49.00, 55.00]; // E1, G1, A1
+                leadNotes = [659.25, 659.25, 783.99, 659.25, 587.33, 523.25, 493.88, 587.33];
+            }
+
+            const beatDur = 60 / bpm;
+            const sixteenthDur = beatDur / 4;
+
+            for (let i = 0; i < totalSamples; i++) {
+                const t = i / sampleRate;
+                const beatIndex = Math.floor(t / beatDur);
+                const beatPos = (t % beatDur) / beatDur;
+                const step16 = Math.floor(t / sixteenthDur);
+                const stepPos = (t % sixteenthDur) / sixteenthDur;
+
+                // 1. Punchy Kick Drum on every beat
+                let kick = 0;
+                if (beatPos < 0.35) {
+                    const kickFreq = 135 * Math.exp(-beatPos * 32) + 42;
+                    const kickEnv = Math.exp(-beatPos * 14);
+                    kick = Math.sin(2 * Math.PI * kickFreq * (t % beatDur)) * kickEnv * 0.85;
+                }
+
+                // 2. Deep 808 / Reese Sub-Bass
+                const barIndex = Math.floor(beatIndex / 4);
+                const bassFreq = notes[barIndex % notes.length];
+                const bassEnv = 0.55 + 0.35 * (1 - Math.exp(-beatPos * 8)); // Sidechain ducking feel
+                const subBass = (Math.sin(2 * Math.PI * bassFreq * t) * 0.7 +
+                                Math.tanh(Math.sin(2 * Math.PI * bassFreq * 2 * t) * 2.2) * 0.3) * bassEnv * 0.5;
+
+                // 3. Snare / Clap on beats 1 and 3 (0-indexed)
+                let snare = 0;
+                if (beatIndex % 2 === 1 && beatPos < 0.25) {
+                    const noise = (Math.random() * 2 - 1) * Math.exp(-beatPos * 24);
+                    const body = Math.sin(2 * Math.PI * 185 * (t % beatDur)) * Math.exp(-beatPos * 30);
+                    snare = (noise * 0.7 + body * 0.3) * 0.55;
+                }
+
+                // 4. Crisp Hi-Hat on 16th notes
+                let hat = 0;
+                const hatAmp = (step16 % 2 === 0) ? 0.16 : 0.09;
+                if (stepPos < 0.3) {
+                    hat = (Math.random() * 2 - 1) * Math.exp(-stepPos * 35) * hatAmp;
+                }
+
+                // 5. Lead / Cowbell / Synth Melody
+                const noteFreq = leadNotes[step16 % leadNotes.length];
+                const leadEnv = Math.exp(-stepPos * 7.5);
+                let leadL = 0, leadR = 0;
+                if (type === 'phonk') {
+                    // Metallic 808 cowbell harmonic ratio (1 : 1.504)
+                    const osc1 = Math.sin(2 * Math.PI * noteFreq * (t % sixteenthDur));
+                    const osc2 = Math.sin(2 * Math.PI * (noteFreq * 1.504) * (t % sixteenthDur));
+                    const bell = Math.tanh((osc1 + osc2) * 1.8) * leadEnv * 0.28;
+                    leadL = bell * 1.05;
+                    leadR = bell * 0.95;
+                } else {
+                    // Wide stereo saw/pulse synth lead
+                    const sawL = 2 * ((t * noteFreq) - Math.floor(0.5 + t * noteFreq));
+                    const sawR = 2 * ((t * (noteFreq * 1.006)) - Math.floor(0.5 + t * (noteFreq * 1.006)));
+                    leadL = sawL * leadEnv * 0.22;
+                    leadR = sawR * leadEnv * 0.22;
+                }
+
+                // Mix stereo channels with soft clipping
+                left[i] = Math.tanh((kick + subBass + snare + hat + leadL) * 0.95);
+                right[i] = Math.tanh((kick + subBass + snare + hat * 0.9 + leadR) * 0.95);
+            }
+
+            const audioBuffer = offlineToggle.createBuffer(2, totalSamples, sampleRate);
+            audioBuffer.copyToChannel(left, 0);
+            audioBuffer.copyToChannel(right, 1);
+            return encodeAudioBufferToWavBlob(audioBuffer);
+        }
+
+        function initBuiltInDemoTracks() {
+            const demos = [
+                {
+                    id: 'demo-1',
+                    title: 'SIUUU! Phonk Workout #7',
+                    artist: 'CR7 Audio Arena • Gym Drift Phonk',
+                    type: 'phonk',
+                    duration: 24,
+                    favorite: true,
+                    isDemo: true
+                },
+                {
+                    id: 'demo-2',
+                    title: 'Lisbon to Madrid (Stadium Anthem)',
+                    artist: 'GOAT Sound System • Champions Beat',
+                    type: 'stadium',
+                    duration: 24,
+                    favorite: true,
+                    isDemo: true
+                },
+                {
+                    id: 'demo-3',
+                    title: 'Riyadh Midnight Drive (Synthwave)',
+                    artist: 'CR7 Night Cruise • Deep Sub-Bass',
+                    type: 'night',
+                    duration: 24,
+                    favorite: false,
+                    isDemo: true
+                },
+                {
+                    id: 'demo-4',
+                    title: '900+ Goals High Voltage Electro',
+                    artist: 'Cristiano #7 • Matchday Energy',
+                    type: 'electro',
+                    duration: 24,
+                    favorite: false,
+                    isDemo: true
+                }
+            ];
+
+            demos.forEach(d => {
+                const wavBlob = createProceduralDemoTrack(d.type);
+                const url = URL.createObjectURL(wavBlob);
+                tracks.push({
+                    id: d.id,
+                    title: d.title,
+                    artist: d.artist,
+                    blob: wavBlob,
+                    url: url,
+                    duration: d.duration,
+                    favorite: d.favorite,
+                    isDemo: true,
+                    fileExt: 'wav'
+                });
+            });
+        }
+
+        /********************************************************************
+         * 3. REAL-TIME WEB AUDIO API DSP GRAPH
+         ********************************************************************/
+        function createStadiumImpulseResponse(ctx, duration = 2.2, decay = 2.5) {
+            const rate = ctx.sampleRate;
+            const length = rate * duration;
+            const impulse = ctx.createBuffer(2, length, rate);
+            const left = impulse.getChannelData(0);
+            const right = impulse.getChannelData(1);
+
+            for (let i = 0; i < length; i++) {
+                const n = i / length;
+                const envelope = Math.pow(1 - n, decay);
+                left[i] = (Math.random() * 2 - 1) * envelope;
+                right[i] = (Math.random() * 2 - 1) * envelope;
+            }
+            return impulse;
+        }
+
+        function initWebAudioEngine() {
+            if (audioCtx) return;
+
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContextClass();
+
+            mediaSource = audioCtx.createMediaElementSource(audioEl);
+
+            // 1. Sub-Bass Boost Node (LowShelf at 80Hz)
+            bassBoostNode = audioCtx.createBiquadFilter();
+            bassBoostNode.type = 'lowshelf';
+            bassBoostNode.frequency.value = 80;
+            bassBoostNode.gain.value = dspState.bassBoost;
+
+            // 2. 6-Band Parametric Equalizer
+            eqNodes = EQ_FREQUENCIES.map((freq, idx) => {
+                const filter = audioCtx.createBiquadFilter();
+                if (idx === 0) filter.type = 'lowshelf';
+                else if (idx === EQ_FREQUENCIES.length - 1) filter.type = 'highshelf';
+                else filter.type = 'peaking';
+                filter.frequency.value = freq;
+                filter.Q.value = 1.2;
+                filter.gain.value = dspState.gains[idx];
+                return filter;
+            });
+
+            // 3. Stadium Convolver Reverb (Dry/Wet parallel mix)
+            convolverNode = audioCtx.createConvolver();
+            convolverNode.buffer = createStadiumImpulseResponse(audioCtx, 2.2, 2.4);
+
+            dryGainNode = audioCtx.createGain();
+            wetGainNode = audioCtx.createGain();
+            updateReverbMixNodes();
+
+            // 4. Stereo Panner Node
+            pannerNode = audioCtx.createStereoPanner();
+            pannerNode.pan.value = dspState.pan;
+
+            // 5. Master Dynamics Compressor (prevents distortion on heavy bass boost)
+            compressorNode = audioCtx.createDynamicsCompressor();
+            compressorNode.threshold.value = -12;
+            compressorNode.knee.value = 18;
+            compressorNode.ratio.value = 4;
+            compressorNode.attack.value = 0.005;
+            compressorNode.release.value = 0.18;
+
+            // 6. Real-Time Analyser Node
+            analyserNode = audioCtx.createAnalyser();
+            analyserNode.fftSize = 512;
+            analyserNode.smoothingTimeConstant = 0.82;
+
+            // 7. Master Volume Gain
+            masterGainNode = audioCtx.createGain();
+            masterGainNode.gain.value = dspState.muted ? 0 : dspState.volume;
+
+            // Connect the chain:
+            // Source -> BassBoost -> EQ[0..5]
+            mediaSource.connect(bassBoostNode);
+            let prevNode = bassBoostNode;
+            eqNodes.forEach(node => {
+                prevNode.connect(node);
+                prevNode = node;
+            });
+
+            // Split into Dry & Wet (Stadium Reverb)
+            prevNode.connect(dryGainNode);
+            prevNode.connect(convolverNode);
+            convolverNode.connect(wetGainNode);
+
+            // Merge Dry + Wet into Stereo Panner -> Compressor -> Analyser -> MasterGain -> Destination
+            dryGainNode.connect(pannerNode);
+            wetGainNode.connect(pannerNode);
+            pannerNode.connect(compressorNode);
+            compressorNode.connect(analyserNode);
+            analyserNode.connect(masterGainNode);
+            masterGainNode.connect(audioCtx.destination);
+
+            document.getElementById('headerEngineState').textContent = 'ĐANG HOẠT ĐỘNG (24-BIT)';
+        }
+
+        function updateReverbMixNodes() {
+            if (!dryGainNode || !wetGainNode) return;
+            const wetRatio = (dspState.reverb / 100) * 0.65;
+            const dryRatio = 1 - wetRatio * 0.35;
+            dryGainNode.gain.value = dryRatio;
+            wetGainNode.gain.value = wetRatio;
+        }
+
+        /********************************************************************
+         * 4. DSP CONTROLS & PRESET HANDLERS
+         ********************************************************************/
+        function applyPreset(presetKey) {
+            const preset = CR7_PRESETS[presetKey];
+            if (!preset) return;
+
+            activePresetKey = presetKey;
+            dspState.gains = [...preset.gains];
+            dspState.bassBoost = preset.bassBoost;
+            dspState.reverb = preset.reverb;
+            dspState.pan = preset.pan;
+            dspState.speed = preset.speed;
+
+            // Update UI Preset Buttons
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`preset-${presetKey}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Update EQ Sliders & Labels
+            const sliders = document.querySelectorAll('.eq-vertical');
+            dspState.gains.forEach((val, idx) => {
+                if (sliders[idx]) sliders[idx].value = val;
+                updateEqLabel(idx, val);
+                if (eqNodes[idx]) eqNodes[idx].gain.value = val;
+            });
+
+            // Update Bass Boost, Reverb, Pan, Speed Sliders
+            document.getElementById('bassBoostSlider').value = dspState.bassBoost;
+            onBassBoostChange(dspState.bassBoost, false);
+
+            document.getElementById('reverbSlider').value = dspState.reverb;
+            onReverbChange(dspState.reverb, false);
+
+            document.getElementById('panSlider').value = dspState.pan;
+            onPanChange(dspState.pan, false);
+
+            document.getElementById('speedSlider').value = dspState.speed;
+            onSpeedChange(dspState.speed, false);
+
+            // Update Header & Footer badges
+            document.getElementById('headerPresetBadge').textContent = preset.name.toUpperCase();
+            document.getElementById('customPresetIndicator').textContent = preset.name;
+            updateDeckAndFooterText();
+
+            showToast(`Đã kích hoạt chế độ: ${preset.name}`, 'purple');
+        }
+
+        function updateEqLabel(index, val) {
+            const num = parseFloat(val);
+            const sign = num > 0 ? '+' : '';
+            const el = document.getElementById(`eqVal-${index}`);
+            if (el) {
+                el.textContent = `${sign}${num}dB`;
+                el.className = `text-[10px] font-tech font-bold mb-1 ${num > 0 ? 'text-amber-400' : num < 0 ? 'text-rose-400' : 'text-purple-300'}`;
+            }
+        }
+
+        function onEqSliderChange(index, val) {
+            const num = parseFloat(val);
+            dspState.gains[index] = num;
+            updateEqLabel(index, num);
+
+            if (eqNodes[index]) {
+                eqNodes[index].gain.value = num;
+            }
+            markPresetAsCustom();
+        }
+
+        function onBassBoostChange(val, markCustom = true) {
+            const num = parseFloat(val);
+            dspState.bassBoost = num;
+            document.getElementById('bassBoostLabel').textContent = `+${num} dB`;
+            if (bassBoostNode) {
+                bassBoostNode.gain.value = num;
+            }
+            if (markCustom) markPresetAsCustom();
+        }
+
+        function onReverbChange(val, markCustom = true) {
+            const num = parseInt(val, 10);
+            dspState.reverb = num;
+            document.getElementById('reverbLabel').textContent = `${num}%`;
+            updateReverbMixNodes();
+            if (markCustom) markPresetAsCustom();
+        }
+
+        function onPanChange(val, markCustom = true) {
+            const num = parseFloat(val);
+            dspState.pan = num;
+            let text = 'Giữa (C)';
+            if (num < -0.05) text = `Trái ${Math.round(Math.abs(num) * 100)}%`;
+            else if (num > 0.05) text = `Phải ${Math.round(num * 100)}%`;
+            document.getElementById('panLabel').textContent = text;
+            if (pannerNode) {
+                pannerNode.pan.value = num;
+            }
+            if (markCustom) markPresetAsCustom();
+        }
+
+        function onSpeedChange(val, markCustom = true) {
+            const num = parseFloat(val);
+            dspState.speed = num;
+            document.getElementById('speedLabel').textContent = `${num.toFixed(2)}x`;
+            audioEl.playbackRate = num;
+            if (markCustom) markPresetAsCustom();
+        }
+
+        function markPresetAsCustom() {
+            activePresetKey = 'custom';
+            CR7_PRESETS.custom.gains = [...dspState.gains];
+            CR7_PRESETS.custom.bassBoost = dspState.bassBoost;
+            CR7_PRESETS.custom.reverb = dspState.reverb;
+            CR7_PRESETS.custom.pan = dspState.pan;
+            CR7_PRESETS.custom.speed = dspState.speed;
+
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('headerPresetBadge').textContent = 'TÙY CHỈNH (CUSTOM #7)';
+            document.getElementById('customPresetIndicator').textContent = 'Tùy Chỉnh Cá Nhân';
+            updateDeckAndFooterText();
+        }
+
+        function resetAudioDSP() {
+            applyPreset('studio');
+        }
+
+        /********************************************************************
+         * 5. PLAYLIST, UPLOAD & PLAYER CONTROLS
+         ********************************************************************/
+        function renderPlaylist() {
+            const container = document.getElementById('playlistContainer');
+            const query = document.getElementById('searchTrackInput').value.trim().toLowerCase();
+
+            const allCount = tracks.length;
+            const favCount = tracks.filter(t => t.favorite).length;
+            document.getElementById('countAll').textContent = allCount;
+            document.getElementById('countFav').textContent = favCount;
+            document.getElementById('headerTrackCount').textContent = allCount;
+
+            const filtered = tracks.filter((t, idx) => {
+                if (playlistFilter === 'fav' && !t.favorite) return false;
+                if (query && !t.title.toLowerCase().includes(query) && !t.artist.toLowerCase().includes(query)) return false;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 text-gray-400 text-xs">
+                        <i class="fa-solid fa-compact-disc text-3xl text-purple-500/40 mb-2 block"></i>
+                        Không tìm thấy bài hát nào phù hợp.
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(track => {
+                const realIdx = tracks.findIndex(item => item.id === track.id);
+                const isCurrent = realIdx === currentTrackIndex;
+                return `
+                    <div class="group flex items-center justify-between gap-2.5 p-2.5 rounded-xl border transition cursor-pointer ${
+                        isCurrent 
+                            ? 'bg-gradient-to-r from-purple-900/75 via-purple-950/80 to-amber-500/15 border-amber-400/60 shadow-neon-purple' 
+                            : 'bg-black/40 hover:bg-purple-950/40 border-purple-500/20'
+                    }" onclick="selectAndPlayTrack(${realIdx})">
+                        
+                        <div class="flex items-center gap-3 min-w-0 flex-1">
+                            <!-- Index or Playing Indicator -->
+                            <div class="w-8 h-8 rounded-lg ${isCurrent ? 'bg-amber-400 text-black' : 'bg-purple-950 text-purple-300'} flex items-center justify-center shrink-0 font-tech font-bold text-xs">
+                                ${isCurrent && isPlaying ? `
+                                    <div class="flex items-end gap-0.5 h-4">
+                                        <span class="w-1 bg-black rounded-full playing-bar-1"></span>
+                                        <span class="w-1 bg-black rounded-full playing-bar-2"></span>
+                                        <span class="w-1 bg-black rounded-full playing-bar-3"></span>
+                                    </div>
+                                ` : `#${realIdx + 1}`}
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <div class="text-xs font-bold ${isCurrent ? 'text-amber-300' : 'text-white'} truncate flex items-center gap-1.5">
+                                    <span>${escapeHtml(track.title)}</span>
+                                    ${track.isDemo ? `<span class="text-[9px] px-1.5 py-0.2 rounded bg-purple-800/80 text-purple-200 font-tech uppercase">DEMO</span>` : `<span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-tech uppercase">USER</span>`}
+                                </div>
+                                <div class="text-[11px] text-gray-400 truncate">
+                                    ${escapeHtml(track.artist)} • <span class="font-tech text-gray-300">${formatTime(track.duration)}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Track Actions: Favorite & Download -->
+                        <div class="flex items-center gap-1.5 shrink-0" onclick="event.stopPropagation()">
+                            <button onclick="toggleTrackFavorite('${track.id}')" class="w-7 h-7 rounded-lg hover:bg-purple-800/60 flex items-center justify-center transition" title="Yêu thích">
+                                <i class="${track.favorite ? 'fa-solid text-rose-500' : 'fa-regular text-gray-400'} fa-heart text-xs"></i>
+                            </button>
+                            <button onclick="openDownloadModal('${track.id}')" class="w-7 h-7 rounded-lg bg-purple-900/60 hover:bg-amber-400 hover:text-black text-amber-300 flex items-center justify-center transition" title="Tải bài hát này">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function setPlaylistFilter(filter) {
+            playlistFilter = filter;
+            const tabAll = document.getElementById('tabAll');
+            const tabFav = document.getElementById('tabFav');
+            if (filter === 'all') {
+                tabAll.className = 'px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition';
+                tabFav.className = 'px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition flex items-center gap-1';
+            } else {
+                tabFav.className = 'px-3 py-1 rounded-lg bg-purple-600 text-white font-semibold transition flex items-center gap-1';
+                tabAll.className = 'px-3 py-1 rounded-lg text-gray-400 hover:text-white font-semibold transition';
+            }
+            renderPlaylist();
+        }
+
+        function selectAndPlayTrack(index) {
+            if (index < 0 || index >= tracks.length) return;
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            currentTrackIndex = index;
+            const track = tracks[currentTrackIndex];
+            audioEl.src = track.url;
+            audioEl.playbackRate = dspState.speed;
+
+            audioEl.play().then(() => {
+                isPlaying = true;
+                updatePlayPauseUI();
+                updateDeckAndFooterText();
+                renderPlaylist();
+            }).catch(err => {
+                console.warn('Playback warning:', err);
+            });
+        }
+
+        function togglePlayPause() {
+            if (tracks.length === 0) return;
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (!audioEl.src) {
+                selectAndPlayTrack(currentTrackIndex);
+                return;
+            }
+
+            if (audioEl.paused) {
+                audioEl.play();
+                isPlaying = true;
+            } else {
+                audioEl.pause();
+                isPlaying = false;
+            }
+            updatePlayPauseUI();
+            renderPlaylist();
+        }
+
+        function updatePlayPauseUI() {
+            const icon = document.getElementById('playPauseIcon');
+            const disc = document.getElementById('footerDiscIcon');
+            const badge = document.getElementById('deckBadge');
+            if (isPlaying) {
+                icon.className = 'fa-solid fa-pause';
+                disc.classList.add('fa-spin');
+                badge.textContent = 'ĐANG PHÁT #7';
+                badge.className = 'px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40';
+            } else {
+                icon.className = 'fa-solid fa-play ml-0.5';
+                disc.classList.remove('fa-spin');
+                badge.textContent = 'TẠM DỪNG';
+                badge.className = 'px-2 py-0.5 text-[10px] font-tech font-bold uppercase rounded bg-amber-400/20 text-amber-300 border border-amber-400/30';
+            }
+        }
+
+        function updateDeckAndFooterText() {
+            const track = tracks[currentTrackIndex];
+            if (!track) return;
+            const presetName = CR7_PRESETS[activePresetKey]?.name || 'Tùy Chỉnh';
+
+            document.getElementById('deckTitle').textContent = track.title;
+            document.getElementById('deckArtist').textContent = `${track.artist} • ${presetName}`;
+            document.getElementById('deckFormatBadge').textContent = `${track.fileExt.toUpperCase()} • ${dspState.speed.toFixed(2)}x`;
+
+            const favBtn = document.getElementById('deckFavBtn');
+            favBtn.innerHTML = `<i class="${track.favorite ? 'fa-solid text-rose-500' : 'fa-regular text-gray-300'} fa-heart"></i>`;
+
+            document.getElementById('footerTrackTitle').textContent = track.title;
+            document.getElementById('footerTrackSub').textContent = `${track.artist} • Chế độ ${presetName}`;
+        }
+
+        function playNextTrack() {
+            if (tracks.length === 0) return;
+            if (isShuffle && tracks.length > 1) {
+                let nextIdx = currentTrackIndex;
+                while (nextIdx === currentTrackIndex) {
+                    nextIdx = Math.floor(Math.random() * tracks.length);
+                }
+                selectAndPlayTrack(nextIdx);
+            } else {
+                const nextIdx = (currentTrackIndex + 1) % tracks.length;
+                selectAndPlayTrack(nextIdx);
+            }
+        }
+
+        function playPreviousTrack() {
+            if (tracks.length === 0) return;
+            if (audioEl.currentTime > 3) {
+                audioEl.currentTime = 0;
+            } else {
+                const prevIdx = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                selectAndPlayTrack(prevIdx);
+            }
+        }
+
+        function toggleShuffle() {
+            isShuffle = !isShuffle;
+            const btn = document.getElementById('btnShuffle');
+            btn.className = isShuffle ? 'text-amber-400 text-sm transition scale-110' : 'text-gray-400 hover:text-white text-sm transition';
+            showToast(isShuffle ? 'Đã bật Phát Ngẫu Nhiên' : 'Đã tắt Phát Ngẫu Nhiên', 'purple');
+        }
+
+        function toggleRepeat() {
+            isRepeat = !isRepeat;
+            const btn = document.getElementById('btnRepeat');
+            btn.className = isRepeat ? 'text-amber-400 text-sm transition scale-110' : 'text-gray-400 hover:text-white text-sm transition';
+            showToast(isRepeat ? 'Đã bật Lặp Lại Bài Hát' : 'Đã tắt Lặp Lại', 'purple');
+        }
+
+        function toggleTrackFavorite(trackId) {
+            const track = tracks.find(t => t.id === trackId);
+            if (!track) return;
+            track.favorite = !track.favorite;
+            renderPlaylist();
+            updateDeckAndFooterText();
+        }
+
+        function toggleCurrentTrackFavorite() {
+            const track = tracks[currentTrackIndex];
+            if (!track) return;
+            toggleTrackFavorite(track.id);
+        }
+
+        // Audio Element Events
+        audioEl.addEventListener('timeupdate', () => {
+            if (isSeeking) return;
+            const cur = audioEl.currentTime || 0;
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            document.getElementById('currentTimeText').textContent = formatTime(cur);
+            document.getElementById('durationTimeText').textContent = formatTime(dur);
+            if (dur > 0) {
+                document.getElementById('seekBar').value = (cur / dur) * 100;
+            }
+        });
+
+        audioEl.addEventListener('loadedmetadata', () => {
+            const dur = audioEl.duration;
+            if (dur && isFinite(dur) && tracks[currentTrackIndex]) {
+                tracks[currentTrackIndex].duration = dur;
+                document.getElementById('durationTimeText').textContent = formatTime(dur);
+                renderPlaylist();
+            }
+        });
+
+        audioEl.addEventListener('ended', () => {
+            if (isRepeat) {
+                audioEl.currentTime = 0;
+                audioEl.play();
+            } else {
+                playNextTrack();
+            }
+        });
+
+        function onSeekInput(percent) {
+            isSeeking = true;
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            const target = (parseFloat(percent) / 100) * dur;
+            document.getElementById('currentTimeText').textContent = formatTime(target);
+        }
+
+        function onSeekCommit(percent) {
+            const dur = audioEl.duration || tracks[currentTrackIndex]?.duration || 0;
+            if (dur > 0) {
+                audioEl.currentTime = (parseFloat(percent) / 100) * dur;
+            }
+            isSeeking = false;
+        }
+
+        function onVolumeChange(val) {
+            dspState.volume = parseFloat(val);
+            dspState.muted = dspState.volume === 0;
+            if (masterGainNode) {
+                masterGainNode.gain.value = dspState.volume;
+            } else {
+                audioEl.volume = dspState.volume;
+            }
+            updateVolumeIcon();
+        }
+
+        function toggleMute() {
+            dspState.muted = !dspState.muted;
+            if (masterGainNode) {
+                masterGainNode.gain.value = dspState.muted ? 0 : dspState.volume;
+            } else {
+                audioEl.muted = dspState.muted;
+            }
+            updateVolumeIcon();
+        }
+
+        function updateVolumeIcon() {
+            const icon = document.getElementById('volumeIcon');
+            if (dspState.muted || dspState.volume === 0) {
+                icon.className = 'fa-solid fa-volume-xmark text-rose-400';
+            } else if (dspState.volume < 0.5) {
+                icon.className = 'fa-solid fa-volume-low';
+            } else {
+                icon.className = 'fa-solid fa-volume-high';
+            }
+        }
+
+        /********************************************************************
+         * 6. USER FILE UPLOAD (DRAG & DROP + INPUT)
+         ********************************************************************/
+        function handleUploadedFiles(fileList) {
+            if (!fileList || fileList.length === 0) return;
+            let addedCount = 0;
+
+            Array.from(fileList).forEach(file => {
+                if (!file.type.startsWith('audio/') && !file.name.match(/\.(mp3|wav|flac|ogg|m4a|aac)$/i)) {
+                    return;
+                }
+                const cleanName = file.name.replace(/\.[^/.]+$/, '');
+                const extMatch = file.name.match(/\.([^/.]+)$/);
+                const ext = extMatch ? extMatch[1].toLowerCase() : 'mp3';
+                const url = URL.createObjectURL(file);
+
+                const newTrack = {
+                    id: 'user-' + Date.now() + '-' + Math.random().toString(36).substring(2, 7),
+                    title: cleanName,
+                    artist: 'Nhạc Cá Nhân Của Bạn',
+                    blob: file,
+                    url: url,
+                    duration: 0,
+                    favorite: false,
+                    isDemo: false,
+                    fileExt: ext
+                };
+
+                // Probe duration asynchronously
+                const tempAudio = new Audio(url);
+                tempAudio.addEventListener('loadedmetadata', () => {
+                    if (tempAudio.duration && isFinite(tempAudio.duration)) {
+                        newTrack.duration = tempAudio.duration;
+                        renderPlaylist();
+                    }
+                });
+
+                tracks.unshift(newTrack);
+                addedCount++;
+            });
+
+            if (addedCount > 0) {
+                renderPlaylist();
+                selectAndPlayTrack(0);
+                showToast(`Đã thêm ${addedCount} bài hát mới vào CR7 Audio Arena!`, 'gold');
+            } else {
+                showToast('Vui lòng chọn định dạng file âm thanh hợp lệ (MP3, WAV, FLAC, OGG).', 'rose');
+            }
+        }
+
+        document.getElementById('fileUploadInput').addEventListener('change', (e) => {
+            handleUploadedFiles(e.target.files);
+            e.target.value = '';
+        });
+
+        const dropZone = document.getElementById('dropZone');
+        ['dragenter', 'dragover'].forEach(evt => {
+            dropZone.addEventListener(evt, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.add('dropzone-active');
+            });
+        });
+        ['dragleave', 'drop'].forEach(evt => {
+            dropZone.addEventListener(evt, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('dropzone-active');
+            });
+        });
+        dropZone.addEventListener('drop', (e) => {
+            if (e.dataTransfer && e.dataTransfer.files) {
+                handleUploadedFiles(e.dataTransfer.files);
+            }
+        });
+
+        /********************************************************************
+         * 7. DOWNLOAD & OFFLINE AUDIO CONTEXT DSP WAV EXPORT
+         ********************************************************************/
+        function openDownloadModal(trackId) {
+            const track = tracks.find(t => t.id === trackId);
+            if (!track) return;
+            modalTargetTrackId = trackId;
+
+            const presetName = CR7_PRESETS[activePresetKey]?.name || 'Tùy Chỉnh (Custom #7)';
+            document.getElementById('modalTrackTitle').textContent = track.title;
+            document.getElementById('modalPresetName').textContent = presetName;
+            document.getElementById('modalBassReverbInfo').textContent = `+${dspState.bassBoost} dB Bass | ${dspState.reverb}% Reverb`;
+            document.getElementById('modalSpeedInfo').textContent = `${dspState.speed.toFixed(2)}x`;
+
+            document.getElementById('exportProgressBox').classList.add('hidden');
+            document.getElementById('downloadModal').classList.remove('hidden');
+            document.getElementById('downloadModal').classList.add('flex');
+        }
+
+        function openDownloadModalForCurrent() {
+            const current = tracks[currentTrackIndex];
+            if (current) openDownloadModal(current.id);
+        }
+
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').classList.add('hidden');
+            document.getElementById('downloadModal').classList.remove('flex');
+        }
+
+        function triggerOriginalDownload() {
+            const track = tracks.find(t => t.id === modalTargetTrackId);
+            if (!track) return;
+
+            const a = document.createElement('a');
+            a.href = track.url;
+            a.download = `${track.title}.${track.fileExt || 'wav'}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            showToast(`Đang tải bản gốc: ${track.title}`, 'purple');
+            closeDownloadModal();
+        }
+
+        async function triggerProcessedWavDownload() {
+            const track = tracks.find(t => t.id === modalTargetTrackId);
+            if (!track) return;
+
+            const progressBox = document.getElementById('exportProgressBox');
+            const progressBar = document.getElementById('exportProgressBar');
+            const percentText = document.getElementById('exportPercentText');
+            const statusText = document.getElementById('exportStatusText');
+            const btnProcessed = document.getElementById('btnDownloadProcessed');
+
+            try {
+                progressBox.classList.remove('hidden');
+                btnProcessed.disabled = true;
+                progressBar.style.width = '15%';
+                percentText.textContent = '15%';
+                statusText.textContent = 'Đang giải mã dữ liệu âm thanh gốc...';
+
+                const arrayBuffer = await track.blob.arrayBuffer();
+                const tempCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const decodedBuffer = await tempCtx.decodeAudioData(arrayBuffer);
+
+                progressBar.style.width = '40%';
+                percentText.textContent = '40%';
+                statusText.textContent = 'Đang áp dụng bộ lọc EQ 6 dải tần, Bass & Reverb...';
+
+                // Calculate new length considering playbackRate + reverb tail
+                const speed = dspState.speed || 1.0;
+                const reverbTailSeconds = dspState.reverb > 0 ? 1.8 : 0.2;
+                const outputDuration = (decodedBuffer.duration / speed) + reverbTailSeconds;
+                const sampleRate = decodedBuffer.sampleRate;
+                const totalFrames = Math.ceil(outputDuration * sampleRate);
+
+                const offlineCtx = new OfflineAudioContext(2, totalFrames, sampleRate);
+
+                // Source
+                const source = offlineCtx.createBufferSource();
+                source.buffer = decodedBuffer;
+                source.playbackRate.value = speed;
+
+                // Sub-bass boost
+                const bassFilter = offlineCtx.createBiquadFilter();
+                bassFilter.type = 'lowshelf';
+                bassFilter.frequency.value = 80;
+                bassFilter.gain.value = dspState.bassBoost;
+
+                source.connect(bassFilter);
+                let prev = bassFilter;
+
+                // 6-Band EQ
+                EQ_FREQUENCIES.forEach((freq, idx) => {
+                    const eq = offlineCtx.createBiquadFilter();
+                    if (idx === 0) eq.type = 'lowshelf';
+                    else if (idx === EQ_FREQUENCIES.length - 1) eq.type = 'highshelf';
+                    else eq.type = 'peaking';
+                    eq.frequency.value = freq;
+                    eq.Q.value = 1.2;
+                    eq.gain.value = dspState.gains[idx];
+                    prev.connect(eq);
+                    prev = eq;
+                });
+
+                // Stadium Reverb Convolver
+                const dry = offlineCtx.createGain();
+                const wet = offlineCtx.createGain();
+                const wetRatio = (dspState.reverb / 100) * 0.65;
+                dry.gain.value = 1 - wetRatio * 0.35;
+                wet.gain.value = wetRatio;
+
+                const conv = offlineCtx.createConvolver();
+                conv.buffer = createStadiumImpulseResponse(offlineCtx, 2.2, 2.4);
+
+                prev.connect(dry);
+                prev.connect(conv);
+                conv.connect(wet);
+
+                // Stereo Panner
+                const panner = offlineCtx.createStereoPanner();
+                panner.pan.value = dspState.pan;
+
+                // Dynamics Compressor to ensure clean mastered WAV
+                const comp = offlineCtx.createDynamicsCompressor();
+                comp.threshold.value = -10;
+                comp.knee.value = 15;
+                comp.ratio.value = 4;
+                comp.attack.value = 0.005;
+                comp.release.value = 0.18;
+
+                dry.connect(panner);
+                wet.connect(panner);
+                panner.connect(comp);
+                comp.connect(offlineCtx.destination);
+
+                source.start(0);
+
+                progressBar.style.width = '75%';
+                percentText.textContent = '75%';
+                statusText.textContent = 'Đang kết xuất (Render) sang chuẩn 16-bit PCM WAV...';
+
+                const renderedBuffer = await offlineCtx.startRendering();
+                const wavBlob = encodeAudioBufferToWavBlob(renderedBuffer);
+
+                progressBar.style.width = '100%';
+                percentText.textContent = '100%';
+                statusText.textContent = 'Hoàn tất! Đang tải file xuống máy...';
+
+                const presetTag = (CR7_PRESETS[activePresetKey]?.name || 'Custom').replace(/[^a-zA-Z0-9_-]/g, '_');
+                const downloadUrl = URL.createObjectURL(wavBlob);
+                const a = document.createElement('a');
+                a.href = downloadUrl;
+                a.download = `${track.title}_[CR7_${presetTag}].wav`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                setTimeout(() => {
+                    URL.revokeObjectURL(downloadUrl);
+                    btnProcessed.disabled = false;
+                    closeDownloadModal();
+                    showToast(`Đã xuất thành công bản nhạc độ: ${track.title}`, 'gold');
+                }, 700);
+
+                tempCtx.close();
+            } catch (err) {
+                console.error('Offline DSP Export Error:', err);
+                btnProcessed.disabled = false;
+                showToast('Có lỗi khi xử lý file âm thanh, đang tải bản gốc thay thế.', 'rose');
+                triggerOriginalDownload();
+            }
+        }
+
+        /********************************************************************
+         * 8. REAL-TIME HTML5 CANVAS VISUALIZER & SIUUU CELEBRATION
+         ********************************************************************/
+        const canvas = document.getElementById('visualizerCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        function setVisualizerMode(mode) {
+            visualizerMode = mode;
+            ['orb', 'bars', 'cyber'].forEach(m => {
+                const btn = document.getElementById(`visBtn-${m}`);
+                if (m === mode) {
+                    btn.className = 'px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-purple-600 text-white transition';
+                } else {
+                    btn.className = 'px-2.5 py-1 rounded-lg text-[11px] font-semibold text-gray-400 hover:text-white transition';
+                }
+            });
+
+            const crest = document.getElementById('centerCrestOverlay');
+            crest.style.opacity = mode === 'orb' ? '1' : '0.15';
+        }
+
+        function animateVisualizer() {
+            requestAnimationFrame(animateVisualizer);
+
+            const width = canvas.width / window.devicePixelRatio;
+            const height = canvas.height / window.devicePixelRatio;
+            ctx.clearRect(0, 0, width, height);
+
+            let freqData = new Uint8Array(128);
+            let timeData = new Uint8Array(128);
+
+            if (analyserNode && isPlaying) {
+                analyserNode.getByteFrequencyData(freqData);
+                analyserNode.getByteTimeDomainData(timeData);
+            } else {
+                // Idle gentle breathing wave when paused
+                const now = performance.now() * 0.002;
+                for (let i = 0; i < 128; i++) {
+                    freqData[i] = 14 + Math.sin(now + i * 0.15) * 10;
+                    timeData[i] = 128 + Math.sin(now * 1.5 + i * 0.1) * 8;
+                }
+            }
+
+            // Compute Sub-Bass, Mid, Treble averages for Telemetry Meters
+            let bassSum = 0, midSum = 0, trebleSum = 0;
+            for (let i = 0; i < 12; i++) bassSum += freqData[i];
+            for (let i = 12; i < 48; i++) midSum += freqData[i];
+            for (let i = 48; i < 96; i++) trebleSum += freqData[i];
+
+            const bassPercent = Math.min(100, Math.round((bassSum / (12 * 255)) * 100));
+            const midPercent = Math.min(100, Math.round((midSum / (36 * 255)) * 100));
+            const treblePercent = Math.min(100, Math.round((trebleSum / (48 * 255)) * 100));
+
+            document.getElementById('meterBass').textContent = `${bassPercent}%`;
+            document.getElementById('meterMid').textContent = `${midPercent}%`;
+            document.getElementById('meterTreble').textContent = `${treblePercent}%`;
+
+            // Scale center CR7 crest on bass hit
+            const crest = document.getElementById('centerCrestOverlay');
+            const scale = 1 + (bassPercent / 100) * 0.28;
+            crest.style.transform = `scale(${scale.toFixed(3)})`;
+
+            const cx = width / 2;
+            const cy = height / 2;
+
+            if (visualizerMode === 'orb') {
+                // Mode 1: Circular CR7 Reactor Orb
+                const baseRadius = Math.min(width, height) * 0.24;
+                const bars = 72;
+
+                // Outer bass halo
+                ctx.beginPath();
+                ctx.arc(cx, cy, baseRadius + (bassPercent * 0.35), 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(168, 85, 247, ${0.15 + (bassPercent / 250)})`;
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                for (let i = 0; i < bars; i++) {
+                    const angle = (i / bars) * Math.PI * 2 - Math.PI / 2;
+                    const val = freqData[i % 64] / 255;
+                    const barLen = 8 + val * (Math.min(width, height) * 0.22);
+
+                    const x1 = cx + Math.cos(angle) * baseRadius;
+                    const y1 = cy + Math.sin(angle) * baseRadius;
+                    const x2 = cx + Math.cos(angle) * (baseRadius + barLen);
+                    const y2 = cy + Math.sin(angle) * (baseRadius + barLen);
+
+                    const grad = ctx.createLinearGradient(x1, y1, x2, y2);
+                    grad.addColorStop(0, '#7c3aed');
+                    grad.addColorStop(0.6, '#c084fc');
+                    grad.addColorStop(1, '#fbbf24');
+
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = 3.2;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
+                }
+            } else if (visualizerMode === 'bars') {
+                // Mode 2: Stadium Mirrored Spectrum Bars
+                const numBars = 48;
+                const barWidth = (width * 0.86) / numBars;
+                const startX = width * 0.07;
+
+                for (let i = 0; i < numBars; i++) {
+                    const val = freqData[i] / 255;
+                    const barHeight = Math.max(6, val * (height * 0.72));
+                    const x = startX + i * barWidth;
+                    const y = cy - barHeight / 2;
+
+                    const grad = ctx.createLinearGradient(x, y, x, y + barHeight);
+                    grad.addColorStop(0, '#fbbf24');
+                    grad.addColorStop(0.5, '#a855f7');
+                    grad.addColorStop(1, '#fbbf24');
+
+                    ctx.fillStyle = grad;
+                    ctx.beginPath();
+                    ctx.roundRect(x, y, barWidth - 3, barHeight, 4);
+                    ctx.fill();
+                }
+            } else {
+                // Mode 3: Cyber Oscilloscope Ribbon
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#a855f7';
+                ctx.shadowColor = '#a855f7';
+                ctx.shadowBlur = 12;
+                ctx.beginPath();
+
+                const sliceWidth = width / 100;
+                let x = 0;
+                for (let i = 0; i < 100; i++) {
+                    const v = timeData[i] / 128.0;
+                    const y = (v * height) / 2;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                    x += sliceWidth;
+                }
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            // Render floating Gold & Purple particles
+            if (isPlaying && bassPercent > 55 && particles.length < 35) {
+                particles.push({
+                    x: cx + (Math.random() - 0.5) * 40,
+                    y: cy + (Math.random() - 0.5) * 40,
+                    vx: (Math.random() - 0.5) * 3.5,
+                    vy: (Math.random() - 0.5) * 3.5,
+                    size: 2 + Math.random() * 3,
+                    alpha: 1,
+                    color: Math.random() > 0.4 ? '#a855f7' : '#fbbf24'
+                });
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.018;
+                if (p.alpha <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        // Synthesized Stadium "SIUUU!" Sound & Celebration
+        function triggerSiuuuCelebration() {
+            initWebAudioEngine();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            // Visual Fullscreen Flash
+            const overlay = document.getElementById('siuuuOverlay');
+            const banner = document.getElementById('siuuuBanner');
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+            banner.classList.remove('scale-90');
+            banner.classList.add('scale-105');
+
+            // Burst 40 gold/purple particles on canvas
+            const width = canvas.width / window.devicePixelRatio;
+            const height = canvas.height / window.devicePixelRatio;
+            for (let i = 0; i < 40; i++) {
+                particles.push({
+                    x: width / 2,
+                    y: height / 2,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    size: 3 + Math.random() * 4,
+                    alpha: 1,
+                    color: i % 2 === 0 ? '#fbbf24' : '#c084fc'
+                });
+            }
+
+            // Synthesize iconic "SIUUUU!" Stadium Roar + Pitch Sweep
+            if (audioCtx) {
+                const now = audioCtx.currentTime;
+
+                // 1. Vocal Formant Sweep ("SIII-UUUUU!")
+                const osc1 = audioCtx.createOscillator();
+                const osc2 = audioCtx.createOscillator();
+                const formantFilter = audioCtx.createBiquadFilter();
+                const siuGain = audioCtx.createGain();
+
+                osc1.type = 'sawtooth';
+                osc2.type = 'triangle';
+
+                // Pitch rises on "SIII" then drops powerfully on "UUUUU!"
+                osc1.frequency.setValueAtTime(290, now);
+                osc1.frequency.exponentialRampToValueAtTime(380, now + 0.22);
+                osc1.frequency.exponentialRampToValueAtTime(165, now + 0.55);
+                osc1.frequency.exponentialRampToValueAtTime(140, now + 1.45);
+
+                osc2.frequency.setValueAtTime(580, now);
+                osc2.frequency.exponentialRampToValueAtTime(760, now + 0.22);
+                osc2.frequency.exponentialRampToValueAtTime(330, now + 0.55);
+                osc2.frequency.exponentialRampToValueAtTime(280, now + 1.45);
+
+                formantFilter.type = 'bandpass';
+                formantFilter.frequency.setValueAtTime(1800, now);
+                formantFilter.frequency.exponentialRampToValueAtTime(650, now + 0.45);
+                formantFilter.Q.value = 2.5;
+
+                siuGain.gain.setValueAtTime(0.01, now);
+                siuGain.gain.linearRampToValueAtTime(0.35, now + 0.15);
+                siuGain.gain.setValueAtTime(0.4, now + 0.4);
+                siuGain.gain.exponentialRampToValueAtTime(0.001, now + 1.55);
+
+                osc1.connect(formantFilter);
+                osc2.connect(formantFilter);
+                formantFilter.connect(siuGain);
+                siuGain.connect(audioCtx.destination);
+
+                osc1.start(now);
+                osc2.start(now);
+                osc1.stop(now + 1.6);
+                osc2.stop(now + 1.6);
+
+                // 2. Stadium Crowd Roar + Sub-Bass Boom
+                const subOsc = audioCtx.createOscillator();
+                const subGain = audioCtx.createGain();
+                subOsc.type = 'sine';
+                subOsc.frequency.setValueAtTime(95, now + 0.3);
+                subOsc.frequency.exponentialRampToValueAtTime(38, now + 1.3);
+                subGain.gain.setValueAtTime(0.01, now + 0.3);
+                subGain.gain.linearRampToValueAtTime(0.6, now + 0.38);
+                subGain.gain.exponentialRampToValueAtTime(0.001, now + 1.4);
+                subOsc.connect(subGain);
+                subGain.connect(audioCtx.destination);
+                subOsc.start(now + 0.3);
+                subOsc.stop(now + 1.45);
+            }
+
+            setTimeout(() => {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                banner.classList.remove('scale-105');
+                banner.classList.add('scale-90');
+            }, 1400);
+        }
+
+        /********************************************************************
+         * 9. UTILITIES & INITIALIZATION
+         ********************************************************************/
+        function formatTime(sec) {
+            if (!sec || !isFinite(sec) || sec < 0) return '00:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function showToast(message, theme = 'purple') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            const borderClass = theme === 'gold' ? 'border-amber-400' : theme === 'rose' ? 'border-rose-500' : 'border-purple-400';
+            const iconClass = theme === 'gold' ? 'fa-crown text-amber-400' : theme === 'rose' ? 'fa-circle-exclamation text-rose-400' : 'fa-bolt text-purple-400';
+
+            toast.className = `glass-panel px-4 py-3 rounded-xl border-l-4 ${borderClass} flex items-center gap-3 text-xs font-semibold text-white shadow-lg transform transition-all duration-300 translate-x-0`;
+            toast.innerHTML = `
+                <i class="fa-solid ${iconClass} text-sm"></i>
+                <span>${escapeHtml(message)}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-x-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 2800);
+        }
+
+        window.addEventListener('load', () => {
+            resizeCanvas();
+            initBuiltInDemoTracks();
+            renderPlaylist();
+
+            // Pre-load first demo track into deck
+            if (tracks.length > 0) {
+                audioEl.src = tracks[0].url;
+                updateDeckAndFooterText();
+            }
+
+            animateVisualizer();
+        });
+    </script>
+</body>
+</html>
